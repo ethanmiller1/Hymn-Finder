@@ -14,7 +14,6 @@ import java.util.Set;
 public class LinkCounter {
 
     public void getLinks(String url, Set<String> linkSet) throws IOException {
-        // TODO: Avoid making a connection to url if link set contains it.
         Document doc = Jsoup.connect(url).get();
         Elements links = doc.select("a[href]");
 
@@ -27,18 +26,19 @@ public class LinkCounter {
 
             // Ensure the link is coming from improving
             if (l.startsWith("https://improving.com")) {
-                try {
-                    if (!linkSet.contains(l)) {
+                
+                if (!linkSet.contains(l)) {
                         System.out.println("Checking " + l);
                         linkSet.add(l);
-                        getLinks(l, linkSet);
-                    }
-                } catch (UnsupportedMimeTypeException ex) { // for PDFs
-                    System.out.println("This is a PDF.");
-                    linkSet.add(l);
-                } catch (HttpStatusException ex) { // For 404 errors
-                    System.out.println(l + " has responded with a 404 status code.");
-                    linkSet.add(l);
+                        try {
+                            getLinks(l, linkSet);
+                        } catch (UnsupportedMimeTypeException ex) { // for PDFs
+                            System.out.println("This is a PDF.");
+                        } catch (HttpStatusException ex) { // For 404 errors
+                            System.out.println(l + " has responded with a 404 status code.");
+                            // Template value {{event.Link}} does not represent a valid route until replaced. Remove from set.
+                            linkSet.remove(l);
+                        }
                 }
             }
         }
