@@ -13,9 +13,6 @@ import java.util.Set;
 
 public class LinkCounter {
 
-    private Date startTime;
-    private Date endTime;
-
     public void getLinks(String url, Set<String> linkSet) throws IOException {
         // TODO: Avoid making a connection to url if link set contains it.
         Document doc = Jsoup.connect(url).get();
@@ -47,21 +44,5 @@ public class LinkCounter {
         }
 
         System.out.println("Unique links: " + linkSet.size());
-    }
-
-    public Date getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
-
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
     }
 }

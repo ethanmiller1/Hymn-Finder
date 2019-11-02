@@ -11,11 +11,11 @@ public class Main {
         var linkCounter = new LinkCounter();
         Set<String> uniqueLinks = new HashSet<>();
 
-        linkCounter.setStartTime(new Date());
+        var startTime = new Date();
         linkCounter.getLinks("https://improving.com", uniqueLinks);
-        linkCounter.setEndTime(new Date());
+        var endTime = new Date();
 
-        long elapsedTicks = linkCounter.getEndTime().getTime() - linkCounter.getStartTime().getTime();
+        long elapsedTicks = endTime.getTime() - startTime.getTime();
         double elapsedSeconds = elapsedTicks / 1000.0;
         System.out.println("We were running for " + elapsedSeconds + "s.");
     }
