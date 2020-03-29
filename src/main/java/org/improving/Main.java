@@ -8,11 +8,12 @@ import java.util.Set;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        var linkCounter = new LinkCounter();
-        Set<String> uniqueLinks = new HashSet<>();
+        var hymnFinder = new HymnFinder();
 
         var startTime = new Date();
-        linkCounter.getLinks("https://improving.com", uniqueLinks);
+//        var hymns = hymnFinder.getMultipleHymns(HymnFinder.SEARCHES);
+//        hymnFinder.printAllHymns(hymns);
+        System.out.println(hymnFinder.getStanzas("Wonderful Peace"));
         var endTime = new Date();
 
         long elapsedTicks = endTime.getTime() - startTime.getTime();
