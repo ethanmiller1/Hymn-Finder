@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5fa1d49a-fddd-4ba5-a5ea-367c356c5d9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/improving/HymnFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GetWordFromPage.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/improving/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/improving/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/improving/LinkCounter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/improving/LinkCounter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/improving/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/improving/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/test/org/improving/HymnFinderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/improving/HymnFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/improving/HymnFinder.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -37,8 +31,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/improving/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="15" column="67" selection-start-line="15" selection-start-column="67" selection-end-line="15" selection-end-column="67" />
+            <state relative-caret-position="171">
+              <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="16" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -46,13 +40,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/improving/HymnFinder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+            <state relative-caret-position="217">
+              <caret line="158" column="50" lean-forward="true" selection-start-line="158" selection-start-column="50" selection-end-line="158" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5355#5356#0" expanded="true" />
-                <element signature="e#5412#5413#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/test/org/improving/HymnFinderTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="79" column="58" lean-forward="true" selection-start-line="79" selection-start-column="58" selection-end-line="79" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -72,6 +73,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -87,8 +89,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/org/improving/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/improving/HymnFinder.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/org/improving/HymnFinder.java" />
+        <option value="$PROJECT_DIR$/src/main/test/org/improving/HymnFinderTest.java" />
       </list>
     </option>
   </component>
@@ -126,6 +129,19 @@
               <item name="Get-Random-Word" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="GetWordFromPage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Get-Random-Word" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GetWordFromPage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Get-Random-Word" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -136,10 +152,20 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.testRunning" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.improving" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -153,9 +179,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.improving.Main" />
+  <component name="RunManager" selected="JUnit.HymnFinderTest.getMultipleHymns_should_be_formatted_correctly">
+    <configuration name="HymnFinderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="GetWordFromPage" />
       <extension name="coverage">
         <pattern>
@@ -163,12 +188,14 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="org.improving" />
+      <option name="MAIN_CLASS_NAME" value="org.improving.HymnFinderTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WordRetriever" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.improving.WordRetriever" />
+    <configuration name="HymnFinderTest.getMultipleHymns_should_be_formatted_correctly" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="GetWordFromPage" />
       <extension name="coverage">
         <pattern>
@@ -176,14 +203,65 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="org.improving" />
+      <option name="MAIN_CLASS_NAME" value="org.improving.HymnFinderTest" />
+      <option name="METHOD_NAME" value="getMultipleHymns_should_be_formatted_correctly" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HymnFinderTest.getStanzas_should_replace_begin_and_end_with_quotes" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GetWordFromPage" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.improving.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.improving" />
+      <option name="MAIN_CLASS_NAME" value="org.improving.HymnFinderTest" />
+      <option name="METHOD_NAME" value="getStanzas_should_replace_begin_and_end_with_quotes" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HymnFinderTest,getStanzas_should_replace_breaks_with_spaces_afterwards and 2 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GetWordFromPage" />
+      <option name="TEST_OBJECT" value="pattern" />
+      <patterns>
+        <pattern testClass="org.improving.HymnFinderTest,getStanzas_should_replace_breaks_with_spaces_afterwards" />
+        <pattern testClass="org.improving.HymnFinderTest,getStanzas_should_replace_numbers_with_periods" />
+        <pattern testClass="org.improving.HymnFinderTest,getStanzas_should_replace_quotes_with_two_quotes" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HymnFinderTest.getStanzas_should_separate_verses_without_numbers_in_input" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="GetWordFromPage" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.improving.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.improving" />
+      <option name="MAIN_CLASS_NAME" value="org.improving.HymnFinderTest" />
+      <option name="METHOD_NAME" value="getStanzas_should_separate_verses_without_numbers_in_input" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.WordRetriever" />
+        <item itemvalue="JUnit.HymnFinderTest.getMultipleHymns_should_be_formatted_correctly" />
+        <item itemvalue="JUnit.HymnFinderTest.getStanzas_should_separate_verses_without_numbers_in_input" />
+        <item itemvalue="JUnit.HymnFinderTest" />
+        <item itemvalue="JUnit.HymnFinderTest,getStanzas_should_replace_breaks_with_spaces_afterwards and 2 more" />
+        <item itemvalue="JUnit.HymnFinderTest.getStanzas_should_replace_begin_and_end_with_quotes" />
       </list>
     </recent_temporary>
   </component>
@@ -200,30 +278,63 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="HymnFinderTest_getStanzas_should_separate_verses_without_numbers_in_input - 2020.03.29 at 16h 03m 04s.xml">
+      <configuration name="HymnFinderTest.getStanzas_should_separate_verses_without_numbers_in_input" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HymnFinderTest_getMultipleHymns_should_be_formatted_correctly - 2020.03.29 at 16h 11m 45s.xml">
+      <configuration name="HymnFinderTest.getMultipleHymns_should_be_formatted_correctly" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HymnFinderTest_getMultipleHymns_should_be_formatted_correctly - 2020.03.29 at 16h 13m 16s.xml">
+      <configuration name="HymnFinderTest.getMultipleHymns_should_be_formatted_correctly" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HymnFinderTest_getMultipleHymns_should_be_formatted_correctly - 2020.03.29 at 16h 15m 33s.xml">
+      <configuration name="HymnFinderTest.getMultipleHymns_should_be_formatted_correctly" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HymnFinderTest_getMultipleHymns_should_be_formatted_correctly - 2020.03.29 at 16h 17m 26s.xml">
+      <configuration name="HymnFinderTest.getMultipleHymns_should_be_formatted_correctly" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HymnFinderTest_getMultipleHymns_should_be_formatted_correctly - 2020.03.29 at 16h 19m 54s.xml">
+      <configuration name="HymnFinderTest.getMultipleHymns_should_be_formatted_correctly" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HymnFinderTest_getMultipleHymns_should_be_formatted_correctly - 2020.03.29 at 16h 20m 33s.xml">
+      <configuration name="HymnFinderTest.getMultipleHymns_should_be_formatted_correctly" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HymnFinderTest_getMultipleHymns_should_be_formatted_correctly - 2020.03.29 at 16h 21m 51s.xml">
+      <configuration name="HymnFinderTest.getMultipleHymns_should_be_formatted_correctly" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HymnFinderTest_getMultipleHymns_should_be_formatted_correctly - 2020.03.29 at 16h 24m 27s.xml">
+      <configuration name="HymnFinderTest.getMultipleHymns_should_be_formatted_correctly" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="HymnFinderTest_getMultipleHymns_should_be_formatted_correctly - 2020.03.29 at 16h 24m 59s.xml">
+      <configuration name="HymnFinderTest.getMultipleHymns_should_be_formatted_correctly" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Terminal" weight="0.32936078" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Messages" weight="0.32936078" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette" />
       <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Maven" visible="true" weight="0.32995737" />
+      <window_info anchor="right" id="Maven" weight="0.32995737" />
       <window_info anchor="right" id="Capture Analysis" />
       <window_info anchor="right" id="Palette&#9;" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -236,7 +347,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/improving/HymnFinder.java</url>
-          <line>178</line>
+          <line>180</line>
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
@@ -258,20 +369,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/improving/WordRetriever.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/improving/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="15" column="67" selection-start-line="15" selection-start-column="67" selection-end-line="15" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -279,14 +376,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/improving/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="16" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/improving/WordRetriever.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/org/improving/HymnFinderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="79" column="58" lean-forward="true" selection-start-line="79" selection-start-column="58" selection-end-line="79" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/improving/HymnFinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+        <state relative-caret-position="217">
+          <caret line="158" column="50" lean-forward="true" selection-start-line="158" selection-start-column="50" selection-end-line="158" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5355#5356#0" expanded="true" />
-            <element signature="e#5412#5413#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -294,9 +410,81 @@
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>GetWordFromPage</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: org.apiguardian:apiguardian-api:1.1.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

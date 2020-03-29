@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 public class HymnFinder {
 
+    static private final String DELIMITER = "\"";
     static public final List<String> SEARCHES = Arrays.asList(
             "Caught Up Together",
             "Face to Face",
@@ -146,7 +147,7 @@ public class HymnFinder {
             try {
                 hymns.add(getStanzas(s));
             } catch (IOException | IndexOutOfBoundsException e) {
-                hymns.add("\"Add lyrics manually");
+                hymns.add("\"Add lyrics manually\"");
             }
         });
 
@@ -154,6 +155,7 @@ public class HymnFinder {
     }
 
     static public void printAllHymns(List<String> hymns) {
+        System.out.println("\n");
         hymns.forEach(h -> System.out.println(h));
     }
 
@@ -181,23 +183,32 @@ public class HymnFinder {
                 .stream()
                 .map(e -> e.html()
                         .replaceAll("<br><br>Source:.*","")
+                        .replace("\"", "\"\"")
                         .replace(" <br> ", "\n")
                         .replace(" <br>", "\n")
                         .replace("<br> ", "\n")
                         .replace("<br>", "\n")
-                        .replace("1 ", "\"")
+                        .replace("1 ", "")
+                        .replace("1. ", "")
                         .replaceAll("\\d ", "\n")
+                        .replaceAll("\\d. ", "\n")
                         .replace("Chorus:", "\nc")
                         .replace("Refrain:", "\nc")
                 )
                 .collect(Collectors.toList());
 
+        // Build the Stanzas string
         var sb = new StringBuilder();
+        sb.append(DELIMITER);
 
         for(var stanza : stanzaElements)
             sb.append(stanza);
 
-        System.out.println(".");
+        var last = sb.lastIndexOf("\n");
+        sb.replace(last, sb.length(), DELIMITER);
+
+        // Print a dot to alert the user that the program is running.
+        System.out.print(".");
         return sb.toString();
     }
 }
