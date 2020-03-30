@@ -72,6 +72,16 @@ class HymnFinderTest {
     }
 
     @Test
+    void getStanzas_when_only_one_verse() throws IOException {
+        // Acts
+        var hymn = hymnFinder.getStanzas("Jesus Loves the Little Children");
+        System.out.println(hymn);
+
+        //Assert
+        assertTrue(hymn.contains("Jesus loves the little children,"));
+    }
+
+    @Test
     void getMultipleHymns_should_be_formatted_correctly() throws IOException {
         // Arrange
         var searches = HymnFinder.SEARCHES.stream().limit(5).collect(Collectors.toList());
@@ -91,7 +101,33 @@ class HymnFinderTest {
         assertTrue(sb.toString().contains("gladness\"\n\"Some"));
     }
 
+    @Test
+    void getAuthor_should_return_author() throws IOException {
+        // Acts
+        var author = hymnFinder.getAuthor("Wonderful Peace");
 
+        //Assert
+        assertEquals("W. D. Cornell", author);
+    }
 
+    @Test
+    void getMultipleAuthors_should_return_multiple_authors() throws IOException {
+        // Arrange
+        var searches = HymnFinder.SEARCHES.stream().limit(5).collect(Collectors.toList());
+
+        // Act
+        var hymns = hymnFinder.getMultipleAuthors(searches);
+
+        System.out.println("\n");
+        var sb = new StringBuilder();
+        hymns.forEach(h -> {
+            sb.append(h);
+            sb.append("\n");
+        });
+        System.out.println(sb.toString());
+
+        //Assert
+        assertTrue(sb.toString().contains("Fanny Crosby (1891)"));
+    }
 
 }

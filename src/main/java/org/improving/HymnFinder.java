@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 public class HymnFinder {
@@ -210,5 +211,36 @@ public class HymnFinder {
         // Print a dot to alert the user that the program is running.
         System.out.print(".");
         return sb.toString();
+    }
+
+    public String getAuthor(String title) throws IOException {
+
+        var firstresult = getFirstResult(title);
+
+        // Get document for first result or hardcode "Get it later"
+        Document doc = Jsoup.connect(firstresult).get();
+        System.out.print(".");
+        return doc.select("a[href]")
+                .stream()
+                .filter(l -> l.attr("href").equalsIgnoreCase("#Author"))
+                .filter(e -> e.html().length() > 6)
+                .findFirst()
+                .get()
+                .html()
+                .replace("Author: ", "");
+    }
+
+    public List<String> getMultipleAuthors(List<String> searches) {
+        var hymns = new ArrayList<String>();
+
+        searches.forEach(s -> {
+            try {
+                hymns.add(getAuthor(s));
+            } catch (IOException | IndexOutOfBoundsException | NoSuchElementException e) {
+                hymns.add("Anonymous");
+            }
+        });
+
+        return hymns;
     }
 }

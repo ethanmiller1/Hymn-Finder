@@ -11,9 +11,8 @@ public class Main {
         var hymnFinder = new HymnFinder();
 
         var startTime = new Date();
-//        var hymns = hymnFinder.getMultipleHymns(HymnFinder.SEARCHES);
-//        hymnFinder.printAllHymns(hymns);
-        System.out.println(hymnFinder.getStanzas("Wonderful Peace"));
+        var hymns = hymnFinder.getMultipleHymns(HymnFinder.SEARCHES);
+        hymnFinder.printAllHymns(hymns);
         var endTime = new Date();
 
         long elapsedTicks = endTime.getTime() - startTime.getTime();
