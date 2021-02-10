@@ -43,7 +43,7 @@ class HymnFinderTest {
     @Test
     void getStanzas_should_replace_quotes_with_two_quotes() throws IOException {
         // Acts
-        var hymn = hymnFinder.getStanzas("Art thou weary, art thou languid");
+        var hymn = hymnFinder.getStanzas("Go Tell it on the Mountain\n");
         System.out.println(hymn);
 
         //Assert
@@ -79,6 +79,16 @@ class HymnFinderTest {
 
         //Assert
         assertTrue(hymn.contains("Jesus loves the little children,"));
+    }
+
+    @Test
+    void getStanzas_when_no_paragraph_breaks() throws IOException {
+        // Acts
+        var hymn = hymnFinder.getStanzas("Singing I Go");
+        System.out.println(hymn);
+
+        //Assert
+        assertTrue(hymn.contains("ads!\n\nc\nSin"));
     }
 
     @Test
