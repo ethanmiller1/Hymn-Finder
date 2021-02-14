@@ -8,6 +8,7 @@ public class Sermon {
     private String title;
     private String mp3;
     private String preacher;
+    private YouTubeInfo youTubeInfo;
 
     public Sermon(String date, String title, String mp3, String preacher) {
         this.date = date;

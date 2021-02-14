@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,11 +30,11 @@ class SermonFinderTest {
     }
 
     @Test
-    void searchForSermon() throws IOException {
+    void addYouTubeInfo() throws IOException, GeneralSecurityException {
         Sermon sermon = new Sermon("12/30/18, Sun PM", "The Rapture in Thessalonians", ".com", "Pastor Anderson");
-
-        sermonFinder.searchForSermon(sermon, "");
-
-//        assertEquals("The Rapture in Thessalonians by Pastor Anderson (12/30/18, Sun PM)", sermons.get(0).toString());
+        Sermon updatedSermon = sermonFinder.addYouTubeInfo(sermon);
+        String result = updatedSermon.getYouTubeInfo().getLink();
+        System.out.println(result);
+        assertEquals("https://www.youtube.com/watch?v=Cb1rO6ojwtw", result);
     }
 }
