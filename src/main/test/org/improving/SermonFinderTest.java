@@ -37,4 +37,31 @@ class SermonFinderTest {
         System.out.println(result);
         assertEquals("https://www.youtube.com/watch?v=Cb1rO6ojwtw", result);
     }
+
+    @Test
+    void buildPlaylist() throws IOException, GeneralSecurityException {
+        List<Sermon> sermons2018 = sermonFinder.findAllSermons().stream().filter(s -> {
+            System.out.println(s.toString());
+            return s.getDate().matches("^\\d*/\\d*/18.*$");
+        }).collect(Collectors.toList()).subList(0,5);
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("http://www.youtube.com/watch_videos?video_ids=");
+        for (Sermon sermon : sermons2018) {
+            sb.append(sermonFinder.addYouTubeInfo(sermon).getYouTubeInfo().getVideoId() + ",");
+            System.out.println(sermonFinder.addYouTubeInfo(sermon).getYouTubeInfo().getVideoId());
+        }
+
+        String result = sb.toString();
+        System.out.println(result);
+
+        assertEquals("http://www.youtube.com/watch_videos?video_ids=Cb1rO6ojwtw,fhEF2q6Oo6Y,AojrCsAG_GI,dwfdKnTC53M,IXiAgoMKg-E,", result);
+    }
+
+    @Test
+    void listUrls() throws IOException, GeneralSecurityException {
+        List<Sermon> sermons2018 = sermonFinder.findAllSermons().stream().filter(s -> s.getDate().matches("^\\d*/\\d*/18.*$")).collect(Collectors.toList());
+        for (Sermon sermon : sermons2018)
+            System.out.println(sermonFinder.addYouTubeInfo(sermon).getYouTubeInfo().getVideoId());
+    }
 }

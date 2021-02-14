@@ -88,11 +88,12 @@ public class SermonFinder {
                 .setType(Arrays.asList("video"))
                 .setVideoDefinition("high")
                 .execute();
-        System.out.println(response);
+//        System.out.println(response);
 
         SearchResult firstResult = response.getItems().get(0);
         sermon.setYouTubeInfo(new YouTubeInfo(
                 "https://www.youtube.com/watch?v=" + firstResult.getId().getVideoId(),
+                firstResult.getId().getVideoId(),
                 firstResult.getSnippet().getChannelTitle(),
                 firstResult.getSnippet().getDescription(),
                 firstResult.getSnippet().getTitle()
