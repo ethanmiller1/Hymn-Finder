@@ -1,3 +1,32 @@
+# Sermon Finder
+
+## Get started with YouTube API inside Python
+
+Ensure you have [Python](https://www.python.org/downloads/windows/ "Python Releases for Windows") installed, then:
+
+``` bash
+# Activate command prompt if using powershell
+$ cmd
+# Create a virtual environment
+$ python -m venv venv
+# Activate your virtual environment
+$ cd venv/Scripts && activate && cd ../..
+# Install dependencies to venv
+$ pip install -r requirements.txt
+# Run the program
+$ python src/main/resources/ytsearch.py
+```
+
+Videos:
+* [Python YouTube API Tutorial](https://www.youtube.com/watch?v=th5_9woFJmk)
+* [Hiding Passwords and Secret Keys in Environment Variables](https://www.youtube.com/watch?v=IolxqkL7cD8)
+
+## Setup Virtual Environment in IntelliJ
+
+File > Project Structure > SDKs > Add New SDK > `...\venv\Scripts\python.exe`
+
+# Notes
+
 Hyper
 Text
 Transfer

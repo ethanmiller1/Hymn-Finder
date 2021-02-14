@@ -12,6 +12,7 @@ import java.util.List;
 public class SermonFinder {
 
     private String FAITHFUL_WORD_URL = "http://www.faithfulwordbaptist.org/page5.html";
+    private String YOUTUBE_URL = "https://www.youtube.com/results?search_query=trinity+101+pasotr";
 
     public List<Sermon> findAllSermons() throws IOException {
         Document doc = Jsoup.connect(FAITHFUL_WORD_URL).get();
@@ -31,5 +32,12 @@ public class SermonFinder {
         }
 
         return result;
+    }
+
+    public String searchForSermon(Sermon sermon, String extra_text) throws IOException {
+        Document doc = Jsoup.connect(YOUTUBE_URL).get();
+        Elements sermons = doc.select(".yt-simple-endpoint.style-scope.ytd-video-renderer").first().children();
+        return null;
+
     }
 }
