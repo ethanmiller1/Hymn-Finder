@@ -3,15 +3,23 @@ if __name__ == '__main__':
     import os
 
     # Set Environment Variable in your Windows machine
-    api_key = os.environ.get('YouTube_API_Key')
+    API_KEY = os.environ.get('YouTube_API_Key')
+    API_NAME = 'youtube'
+    API_VERSION = 'v3'
 
-    youtube = build('youtube', 'v3', developerKey=api_key)
+    def findYouTubeVideo(query):
+        youtubeService = build(API_NAME, API_VERSION, developerKey=API_KEY)
 
-    request = youtube.channels().list(
-        part='statistics',
-        forUsername='schafer5'
-    )
+        request = youtubeService.search().list(
+            part='snippet',
+            maxResults=25,
+            q=query,
+            type='video',
+            videoDefinition='high'
+        )
 
-    response = request.execute()
+        response = request.execute()
 
-    print(response)
+        print(response)
+
+    findYouTubeVideo('Trinity 101')

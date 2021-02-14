@@ -17,13 +17,27 @@ $ pip install -r requirements.txt
 $ python src/main/resources/ytsearch.py
 ```
 
-Videos:
-* [Python YouTube API Tutorial](https://www.youtube.com/watch?v=th5_9woFJmk)
-* [Hiding Passwords and Secret Keys in Environment Variables](https://www.youtube.com/watch?v=IolxqkL7cD8)
-
-## Setup Virtual Environment in IntelliJ
+### Setup Virtual Environment in IntelliJ
 
 File > Project Structure > SDKs > Add New SDK > `...\venv\Scripts\python.exe`
+
+## Documentation
+
+* [Google Python API Client](https://github.com/googleapis/google-api-python-client)
+    * [YouTube Data API v3](http://googleapis.github.io/google-api-python-client/docs/dyn/youtube_v3.html)
+    * [Search Sandbox](https://developers.google.com/youtube/v3/docs/search/list?apix=true&apix_params=%7B%22part%22%3A%5B%22snippet%22%5D%2C%22maxResults%22%3A2%2C%22q%22%3A%22Trinity%20101%22%2C%22type%22%3A%5B%22video%22%5D%2C%22videoDefinition%22%3A%22high%22%7D)
+* [Google Java API Client Services](https://github.com/googleapis/google-api-java-client-services)
+* [YouTube API](https://developers.google.com/youtube/v3)
+* [Google Developers Console](https://console.developers.google.com/)
+
+## Videos:
+* [Python YouTube API Tutorial](https://www.youtube.com/watch?v=th5_9woFJmk)
+* [Hiding Passwords and Secret Keys in Environment Variables](https://www.youtube.com/watch?v=IolxqkL7cD8)
+* [Extract YouTube Video Details in Python](https://www.youtube.com/watch?v=i_5xPDX-erE)
+
+## TODO: Upcominig Features
+
+* [Upload Media](https://github.com/googleapis/google-api-python-client/blob/master/docs/media.md)
 
 # Notes
 
