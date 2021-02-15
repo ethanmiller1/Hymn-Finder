@@ -53,4 +53,20 @@ class SermonServiceTest {
         Sermon sermon = SermonService.getSermon("The Rapture in Thessalonians");
         assertEquals("The Rapture in Thessalonians by Pastor Anderson (12/30/18, Sun PM)", sermon.toString());
     }
+
+    @Test
+    void add100Sermons() throws IOException {
+        List<Sermon> sermons2018 = sermonFinder.findAllSermons().stream().filter(s -> s.getDate().matches("^\\d*/\\d*/18.*$")).collect(Collectors.toList());
+        List<Sermon> dbSermons = SermonService.getSermons();
+        int initialSize = dbSermons.size();
+        sermons2018.forEach(s -> SermonService.addSermon(s, dbSermons));
+        assertTrue(initialSize < SermonService.getSermons().size());
+    }
+
+    @Test
+    void updateSermon() {
+        List<Sermon> dbSermons = SermonService.getSermons();
+        Sermon sermon = SermonService.addYouTubeInfo(dbSermons.get(0));
+        assertNotNull(sermon.getYouTubeInfo());
+    }
 }

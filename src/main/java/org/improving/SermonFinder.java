@@ -77,7 +77,7 @@ public class SermonFinder {
         return clientSecrets.getInstalled().getTokenUri();
     }
 
-    public Sermon addYouTubeInfo(Sermon sermon) throws GeneralSecurityException, IOException {
+    public static Sermon addYouTubeInfo(Sermon sermon) throws GeneralSecurityException, IOException {
         YouTube youtubeService = getService();
         // Define and execute the API request
         YouTube.Search.List request = youtubeService.search()

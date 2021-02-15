@@ -1,5 +1,6 @@
 package org.improving.service;
 
+import org.improving.SermonFinder;
 import org.improving.database.JPAUtility;
 import org.improving.entity.Sermon;
 
@@ -31,8 +32,14 @@ public class SermonService {
     }
 
     public static void addSermon(Sermon sermon, List<Sermon> dbSermons) {
-        if(dbSermons.stream().noneMatch(s -> s.getTitle().equals(sermon.getTitle()) && s.getPreacher().equals(sermon.getPreacher())))
+        if(dbSermons.stream().noneMatch(s -> {
+            boolean isMatch = s.getTitle().equals(sermon.getTitle()) && s.getPreacher().equals(sermon.getPreacher());
+            if (isMatch && s.getYouTubeInfo() == null)
+                addYouTubeInfo(s);
+            return isMatch;
+        }))
             addSermon(sermon);
+
     }
 
     // READ
@@ -59,7 +66,7 @@ public class SermonService {
 
     public static List<Sermon> getSermons() {
         EntityManager em = JPAUtility.getEntityManager();
-        String query = "select s from Sermon as s where s.youTubeInfo is not null";
+        String query = "select s from Sermon as s where s.id is not null";
         TypedQuery<Sermon> tq = em.createQuery(query, Sermon.class);
         List<Sermon> sermons = null;
         try {
@@ -70,6 +77,28 @@ public class SermonService {
         }
 
         return sermons;
+    }
+
+    // UPDATE
+
+    public static Sermon addYouTubeInfo(Sermon dbSermon) {
+        EntityManager em = JPAUtility.getEntityManager();
+        EntityTransaction et = null;
+        Sermon sermon = null;
+        try {
+            et = em.getTransaction();
+            et.begin();
+            sermon = em.find(Sermon.class, dbSermon.getId());
+            SermonFinder.addYouTubeInfo(sermon);
+            em.persist(sermon);
+            et.commit();
+        } catch (Exception ex) {
+            if(et != null) {
+                et.rollback();
+            }
+            ex.printStackTrace();
+        }
+        return sermon;
     }
 
 }

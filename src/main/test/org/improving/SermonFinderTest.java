@@ -32,7 +32,7 @@ class SermonFinderTest {
     @Test
     void addYouTubeInfo() throws IOException, GeneralSecurityException {
         Sermon sermon = new Sermon("12/30/18, Sun PM", "The Rapture in Thessalonians", ".com", "Pastor Anderson");
-        Sermon updatedSermon = sermonFinder.addYouTubeInfo(sermon);
+        Sermon updatedSermon = SermonFinder.addYouTubeInfo(sermon);
         String result = updatedSermon.getYouTubeInfo().getLink();
         System.out.println(result);
         assertEquals("https://www.youtube.com/watch?v=Cb1rO6ojwtw", result);
@@ -48,8 +48,8 @@ class SermonFinderTest {
         StringBuilder sb = new StringBuilder();
         sb.append("http://www.youtube.com/watch_videos?video_ids=");
         for (Sermon sermon : sermons2018) {
-            sb.append(sermonFinder.addYouTubeInfo(sermon).getYouTubeInfo().getVideoId() + ",");
-            System.out.println(sermonFinder.addYouTubeInfo(sermon).getYouTubeInfo().getVideoId());
+            sb.append(SermonFinder.addYouTubeInfo(sermon).getYouTubeInfo().getVideoId() + ",");
+            System.out.println(SermonFinder.addYouTubeInfo(sermon).getYouTubeInfo().getVideoId());
         }
 
         String result = sb.toString();
