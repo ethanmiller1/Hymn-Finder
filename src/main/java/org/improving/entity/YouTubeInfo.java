@@ -29,6 +29,9 @@ public class YouTubeInfo {
     @Column(name = "Title")
     String title;
 
+    public YouTubeInfo() {
+    }
+
     public YouTubeInfo(String link, String videoId, String channelTitle, String description, String title) {
         this.link = link;
         this.videoId = videoId;

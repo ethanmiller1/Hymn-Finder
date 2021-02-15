@@ -35,6 +35,9 @@ public class Sermon {
     @JoinColumn(name = "YouTubeInfoID")
     private YouTubeInfo youTubeInfo;
 
+    public Sermon() {
+    }
+
     public Sermon(String date, String title, String mp3, String preacher) {
         this.date = date;
         this.title = title;

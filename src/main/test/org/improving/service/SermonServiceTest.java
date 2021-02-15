@@ -27,4 +27,16 @@ class SermonServiceTest {
 
         SermonService.addSermon(sermonFinder.addYouTubeInfo(sermons2018.get(0)));
     }
+
+    @Test
+    void getSermons() {
+        List<Sermon> sermons = SermonService.getSermons();
+        assertEquals("The Rapture in Thessalonians by Pastor Anderson (12/30/18, Sun PM)", sermons.get(0).toString());
+    }
+
+    @Test
+    void getSermon() {
+        Sermon sermon = SermonService.getSermon("The Rapture in Thessalonians");
+        assertEquals("The Rapture in Thessalonians by Pastor Anderson (12/30/18, Sun PM)", sermon.toString());
+    }
 }
