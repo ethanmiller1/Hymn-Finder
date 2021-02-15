@@ -1,6 +1,6 @@
 package org.improving;
 
-import org.improving.model.Sermon;
+import org.improving.entity.Sermon;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -62,6 +62,6 @@ class SermonFinderTest {
     void listUrls() throws IOException, GeneralSecurityException {
         List<Sermon> sermons2018 = sermonFinder.findAllSermons().stream().filter(s -> s.getDate().matches("^\\d*/\\d*/18.*$")).collect(Collectors.toList());
         for (Sermon sermon : sermons2018)
-            System.out.println(sermonFinder.addYouTubeInfo(sermon).getYouTubeInfo().getVideoId());
+            System.out.println(sermonFinder.addYouTubeInfo(sermon).getYouTubeInfo().getLink());
     }
 }

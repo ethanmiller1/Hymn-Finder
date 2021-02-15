@@ -21,6 +21,37 @@ $ python src/main/resources/ytsearch.py
 
 File > Project Structure > SDKs > Add New SDK > `...\venv\Scripts\python.exe`
 
+## Create Local MySQL Database
+
+Install MySQL and MySQL Workbench
+
+``` bash
+choco install -y mysql
+choco install -y mysql.workbench
+```
+
+#### Ensure MySQL Service is running.
+
+![](https://i.ibb.co/ccZ0F7N/image.png)
+
+#### Setup New Connection > Leave Username as root and Password empty.
+
+![](https://i.ibb.co/P9tbr3G/image.png)
+
+#### Select the "Schemas" tab in the Navigator, right-click and select "Create Schema..."
+
+![](https://i.ibb.co/jg9HzKj/image.png)
+
+Name it "sermondb". Alternatively simply run the following query and then refresh the schemas.
+
+```sql
+create schema `sermondb` ;
+```
+
+* [Hibernate-CRUD-App](https://github.com/ethanimproving/Hibernate-CRUD-App)
+* [Movie API Drill](https://github.com/ethanimproving/mad/blob/master/src/main/java/org/improving/mad/entity/Movie.java)
+* [Bootcamp Assessment Challenge](https://github.com/ethanimproving/Bootcamp-Assessment-Challenge/tree/master/src/main)
+
 ## Documentation
 
 * [Google Python API Client](https://github.com/googleapis/google-api-python-client)

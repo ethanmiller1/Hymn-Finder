@@ -19,7 +19,7 @@ if __name__ == '__main__':
                 inputData.append(iLink)
         return inputData
 
-    videoLinks =  ReadMultipleDataFrom(inputFileName, "https")
+    videoLinks = ReadMultipleDataFrom(inputFileName, "https")
     # print videoLinks
 
     listOfVideos = "http://www.youtube.com/watch_videos?video_ids=" + ','.join(videoLinks)

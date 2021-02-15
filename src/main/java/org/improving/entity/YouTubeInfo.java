@@ -1,4 +1,4 @@
-package org.improving.model;
+package org.improving.entity;
 
 import lombok.Data;
 
