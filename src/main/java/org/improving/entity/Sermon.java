@@ -2,13 +2,16 @@ package org.improving.entity;
 
 import lombok.Data;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "sermon")
@@ -27,7 +30,9 @@ public class Sermon {
     private String mp3;
     @Column(name = "Preacher")
     private String preacher;
-    @Transient
+
+    @OneToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @JoinColumn(name = "YouTubeInfoID")
     private YouTubeInfo youTubeInfo;
 
     public Sermon(String date, String title, String mp3, String preacher) {
