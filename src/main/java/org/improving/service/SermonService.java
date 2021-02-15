@@ -30,6 +30,11 @@ public class SermonService {
         }
     }
 
+    public static void addSermon(Sermon sermon, List<Sermon> dbSermons) {
+        if(dbSermons.stream().noneMatch(s -> s.getTitle().equals(sermon.getTitle()) && s.getPreacher().equals(sermon.getPreacher())))
+            addSermon(sermon);
+    }
+
     // READ
 
     public static Sermon getSermon(String title) {

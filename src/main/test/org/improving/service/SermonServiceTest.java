@@ -29,6 +29,20 @@ class SermonServiceTest {
     }
 
     @Test
+    void addSermon_should_not_add_duplicates() throws IOException, GeneralSecurityException {
+        // Arrange
+        Sermon sermon = new Sermon("12/30/18, Sun PM", "The Rapture in Thessalonians", ".com", "Pastor Anderson");
+        List<Sermon> dbSermons = SermonService.getSermons();
+        int expected = dbSermons.size();
+
+        // Act
+        SermonService.addSermon(sermonFinder.addYouTubeInfo(sermon), dbSermons);
+
+        // Assert
+        assertEquals(expected, dbSermons.size());
+    }
+
+    @Test
     void getSermons() {
         List<Sermon> sermons = SermonService.getSermons();
         assertEquals("The Rapture in Thessalonians by Pastor Anderson (12/30/18, Sun PM)", sermons.get(0).toString());
