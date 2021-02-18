@@ -1,12 +1,11 @@
 package org.improving;
 
-import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
+import com.google.api.client.googleapis.json.GoogleJsonResponseException;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.youtube.YouTube;
-import com.google.api.services.youtube.model.SearchListResponse;
 import com.google.api.services.youtube.model.SearchResult;
 import org.improving.entity.Sermon;
 import org.improving.entity.YouTubeInfo;
@@ -15,18 +14,19 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
+
+import static org.improving.utility.FileUtil.getKeys;
 
 public class SermonFinder {
 
     private static final String APPLICATION_NAME = "API code samples";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
-    private static final String DEVELOPER_KEY = getDeveloperKey(JSON_FACTORY, "/client_secret.json");
+    private static final LinkedList<String> DEVELOPER_KEY = getKeys();
     private String FAITHFUL_WORD_URL = "http://www.faithfulwordbaptist.org/page5.html";
 
     /**
@@ -66,17 +66,6 @@ public class SermonFinder {
                 .build();
     }
 
-    private static String getDeveloperKey(JsonFactory jsonFactory, String clientSecretsPath) {
-        InputStream in = SermonFinder.class.getResourceAsStream(clientSecretsPath);
-        GoogleClientSecrets clientSecrets = null;
-        try {
-            clientSecrets = jsonFactory.fromReader(new InputStreamReader(in), GoogleClientSecrets.class);
-        } catch (IOException e) {
-            System.out.println("Please add a valid client_secret.json under resources:\n {\n  \"installed\": {\n    \"token_uri\":\"DEVELOPER_KEY\"\n  }\n}");
-        }
-        return clientSecrets.getInstalled().getTokenUri();
-    }
-
     public static Sermon addYouTubeInfo(Sermon sermon) throws GeneralSecurityException, IOException {
         SearchResult firstResult = searchYouTube(String.format("%s %s", sermon.getPreacher(), sermon.getTitle()));
         sermon.setYouTubeInfo(new YouTubeInfo(
@@ -89,18 +78,26 @@ public class SermonFinder {
         return sermon;
     }
 
-    public static SearchResult searchYouTube(String query) throws GeneralSecurityException, IOException {
+    public static SearchResult searchYouTube(String query) throws IOException, GeneralSecurityException {
         YouTube youtubeService = getService();
         // Define and execute the API request
         YouTube.Search.List request = youtubeService.search()
                 .list(Arrays.asList("snippet"));
-        return request.setKey(DEVELOPER_KEY)
-                .setMaxResults(1L)
-                .setQ(query)
-                .setType(Arrays.asList("video"))
-                .setVideoDefinition("high")
-                .execute()
-                .getItems()
-                .get(0);
+        while(true) {
+            try {
+                return request.setKey(DEVELOPER_KEY.getFirst())
+                        .setMaxResults(1L)
+                        .setQ(query)
+                        .setType(Arrays.asList("video"))
+                        .setVideoDefinition("high")
+                        .execute()
+                        .getItems()
+                        .get(0);
+            } catch (GoogleJsonResponseException e) {
+                DEVELOPER_KEY.pop();
+                e.printStackTrace();
+                continue;
+            }
+        }
     }
 }

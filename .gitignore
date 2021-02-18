@@ -2,4 +2,5 @@
 /venv/
 .vscode/
 /target/
-src/main/resources/client_secret.json
+src/main/resources/client_secret.txt
+/src/main/resources/ytsearch.py

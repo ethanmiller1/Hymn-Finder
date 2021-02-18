@@ -26,7 +26,7 @@ class SermonServiceTest {
     void addSermon() throws IOException, GeneralSecurityException {
         List<Sermon> sermons2018 = sermonFinder.findAllSermons().stream().filter(s -> s.getDate().matches("^\\d*/\\d*/18.*$")).collect(Collectors.toList());
 
-        SermonService.addSermon(sermonFinder.addYouTubeInfo(sermons2018.get(0)));
+        SermonService.addSermon(SermonFinder.addYouTubeInfo(sermons2018.get(0)));
     }
 
     @Test
@@ -57,7 +57,7 @@ class SermonServiceTest {
 
     @Test
     void add100Sermons() throws IOException {
-        List<Sermon> sermons2018 = sermonFinder.findAllSermons().stream().filter(s -> s.getDate().matches("^\\d*/\\d*/20.*$")).collect(Collectors.toList());
+        List<Sermon> sermons2018 = sermonFinder.findAllSermons().stream().filter(s -> s.getDate().matches("^\\d*/\\d*/17.*$")).collect(Collectors.toList());
         List<Sermon> dbSermons = SermonService.getSermons();
         sermons2018.forEach(s -> SermonService.addSermon(s, dbSermons));
     }
@@ -82,7 +82,7 @@ class SermonServiceTest {
     }
 
     @Test
-    void listSermons() throws IOException {
+    void listSermons() {
         SermonService.getSermons().stream().filter(s -> {
             boolean matches = s.getDate().matches("^\\d*/\\d*/20.*$");
             if (matches)
