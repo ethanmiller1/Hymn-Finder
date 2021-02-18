@@ -10,3 +10,13 @@ select s.Title, s.Preacher, y.VideoId, y.ChannelTitle, s.Date, s.Mp3
 from sermon as s
 inner join youtubeinfo as y
 on s.YouTubeInfoID = y.Id
+
+select *
+from youtubeinfo
+where id = 74;
+
+select s.Title, s.Preacher, y.VideoId, y.ChannelTitle, s.Date, s.Mp3, y.Title, s.Id
+from sermon as s
+inner join youtubeinfo as y
+on s.YouTubeInfoID = y.Id
+where y.Title like "%Terry%"

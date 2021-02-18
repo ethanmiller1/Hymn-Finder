@@ -78,19 +78,7 @@ public class SermonFinder {
     }
 
     public static Sermon addYouTubeInfo(Sermon sermon) throws GeneralSecurityException, IOException {
-        YouTube youtubeService = getService();
-        // Define and execute the API request
-        YouTube.Search.List request = youtubeService.search()
-                .list(Arrays.asList("snippet"));
-        SearchListResponse response = request.setKey(DEVELOPER_KEY)
-                .setMaxResults(5L)
-                .setQ(String.format("%s by %s", sermon.getTitle(), sermon.getPreacher()))
-                .setType(Arrays.asList("video"))
-                .setVideoDefinition("high")
-                .execute();
-//        System.out.println(response);
-
-        SearchResult firstResult = response.getItems().get(0);
+        SearchResult firstResult = searchYouTube(String.format("%s %s", sermon.getPreacher(), sermon.getTitle()));
         sermon.setYouTubeInfo(new YouTubeInfo(
                 "https://www.youtube.com/watch?v=" + firstResult.getId().getVideoId(),
                 firstResult.getId().getVideoId(),
@@ -99,5 +87,20 @@ public class SermonFinder {
                 firstResult.getSnippet().getTitle()
             ));
         return sermon;
+    }
+
+    public static SearchResult searchYouTube(String query) throws GeneralSecurityException, IOException {
+        YouTube youtubeService = getService();
+        // Define and execute the API request
+        YouTube.Search.List request = youtubeService.search()
+                .list(Arrays.asList("snippet"));
+        return request.setKey(DEVELOPER_KEY)
+                .setMaxResults(1L)
+                .setQ(query)
+                .setType(Arrays.asList("video"))
+                .setVideoDefinition("high")
+                .execute()
+                .getItems()
+                .get(0);
     }
 }

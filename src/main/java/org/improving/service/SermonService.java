@@ -1,8 +1,10 @@
 package org.improving.service;
 
+import com.google.api.services.youtube.model.SearchResult;
 import org.improving.SermonFinder;
 import org.improving.database.JPAUtility;
 import org.improving.entity.Sermon;
+import org.improving.entity.YouTubeInfo;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -71,7 +73,6 @@ public class SermonService {
         List<Sermon> sermons = null;
         try {
             sermons = tq.getResultList();
-            sermons.forEach(sermon -> System.out.println(sermon.toString()));
         } catch (NoResultException ex) {
             ex.printStackTrace();
         }
@@ -91,6 +92,35 @@ public class SermonService {
             sermon = em.find(Sermon.class, dbSermon.getId());
             SermonFinder.addYouTubeInfo(sermon);
             em.persist(sermon);
+            et.commit();
+        } catch (Exception ex) {
+            if(et != null) {
+                et.rollback();
+            }
+            ex.printStackTrace();
+        }
+        return sermon;
+    }
+
+    public static Sermon updateYouTubeInfo(int id, String query) {
+        EntityManager em = JPAUtility.getEntityManager();
+        EntityTransaction et = null;
+        Sermon sermon = null;
+        YouTubeInfo youTubeInfo = null;
+        try {
+            et = em.getTransaction();
+            et.begin();
+            sermon = em.find(Sermon.class, id);
+            youTubeInfo = em.find(YouTubeInfo.class, sermon.getId());
+            SearchResult response = SermonFinder.searchYouTube(String.format("%s %s", sermon.getTitle(), query));
+            youTubeInfo.updateValues(
+                    "https://www.youtube.com/watch?v=" + response.getId().getVideoId(),
+                    response.getId().getVideoId(),
+                    response.getSnippet().getChannelTitle(),
+                    response.getSnippet().getDescription(),
+                    response.getSnippet().getTitle()
+            );
+            em.persist(youTubeInfo);
             et.commit();
         } catch (Exception ex) {
             if(et != null) {

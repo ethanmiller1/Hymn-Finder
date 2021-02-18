@@ -39,4 +39,12 @@ public class YouTubeInfo {
         this.description = description;
         this.title = title;
     }
+
+    public void updateValues(String link, String videoId, String channelTitle, String description, String title) {
+        setLink(link);
+        setVideoId(videoId);
+        setChannelTitle(channelTitle);
+        setDescription(description);
+        setTitle(title);
+    }
 }

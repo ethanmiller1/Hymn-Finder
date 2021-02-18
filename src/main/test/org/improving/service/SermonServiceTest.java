@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -56,11 +57,9 @@ class SermonServiceTest {
 
     @Test
     void add100Sermons() throws IOException {
-        List<Sermon> sermons2018 = sermonFinder.findAllSermons().stream().filter(s -> s.getDate().matches("^\\d*/\\d*/18.*$")).collect(Collectors.toList());
+        List<Sermon> sermons2018 = sermonFinder.findAllSermons().stream().filter(s -> s.getDate().matches("^\\d*/\\d*/20.*$")).collect(Collectors.toList());
         List<Sermon> dbSermons = SermonService.getSermons();
-        int initialSize = dbSermons.size();
         sermons2018.forEach(s -> SermonService.addSermon(s, dbSermons));
-        assertTrue(initialSize < SermonService.getSermons().size());
     }
 
     @Test
@@ -68,5 +67,27 @@ class SermonServiceTest {
         List<Sermon> dbSermons = SermonService.getSermons();
         Sermon sermon = SermonService.addYouTubeInfo(dbSermons.get(0));
         assertNotNull(sermon.getYouTubeInfo());
+    }
+
+    @Test
+    void updateYouTubeInfo() {
+        List<String> queries = Arrays.asList(
+                "Pastor Steven Anderson",
+                "sanderson1611",
+                "IFB Database",
+                "The Flat Earth Debunked - Baptist Preaching Independent, Fundamental, KJV"
+        );
+        Sermon sermon = SermonService.updateYouTubeInfo(98, queries.get(3));
+        assertNotNull(sermon.getYouTubeInfo());
+    }
+
+    @Test
+    void listSermons() throws IOException {
+        SermonService.getSermons().stream().filter(s -> {
+            boolean matches = s.getDate().matches("^\\d*/\\d*/20.*$");
+            if (matches)
+                System.out.println(s.getYouTubeInfo().getLink());
+            return matches;
+        }).collect(Collectors.toList());
     }
 }
