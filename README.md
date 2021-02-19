@@ -52,6 +52,12 @@ create schema `sermondb` ;
 * [Movie API Drill](https://github.com/ethanimproving/mad/blob/master/src/main/java/org/improving/mad/entity/Movie.java)
 * [Bootcamp Assessment Challenge](https://github.com/ethanimproving/Bootcamp-Assessment-Challenge/tree/master/src/main)
 
+## Client Secrets
+
+```bash
+git update-index --skip-worktree src/main/resources/client_secret.txt
+```
+
 ## Documentation
 
 * [Google Python API Client](https://github.com/googleapis/google-api-python-client)

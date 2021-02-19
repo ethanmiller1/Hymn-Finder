@@ -111,8 +111,15 @@ public class SermonService {
             et = em.getTransaction();
             et.begin();
             sermon = em.find(Sermon.class, id);
-            youTubeInfo = em.find(YouTubeInfo.class, sermon.getId());
-            SearchResult response = SermonFinder.searchYouTube(String.format("%s %s", sermon.getTitle(), query));
+            if ( sermon.getYouTubeInfo() == null )
+            {
+                youTubeInfo = new YouTubeInfo();
+                sermon.setYouTubeInfo(youTubeInfo);
+            }
+            else
+                youTubeInfo = em.find(YouTubeInfo.class, sermon.getYouTubeInfo().getId());
+            SearchResult response = SermonFinder.searchYouTube(String.format("\"%s\" %s", sermon.getTitle(), query));
+
             youTubeInfo.updateValues(
                     "https://www.youtube.com/watch?v=" + response.getId().getVideoId(),
                     response.getId().getVideoId(),
@@ -121,6 +128,7 @@ public class SermonService {
                     response.getSnippet().getTitle()
             );
             em.persist(youTubeInfo);
+            em.persist(sermon);
             et.commit();
         } catch (Exception ex) {
             if(et != null) {

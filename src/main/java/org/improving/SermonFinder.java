@@ -67,7 +67,7 @@ public class SermonFinder {
     }
 
     public static Sermon addYouTubeInfo(Sermon sermon) throws GeneralSecurityException, IOException {
-        SearchResult firstResult = searchYouTube(String.format("%s %s", sermon.getPreacher(), sermon.getTitle()));
+        SearchResult firstResult = searchYouTube(String.format("%s \"%s\"", sermon.getPreacher(), sermon.getTitle()));
         sermon.setYouTubeInfo(new YouTubeInfo(
                 "https://www.youtube.com/watch?v=" + firstResult.getId().getVideoId(),
                 firstResult.getId().getVideoId(),

@@ -57,7 +57,7 @@ class SermonServiceTest {
 
     @Test
     void add100Sermons() throws IOException {
-        List<Sermon> sermons2018 = sermonFinder.findAllSermons().stream().filter(s -> s.getDate().matches("^\\d*/\\d*/17.*$")).collect(Collectors.toList());
+        List<Sermon> sermons2018 = sermonFinder.findAllSermons().stream().filter(s -> s.getDate().matches("^\\d*/\\d*/13.*$")).collect(Collectors.toList());
         List<Sermon> dbSermons = SermonService.getSermons();
         sermons2018.forEach(s -> SermonService.addSermon(s, dbSermons));
     }
@@ -75,16 +75,17 @@ class SermonServiceTest {
                 "Pastor Steven Anderson",
                 "sanderson1611",
                 "IFB Database",
-                "The Flat Earth Debunked - Baptist Preaching Independent, Fundamental, KJV"
+                "Baptist Preaching Independent, Fundamental, KJV",
+                "Good King Asa"
         );
-        Sermon sermon = SermonService.updateYouTubeInfo(98, queries.get(3));
+        Sermon sermon = SermonService.updateYouTubeInfo(799, queries.get(0));
         assertNotNull(sermon.getYouTubeInfo());
     }
 
     @Test
     void listSermons() {
         SermonService.getSermons().stream().filter(s -> {
-            boolean matches = s.getDate().matches("^\\d*/\\d*/20.*$");
+            boolean matches = s.getDate().matches("^\\d*/\\d*/18.*$");
             if (matches)
                 System.out.println(s.getYouTubeInfo().getLink());
             return matches;
