@@ -54,6 +54,8 @@ Hibernate will read it as one word, and columns in Mysql are case insensitive.
 
 Wrap the settings in <Profile> tag.
 
+Visit the [FormattingModelBuilder](https://upsource.jetbrains.com/idea-ce/file/idea-ce-4b94ba01122752d7576eb9d69638b6e89d1671b7/platform/code-style-api/src/com/intellij/formatting/FormattingModelBuilder.java?_ga=2.144095349.1972292233.1613953362-887384512.1579637476) implemented by the plugin.
+
 ## Fatal error compiling: invalid flag: --release
 
 ```error

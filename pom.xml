@@ -118,7 +118,7 @@
                     <compilerCompliance>${java.version}</compilerCompliance>
                     <compilerSource>${java.version}</compilerSource>
                     <compilerTargetPlatform>${java.version}</compilerTargetPlatform>
-                    <configFile>${project.basedir}\src\main\resources\format\intellij_formatter.xml</configFile>
+                    <configFile>${project.basedir}\src\main\resources\format\eclipse_formatter.xml</configFile>
                     <lineEnding>LF</lineEnding>
                     <skipCssFormatting>true</skipCssFormatting>
                     <skipHtmlFormatting>true</skipHtmlFormatting>

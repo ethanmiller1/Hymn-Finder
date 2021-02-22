@@ -10,41 +10,53 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "youtubeinfo")
+@Table( name = "youtubeinfo" )
 @Data
-public class YouTubeInfo {
+public class YouTubeInfo
+{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id", unique = true)
-    private int id;
-    @Column(name = "Link")
-    String link;
-    @Column(name = "VideoId")
-    String videoId;
-    @Column(name = "ChannelTitle")
-    String channelTitle;
-    @Column(name = "Description")
-    String description;
-    @Column(name = "Title")
-    String title;
+   @Column( name = "Link" )
+   String      link;
+   @Column( name = "VideoId" )
+   String      videoId;
+   @Column( name = "ChannelTitle" )
+   String      channelTitle;
+   @Column( name = "Description" )
+   String      description;
+   @Column( name = "Title" )
+   String      title;
+   @Id
+   @GeneratedValue( strategy = GenerationType.IDENTITY )
+   @Column( name = "Id", unique = true )
+   private int id;
 
-    public YouTubeInfo() {
-    }
+   public YouTubeInfo()
+   {
+   }
 
-    public YouTubeInfo(String link, String videoId, String channelTitle, String description, String title) {
-        this.link = link;
-        this.videoId = videoId;
-        this.channelTitle = channelTitle;
-        this.description = description;
-        this.title = title;
-    }
+   public YouTubeInfo( String link,
+                       String videoId,
+                       String channelTitle,
+                       String description,
+                       String title )
+   {
+      this.link = link;
+      this.videoId = videoId;
+      this.channelTitle = channelTitle;
+      this.description = description;
+      this.title = title;
+   }
 
-    public void updateValues(String link, String videoId, String channelTitle, String description, String title) {
-        setLink(link);
-        setVideoId(videoId);
-        setChannelTitle(channelTitle);
-        setDescription(description);
-        setTitle(title);
-    }
+   public void updateValues( String link,
+                             String videoId,
+                             String channelTitle,
+                             String description,
+                             String title )
+   {
+      setLink( link );
+      setVideoId( videoId );
+      setChannelTitle( channelTitle );
+      setDescription( description );
+      setTitle( title );
+   }
 }
