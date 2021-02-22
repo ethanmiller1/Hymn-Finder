@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml" />
+    <logger name="org.springframework" level="ERROR"/>
+    <logger name="org.springframework.context.support" level="ERROR"/>
+    <logger name="com.zaxxer.hikari" level="ERROR"/>
+    <logger name="org.hibernate" level="ERROR"/>
+
+    <!-- Exclude HTTP Wire/header/pool Logs -->
+    <logger name="org.apache.http" level="OFF" />
+
+    <!-- Swagger Logger -->
+    <logger name="springfox.documentation" level="warn" />
+
+    <!-- Tomcat Logger -->
+    <logger name="org.apache.catalina" level="error" />
+    <logger name="org.apache.tomcat" level="error" />
+
+    <!-- Apache Http Logger -->
+    <logger name="org.apache.coyote.http11.Http11InputBuffer" level="warn" />
+
+    <!-- Apache Commons Logger -->
+    <logger name="org.apache.commons" level="warn" />
+
+    <!-- Hibernate Validator Framework Logger -->
+    <logger name="org.hibernate.validator" level="warn" />
+
+    <!-- ehCache Logger -->
+    <logger name="net.sf.ehcache" level="warn" />
+
+    <!-- Jackson Logging -->
+    <logger name="com.fasterxml.jackson" level="warn" />
+    <logger name="org.codehaus.jackson" level="warn" />
+</configuration>
