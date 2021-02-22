@@ -1,8 +1,8 @@
-package org.improving.service;
+package org.improving.dao;
 
 import com.google.api.services.youtube.model.SearchResult;
 import org.improving.SermonFinder;
-import org.improving.database.JPAUtility;
+import org.improving.utility.JPAUtility;
 import org.improving.entity.Sermon;
 import org.improving.entity.YouTubeInfo;
 

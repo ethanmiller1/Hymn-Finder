@@ -1,4 +1,4 @@
-package org.improving.service;
+package org.improving.dao;
 
 import org.improving.SermonFinder;
 import org.improving.entity.Sermon;
@@ -26,7 +26,7 @@ class SermonServiceTest {
     void addSermon() throws IOException, GeneralSecurityException {
         List<Sermon> sermons2018 = sermonFinder.findAllSermons().stream().filter(s -> s.getDate().matches("^\\d*/\\d*/18.*$")).collect(Collectors.toList());
 
-        SermonService.addSermon(SermonFinder.addYouTubeInfo(sermons2018.get(0)));
+        SermonService.addSermon( SermonFinder.addYouTubeInfo( sermons2018.get( 0)));
     }
 
     @Test
@@ -37,7 +37,7 @@ class SermonServiceTest {
         int expected = dbSermons.size();
 
         // Act
-        SermonService.addSermon(sermonFinder.addYouTubeInfo(sermon), dbSermons);
+        SermonService.addSermon(SermonFinder.addYouTubeInfo(sermon), dbSermons);
 
         // Assert
         assertEquals(expected, dbSermons.size());
@@ -57,7 +57,7 @@ class SermonServiceTest {
 
     @Test
     void add100Sermons() throws IOException {
-        List<Sermon> sermons2018 = sermonFinder.findAllSermons().stream().filter(s -> s.getDate().matches("^\\d*/\\d*/13.*$")).collect(Collectors.toList());
+        List<Sermon> sermons2018 = sermonFinder.findAllSermons().stream().filter(s -> s.getDate().matches("^\\d*/\\d*/06.*$")).collect(Collectors.toList());
         List<Sermon> dbSermons = SermonService.getSermons();
         sermons2018.forEach(s -> SermonService.addSermon(s, dbSermons));
     }

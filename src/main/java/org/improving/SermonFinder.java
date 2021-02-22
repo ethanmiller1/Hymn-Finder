@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import static org.improving.utility.FileUtil.getKeys;
 
@@ -97,6 +98,8 @@ public class SermonFinder {
                 DEVELOPER_KEY.pop();
                 e.printStackTrace();
                 continue;
+            } catch (NoSuchElementException e ) {
+                e.printStackTrace();
             }
         }
     }

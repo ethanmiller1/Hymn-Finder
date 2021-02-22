@@ -1,4 +1,4 @@
-package org.improving.database;
+package org.improving.utility;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
