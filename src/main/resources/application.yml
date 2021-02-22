@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: Unbound Preaching
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url:      jdbc:mysql://127.0.0.1:3306/sermondb?serverTimezone=UTC
+    username: root
+    password:
+    hikari:
+      minimumIdle:       1
+      maximumPoolSize:   1
+      idleTimeout:       30000
+      maxLifetime:       2000000
+      connectionTimeout: 30000
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      dialect: org.hibernate.dialect.MySQL8Dialect
+      ddl-auto: none
+  data:
+    rest:
+      base-path: /api
+
+server:
+  port: 8080
