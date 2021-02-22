@@ -4,6 +4,7 @@ import org.improving.SermonFinder;
 import org.improving.entity.Sermon;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
@@ -13,6 +14,7 @@ import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest( webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT )
 class SermonServiceTest {
 
     private SermonFinder sermonFinder;

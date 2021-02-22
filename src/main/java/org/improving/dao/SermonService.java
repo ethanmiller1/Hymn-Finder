@@ -2,9 +2,10 @@ package org.improving.dao;
 
 import com.google.api.services.youtube.model.SearchResult;
 import org.improving.SermonFinder;
-import org.improving.utility.JPAUtility;
 import org.improving.entity.Sermon;
 import org.improving.entity.YouTubeInfo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -13,17 +14,25 @@ import javax.persistence.NonUniqueResultException;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
+@Component
 public class SermonService {
+
+    private static EntityManager entityManager;
+
+    @Autowired
+    public SermonService(EntityManager entityManager)
+    {
+        SermonService.entityManager = entityManager;
+    }
 
     // CREATE
 
     public static void addSermon(Sermon sermon) {
-        EntityManager em = JPAUtility.getEntityManager();
         EntityTransaction et = null;
         try {
-            et = em.getTransaction();
+            et = entityManager.getTransaction();
             et.begin();
-            em.persist(sermon);
+            entityManager.persist( sermon);
             et.commit();
         } catch (Exception ex) {
             if(et != null) {
@@ -47,11 +56,10 @@ public class SermonService {
     // READ
 
     public static Sermon getSermon(String title) {
-        EntityManager em = JPAUtility.getEntityManager();
         // :Title is a paramaterized query
         String query = "select s from Sermon s where s.title = :Title";
 
-        TypedQuery<Sermon> tq = em.createQuery(query, Sermon.class);
+        TypedQuery<Sermon> tq = entityManager.createQuery( query, Sermon.class);
         tq.setParameter("Title", title);
         Sermon sermon = null;
         try {
@@ -67,9 +75,8 @@ public class SermonService {
     }
 
     public static List<Sermon> getSermons() {
-        EntityManager em = JPAUtility.getEntityManager();
         String query = "select s from Sermon as s where s.id is not null";
-        TypedQuery<Sermon> tq = em.createQuery(query, Sermon.class);
+        TypedQuery<Sermon> tq = entityManager.createQuery( query, Sermon.class);
         List<Sermon> sermons = null;
         try {
             sermons = tq.getResultList();
@@ -83,15 +90,14 @@ public class SermonService {
     // UPDATE
 
     public static Sermon addYouTubeInfo(Sermon dbSermon) {
-        EntityManager em = JPAUtility.getEntityManager();
         EntityTransaction et = null;
         Sermon sermon = null;
         try {
-            et = em.getTransaction();
+            et = entityManager.getTransaction();
             et.begin();
-            sermon = em.find(Sermon.class, dbSermon.getId());
+            sermon = entityManager.find( Sermon.class, dbSermon.getId());
             SermonFinder.addYouTubeInfo(sermon);
-            em.persist(sermon);
+            entityManager.persist( sermon);
             et.commit();
         } catch (Exception ex) {
             if(et != null) {
@@ -103,21 +109,20 @@ public class SermonService {
     }
 
     public static Sermon updateYouTubeInfo(int id, String query) {
-        EntityManager em = JPAUtility.getEntityManager();
         EntityTransaction et = null;
         Sermon sermon = null;
         YouTubeInfo youTubeInfo = null;
         try {
-            et = em.getTransaction();
+            et = entityManager.getTransaction();
             et.begin();
-            sermon = em.find(Sermon.class, id);
+            sermon = entityManager.find( Sermon.class, id);
             if ( sermon.getYouTubeInfo() == null )
             {
                 youTubeInfo = new YouTubeInfo();
                 sermon.setYouTubeInfo(youTubeInfo);
             }
             else
-                youTubeInfo = em.find(YouTubeInfo.class, sermon.getYouTubeInfo().getId());
+                youTubeInfo = entityManager.find( YouTubeInfo.class, sermon.getYouTubeInfo().getId());
             SearchResult response = SermonFinder.searchYouTube(String.format("\"%s\" %s", sermon.getTitle(), query));
 
             youTubeInfo.updateValues(
@@ -127,8 +132,8 @@ public class SermonService {
                     response.getSnippet().getDescription(),
                     response.getSnippet().getTitle()
             );
-            em.persist(youTubeInfo);
-            em.persist(sermon);
+            entityManager.persist( youTubeInfo);
+            entityManager.persist( sermon);
             et.commit();
         } catch (Exception ex) {
             if(et != null) {
