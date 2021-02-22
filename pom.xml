@@ -16,7 +16,10 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.release>11</maven.compiler.release>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
+        <java.version>11</java.version>
+        <formatter-maven-plugin.version>2.13.0</formatter-maven-plugin.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
     </properties>
 
     <dependencies>
@@ -104,6 +107,41 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <!-- formats source code in the "src/main/java" and "src/test/java"-->
+            <plugin>
+                <groupId>net.revelc.code.formatter</groupId>
+                <artifactId>formatter-maven-plugin</artifactId>
+                <version>${formatter-maven-plugin.version}</version>
+                <configuration>
+                    <compilerCompliance>${java.version}</compilerCompliance>
+                    <compilerSource>${java.version}</compilerSource>
+                    <compilerTargetPlatform>${java.version}</compilerTargetPlatform>
+                    <configFile>${project.basedir}\src\main\resources\format\intellij_formatter.xml</configFile>
+                    <lineEnding>LF</lineEnding>
+                    <skipCssFormatting>true</skipCssFormatting>
+                    <skipHtmlFormatting>true</skipHtmlFormatting>
+                    <skipJsFormatting>true</skipJsFormatting>
+                    <skipJsonFormatting>true</skipJsonFormatting>
+                    <skipXmlFormatting>true</skipXmlFormatting>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>format-code</id>
+                        <phase>process-sources</phase>
+                        <goals>
+                            <goal>format</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>validate-formatted-code</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>validate</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

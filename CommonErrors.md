@@ -43,3 +43,51 @@ Print your column name in [lower case](https://stackoverflow.com/questions/50567
 ```
 
 Hibernate will read it as one word, and columns in Mysql are case insensitive.
+
+## No profiles found in config file
+
+```error
+[ERROR] Failed to execute goal net.revelc.code.formatter:formatter-maven-plugin:2.13.0:format (etds-format-code) on project HymnFinder: No profiles found in config file -> [Help 1]
+```
+
+#### Solution
+
+Wrap the settings in <Profile> tag.
+
+## Fatal error compiling: invalid flag: --release
+
+```error
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:compile (default-compile) on project HymnFinder: Fatal error compiling: invalid flag: --release -> [Help 1]
+```
+
+#### Cause
+
+When maven builds your project, it uses the default system JDK
+(run `mvn -v` to [check which Java version](https://stackoverflow.com/questions/49105941/intellij-maven-project-fatal-error-compiling-invalid-flag-release) Maven is using).
+JDK8 does
+[not know](https://stackoverflow.com/questions/62298577/fatal-error-compiling-invalid-flag-release-java-8)
+the option `--release`.
+
+#### Solution 1
+
+Temporarily change the value of your JAVA_HOME environment variable.
+
+#### Solution 2
+
+Specify [multiple Java versions](https://stackoverflow.com/questions/2503658/specify-jdk-for-maven-to-use) in your `.m2/settings.xml`.
+
+## Cannot find symbol var
+
+```log
+Error:(145, 7) java: cannot find symbol
+  symbol:   class var
+  location: class org.improving.HymnFinder
+```
+
+#### Solution
+
+```txt
+Settings -> Build, Execution, Deployment -> Compiler -> Java Compiler
+```
+
+Then raise the Project Bytecode version to 11.
