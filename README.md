@@ -28,6 +28,20 @@ $ n
 $ CSS
 ```
 
+1. Edit `index.html`
+1. Edit `app.component.html`
+1. Change favicon
+
+```bash
+ng generate components/component sermon-list
+```
+
+### Components
+
+```bash
+ng generate component xyz
+```
+
 ```bash
 ng generate module accounts/accounts --routingrm -r import formsModule @angular/forms
 ```
