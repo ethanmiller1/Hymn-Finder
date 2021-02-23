@@ -93,3 +93,26 @@ Settings -> Build, Execution, Deployment -> Compiler -> Java Compiler
 ```
 
 Then raise the Project Bytecode version to 11.
+
+## No provider for Router!
+
+```log
+main.ts:12 NullInjectorError: R3InjectorError(AppModule)[Router -> Router -> Router]: 
+  NullInjectorError: No provider for Router!
+```
+
+#### Solution
+
+Add your list of routes to the RouterModule.
+
+```typescript
+const routes: Routes = [
+  {path: 'sermons', component: SermonListComponent},
+];
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes),
+  ]
+})
+```

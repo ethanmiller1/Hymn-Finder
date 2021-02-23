@@ -33,7 +33,7 @@ $ CSS
 1. Change favicon
 
 ```bash
-ng generate components/component sermon-list
+ng generate component components/sermon-list 
 ```
 
 ### Components
@@ -45,6 +45,32 @@ ng generate component xyz
 ```bash
 ng generate module accounts/accounts --routingrm -r import formsModule @angular/forms
 ```
+
+Include in declarations in app.module<app-account-list></...>ng generate component account-listng generate component accounts/components/account-list --lint-fix --skip-import
+	* Barrel file under components folder.
+ng new angular-madlib
+
+ng new angular-unbound-preaching
+
+```material
+ng add @angular/material
+```
+
+### Add dependency
+
+```bash
+ng add _____
+```
+
+### [Awwwards](https://www.awwwards.com/) Inspiration
+
+* [leonard-agency](https://leonard.agency/en/) - Preloader, Navbar / Hamburger Menu
+* [studio-arte](https://www.studioarte.info/) - Project Selection
+* [sa-design](https://www.sa-design.co/projects/dinamica) - Cursor circle
+* [anywell-facial-bar](https://anywellfacialbar.com/) - Fixed Navbar
+* [the-sleepiest-app](https://www.sleepiest.com/) - App advertisement, Paralax
+* [baunfire](https://www.baunfire.com/) - Hamburger Menu
+* [fairer-tomorrow](https://fairertomorrow.stanford.edu/) - Music button, full screen, background
 
 # Sermon Finder
 
