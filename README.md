@@ -21,7 +21,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ```bash
 $ ng new webapp
 # Do you want to enforce stricter type checking and stricter bundle budgets in the workspace?
-$ y
+$ n
 # Would you like to add Angular routing?
 $ n
 # Which stylesheet format would you like to use?
@@ -33,7 +33,9 @@ $ CSS
 1. Change favicon
 
 ```bash
+ng generate class common/sermon
 ng generate component components/sermon-list 
+ng generate service services/sermon
 ```
 
 ### Components

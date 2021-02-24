@@ -116,3 +116,17 @@ const routes: Routes = [
   ]
 })
 ```
+
+## Property 'id' has no initializer and is not definitely assigned in the constructor.
+
+```log
+Property 'id' has no initializer and is not definitely assigned in the constructor.
+```
+
+#### Solution 1
+
+`Alt + Insert` to generate a constructor.
+
+#### Solution 2
+
+Disable "Strict Class Initialization".

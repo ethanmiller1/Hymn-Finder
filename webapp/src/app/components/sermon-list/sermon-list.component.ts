@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SermonListComponent implements OnInit {
 
+  private baseUrl = 'http://localhost:8080/api/products';
+
+  private categoryUrl = 'http://localhost:8080/api/product-category';
+
   constructor() { }
 
   ngOnInit(): void {
