@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {SermonService} from "../../services/sermon.service";
+import {Sermon} from "../../common/sermon";
 
 @Component({
   selector: 'app-sermon-list',
@@ -7,13 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SermonListComponent implements OnInit {
 
-  private baseUrl = 'http://localhost:8080/api/products';
+  sermons: Sermon[] = [];
 
-  private categoryUrl = 'http://localhost:8080/api/product-category';
-
-  constructor() { }
+  constructor(private sermonService: SermonService) { }
 
   ngOnInit(): void {
+    this.listSermons();
+  }
+
+  listSermons() {
+    this.sermonService.getSermonList()
+      .subscribe(
+        data => {
+          this.sermons = data;
+        }
+      );
   }
 
 }

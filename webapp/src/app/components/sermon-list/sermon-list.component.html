@@ -1,4 +1,3 @@
-<p>sermon-list works!</p>
-<!--<p *ngFor="let tempSermon of sermon">-->
-<!--  {{ tempSermon.name}}: {{ tempSermon.unitPrice | currency:'USD'}}-->
-<!--</p>-->
+<p *ngFor="let sermon of sermons">
+  <a href="{{ sermon.mp3 }}">{{ sermon.title }}</a> by {{ sermon.preacher }}
+</p>

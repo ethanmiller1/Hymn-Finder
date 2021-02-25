@@ -16,6 +16,18 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+## Debugging Angular in IntelliJ
+
+* [Debugging Angular Applications](https://www.youtube.com/watch?v=b2gboBOoc88)
+
+
+```
+# Run > Edit Configurations > Add New Configuration > JavaScript Debugger > Ensure breakpoints are detected when loading scripts
+$ npm start
+# Debug
+```
+
+
 ## New APP
 
 ```bash

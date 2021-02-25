@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import {RouterModule, Routes} from "@angular/router";
 import { SermonListComponent } from './components/sermon-list/sermon-list.component';
 import {HttpClientModule} from "@angular/common/http";
+import {SermonService} from "./services/sermon.service";
 
 const routes: Routes = [
   {path: 'sermons', component: SermonListComponent},
@@ -23,7 +24,7 @@ const routes: Routes = [
         HttpClientModule,
         RouterModule
     ],
-  providers: [],
+  providers: [SermonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
