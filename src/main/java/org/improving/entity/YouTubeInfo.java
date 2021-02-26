@@ -11,51 +11,39 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Embeddable
-@Entity
-@Table( name = "youtubeinfo" )
 @Data
 public class YouTubeInfo
 {
 
-   @Column( name = "Link" )
-   String      link;
-   @Column( name = "VideoId" )
+   @Column( name = "video_id" )
    String      videoId;
-   @Column( name = "ChannelTitle" )
+   @Column( name = "channel_title" )
    String      channelTitle;
-   @Column( name = "Description" )
+   @Column( name = "description" )
    String      description;
-   @Column( name = "Title" )
+   @Column( name = "you_tube_title" )
    String      title;
-   @Id
-   @GeneratedValue( strategy = GenerationType.IDENTITY )
-   @Column( name = "Id", unique = true )
-   private int id;
 
    public YouTubeInfo()
    {
    }
 
-   public YouTubeInfo( String link,
-                       String videoId,
+   public YouTubeInfo( String videoId,
                        String channelTitle,
                        String description,
                        String title )
    {
-      this.link = link;
       this.videoId = videoId;
       this.channelTitle = channelTitle;
       this.description = description;
       this.title = title;
    }
 
-   public void updateValues( String link,
-                             String videoId,
+   public void updateValues( String videoId,
                              String channelTitle,
                              String description,
                              String title )
    {
-      setLink( link );
       setVideoId( videoId );
       setChannelTitle( channelTitle );
       setDescription( description );

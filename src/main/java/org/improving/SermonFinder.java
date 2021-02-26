@@ -56,10 +56,7 @@ public class SermonFinder
       SearchResult firstResult = searchYouTube( String.format( "%s \"%s\"",
                                                                sermon.getPreacher(),
                                                                sermon.getTitle() ) );
-      sermon.setYouTubeInfo( new YouTubeInfo( "https://www.youtube.com/watch?v=" +
-                                              firstResult.getId()
-                                                         .getVideoId(),
-                                              firstResult.getId()
+      sermon.setYouTubeInfo( new YouTubeInfo( firstResult.getId()
                                                          .getVideoId(),
                                               firstResult.getSnippet()
                                                          .getChannelTitle(),

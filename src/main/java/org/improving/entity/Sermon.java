@@ -22,20 +22,18 @@ public class Sermon
 
    @Id
    @GeneratedValue( strategy = GenerationType.IDENTITY )
-   @Column( name = "Id", unique = true )
+   @Column( name = "id", unique = true )
    private int    id;
-   @Column( name = "Date" )
+   @Column( name = "date" )
    private String date;
-   @Column( name = "Title" )
+   @Column( name = "title" )
    private String title;
-   @Column( name = "Mp3" )
+   @Column( name = "mp3" )
    private String mp3;
-   @Column( name = "Preacher" )
+   @Column( name = "preacher" )
    private String preacher;
 
    @Embedded
-   @OneToOne( fetch = FetchType.EAGER, cascade = CascadeType.ALL )
-   @JoinColumn( name = "YouTubeInfoID" )
    private YouTubeInfo youTubeInfo;
 
    public Sermon()

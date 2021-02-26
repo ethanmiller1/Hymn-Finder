@@ -4,7 +4,7 @@
 
 To view JSON as parsed, download the [JSON Formatter](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa/related?hl=en) Chrome extension.
 
-* http://localhost:8080/api/sermons/list-all
+* [http://localhost:8080/api/sermons/list](http://localhost:8080/api/sermons/list)
 
 # Angular
 

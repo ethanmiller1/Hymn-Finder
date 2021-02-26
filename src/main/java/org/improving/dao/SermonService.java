@@ -159,17 +159,12 @@ public class SermonService
             sermon.setYouTubeInfo( youTubeInfo );
          }
          else
-            youTubeInfo = entityManager.find( YouTubeInfo.class,
-                                              sermon.getYouTubeInfo()
-                                                    .getId() );
+            youTubeInfo = sermon.getYouTubeInfo();
          SearchResult response = SermonFinder.searchYouTube( String.format( "\"%s\" %s",
                                                                             sermon.getTitle(),
                                                                             query ) );
 
-         youTubeInfo.updateValues( "https://www.youtube.com/watch?v=" +
-                                   response.getId()
-                                           .getVideoId(),
-                                   response.getId()
+         youTubeInfo.updateValues( response.getId()
                                            .getVideoId(),
                                    response.getSnippet()
                                            .getChannelTitle(),
