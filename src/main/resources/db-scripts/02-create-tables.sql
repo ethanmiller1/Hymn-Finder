@@ -1,41 +1,27 @@
 -- -----------------------------------------------------
--- Schema sermondb
+-- Schema unbound
 -- -----------------------------------------------------
-drop schema if exists sermondb;
+drop schema if exists unbound;
 
-go;
+create schema unbound;
 
-create schema sermondb;
-
-go;
-
-use sermondb;
+use unbound;
 
 -- -----------------------------------------------------
--- Table sermondb.youtubeinfo
+-- Table unbound.youtubeinfo
 -- -----------------------------------------------------
-create table if not exists youtubeinfo (
-    id int not null auto_increment primary key,
-    link varchar (255),
-    videoid varchar (255),
-    channeltitle varchar (255),
-    description varchar (255),
-    title varchar (255)
-);
 
 -- -----------------------------------------------------
--- Table sermondb.sermon
+-- Table unbound.sermon
 -- -----------------------------------------------------
 create table if not exists sermon (
     id int not null auto_increment primary key,
-    youtubeinfoid int,
-    date varchar (45),
-    title varchar (255),
-    mp3 varchar (255),
-    preacher varchar (255),
-    foreign key (youtubeinfoid) references youtubeinfo (id) on
-    update
-        restrict on
-    delete
-        restrict
+    title varchar (128),
+    preacher varchar (48),
+    mp3 varchar (64),
+    video_id varchar (12),
+    you_tube_title varchar (160),
+    channel_title varchar (64),
+    description varchar (255),
+    date varchar (24)
 );
