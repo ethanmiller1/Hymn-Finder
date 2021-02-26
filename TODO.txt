@@ -1,0 +1,10 @@
+REMAINING TASKS:
+
+(A) 2021-02-25 21:38 Retrieve nested JSON objects in Angular service
+(B) 2021-02-25 17:23 Show all sermons with JPA Repository
+(C) 2021-02-25 17:51 Add donate for 2021 with goal / contribution so far amount. Surplus is what it costs me to run the server. (see https://www.heliohost.org/)
+(C) 2021-02-25 18:00 Look into ExcelReader plugin to track time
+
+FINISHED TASKS (Alt+I to Insert Date String):
+
+x 2021-02-25 21:35 Get nested Entity from many-to-one relationship in Angular service

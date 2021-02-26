@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -32,7 +33,8 @@ public class Sermon
    @Column( name = "Preacher" )
    private String preacher;
 
-   @OneToOne( fetch = FetchType.LAZY, cascade = CascadeType.ALL )
+   @Embedded
+   @OneToOne( fetch = FetchType.EAGER, cascade = CascadeType.ALL )
    @JoinColumn( name = "YouTubeInfoID" )
    private YouTubeInfo youTubeInfo;
 

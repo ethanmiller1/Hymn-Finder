@@ -3,12 +3,14 @@ package org.improving.entity;
 import lombok.Data;
 
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@Embeddable
 @Entity
 @Table( name = "youtubeinfo" )
 @Data

@@ -1,3 +1,11 @@
+# Spring Boot
+
+## APIs
+
+To view JSON as parsed, download the [JSON Formatter](https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa/related?hl=en) Chrome extension.
+
+* http://localhost:8080/api/sermons/list-all
+
 # Angular
 
 ## Dependencies
@@ -164,6 +172,12 @@ git update-index --skip-worktree src/main/resources/client_secret.txt
 ## TODO: Upcominig Features
 
 * [Upload Media](https://github.com/googleapis/google-api-python-client/blob/master/docs/media.md)
+
+## Insert Date String in IntelliJ
+
+Install the [Current date generator](https://plugins.jetbrains.com/plugin/9722-current-date-generator) plugin, then 
+1. `settings > Other Settings` and insert `'(A) 'yyyy-MM-dd' 'HH:mm' '`
+1. `Settings > Keymap > Plug-ins > Current date generator`
 
 # Notes
 

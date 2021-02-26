@@ -130,3 +130,72 @@ Property 'id' has no initializer and is not definitely assigned in the construct
 #### Solution 2
 
 Disable "Strict Class Initialization".
+
+## JPA Repository only showing 20 records
+
+```log
+Property 'id' has no initializer and is not definitely assigned in the constructor.
+```
+
+#### Solution 1
+
+Use @Query
+
+#### Solution 2
+
+https://stackoverflow.com/questions/35174981/when-to-use-embedded-and-embeddable
+https://stackoverflow.com/questions/43841608/how-can-i-get-list-of-nested-objects-using-jparepository
+
+#### Solution 3
+
+Fix lazy load to make DB call. You Will need to create a DataService that autowires your repository
+https://stackoverflow.com/questions/52656517/no-serializer-found-for-class-org-hibernate-proxy-pojo-bytebuddy-bytebuddyinterc
+
+## Throw exception in Ternary condition
+
+https://stackoverflow.com/questions/30036183/throw-new-exception-in-ternary-condition
+
+#### Solution
+
+Create a method that returns List<Long> and throws an exception.
+
+```java
+private List<Long> throwRuntime() {
+    throw new RuntimeException();
+}
+```
+
+Then
+
+```Java
+return n < 0 ? throwRuntime() : list;
+```
+
+## No serializer found for class ByteBuddyInterceptor
+
+```log
+InvalidDefinitionException: No serializer found for class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor and no properties discovered to create BeanSerializer
+```
+
+#### Cause
+
+If entities are loaded lazily you get a proxy object until the object is [fully loaded](https://stackoverflow.com/questions/24994440/no-serializer-found-for-class-org-hibernate-proxy-pojo-javassist-javassist).
+The proxy object doesn't have the properties already loaded so when the serialization
+happens there are no properties to be [serialized yet](https://stackoverflow.com/questions/52656517/no-serializer-found-for-class-org-hibernate-proxy-pojo-bytebuddy-bytebuddyinterc).
+
+##### With Lazy Load
+
+![](https://i.ibb.co/28BR74X/image.png)
+
+##### With Eager Load
+
+![](https://i.ibb.co/Tk9mQsW/image.png)
+
+
+#### Solution 1: [Disable Lazy Loading](https://stackoverflow.com/questions/5479140/disable-lazy-loading-in-hibernate)
+
+Change `LAZY` to `EAGER`. This will tell Java to wait until the object is fully loaded before continuing down the stack.
+
+```java
+@OneToOne( fetch = FetchType.EAGER, cascade = CascadeType.ALL )
+```
