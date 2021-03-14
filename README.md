@@ -90,9 +90,10 @@ ng add _____
 * [studio-arte](https://www.studioarte.info/) - Project Selection
 * [sa-design](https://www.sa-design.co/projects/dinamica) - Cursor circle
 * [anywell-facial-bar](https://anywellfacialbar.com/) - Fixed Navbar
-* [the-sleepiest-app](https://www.sleepiest.com/) - App advertisement, Paralax
+* [the-sleepiest-app](https://www.sleepiest.com/) - App advertisement, Parallax
 * [baunfire](https://www.baunfire.com/) - Hamburger Menu
 * [fairer-tomorrow](https://fairertomorrow.stanford.edu/) - Music button, full screen, background
+* [vobla](https://www.vobla.com/expertise/) - card animations
 
 # Sermon Finder
 
@@ -154,7 +155,7 @@ create schema `sermondb` ;
 git update-index --skip-worktree src/main/resources/client_secret.txt
 ```
 
-## Documentation
+## YouTube API Documentation
 
 * [Google Python API Client](https://github.com/googleapis/google-api-python-client)
     * [YouTube Data API v3](http://googleapis.github.io/google-api-python-client/docs/dyn/youtube_v3.html)
@@ -168,6 +169,27 @@ git update-index --skip-worktree src/main/resources/client_secret.txt
 * [Python YouTube API Tutorial](https://www.youtube.com/watch?v=th5_9woFJmk)
 * [Hiding Passwords and Secret Keys in Environment Variables](https://www.youtube.com/watch?v=IolxqkL7cD8)
 * [Extract YouTube Video Details in Python](https://www.youtube.com/watch?v=i_5xPDX-erE)
+
+## Internet Archive API Documentation
+
+* [Developers](https://blog.archive.org/developers/)
+* [SearchAPI](https://archive.org/advancedsearch.php#raw)
+* [Embedding video](https://archive.readme.io/)
+* [Github](https://github.com/internetarchive/heritrix3.git)
+
+### Pastor Anderson's Complete YouTube Channel From Old To New 
+* [Part 1 of 11](https://archive.org/details/CompleteYouTubeChannelPart1of11)
+* [Part 2 of 11](https://archive.org/details/CompleteYouTubeChannelPart2of11)
+* [Part 3 of 11](https://archive.org/details/CompleteYouTubeChannelPart3of11/Pastor+Anderson's+Complete+Channel+Part+3+of+11/011++False+Prophets+are+Loved+of+this+World-GLUxLAy3E-U.mp4)
+* [Part 4 of 11](https://archive.org/details/CompleteYouTubeChannelPart4of11)
+* [Part 5 of 11](https://archive.org/details/CompleteYouTubeChannelPart5of11)
+* [Part 6 of 11](https://archive.org/details/CompleteYouTubeChannelPart6of11)
+* [Part 7 of 11](https://archive.org/details/CompleteYouTubeChannelPart7of11)
+* [Part 8 of 11](https://archive.org/details/CompleteYouTubeChannelPart8of11)
+* [Part 8.5 of 11](https://archive.org/details/CompleteYouTubeChannelPart8.5of11)
+* [Part 9 of 11](https://archive.org/details/CompleteYouTubeChannelPart9of11)
+* [Part 10 of 11](https://archive.org/details/CompleteYouTubeChannelPart10of11)
+* [Part 11 of 11](https://archive.org/details/CompleteYouTubeChannelPart11of11)
 
 ## TODO: Upcominig Features
 

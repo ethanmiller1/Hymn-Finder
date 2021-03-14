@@ -1,4 +1,4 @@
-package org.improving;
+package org.improving.client;
 
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.googleapis.json.GoogleJsonResponseException;

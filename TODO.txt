@@ -1,6 +1,7 @@
 REMAINING TASKS:
 
 (A) 2021-02-25 21:38 Retrieve nested JSON objects in Angular service
+(A) 2021-03-10 22:28 Add a web crawler to search for videos on archive.com
 (A) 2021-02-25 23:49 Prepend youtube link to video ids when serializing to java objects
 (B) 2021-02-25 23:41 Fix dao.SermonService and update tests for new db structure
 (B) 2021-02-25 17:23 Show all sermons with JPA Repository

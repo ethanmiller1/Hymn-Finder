@@ -32,6 +32,8 @@ public class Sermon
    private String mp3;
    @Column( name = "preacher" )
    private String preacher;
+   @Column( name = "archive_resource" )
+   private String archiveResource;
 
    @Embedded
    private YouTubeInfo youTubeInfo;

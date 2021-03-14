@@ -1,5 +1,6 @@
 package org.improving;
 
+import org.improving.client.HymnFinder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

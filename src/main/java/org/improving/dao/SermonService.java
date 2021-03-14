@@ -1,7 +1,7 @@
 package org.improving.dao;
 
 import com.google.api.services.youtube.model.SearchResult;
-import org.improving.SermonFinder;
+import org.improving.client.SermonFinder;
 import org.improving.entity.Sermon;
 import org.improving.entity.YouTubeInfo;
 import org.springframework.beans.factory.annotation.Autowired;

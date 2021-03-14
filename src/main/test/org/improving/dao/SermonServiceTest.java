@@ -1,6 +1,6 @@
 package org.improving.dao;
 
-import org.improving.SermonFinder;
+import org.improving.client.SermonFinder;
 import org.improving.entity.Sermon;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

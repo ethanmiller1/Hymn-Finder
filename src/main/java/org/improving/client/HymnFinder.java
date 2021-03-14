@@ -1,4 +1,4 @@
-package org.improving;
+package org.improving.client;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

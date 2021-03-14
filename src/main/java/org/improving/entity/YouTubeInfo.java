@@ -4,11 +4,6 @@ import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Embeddable
 @Data
@@ -48,5 +43,9 @@ public class YouTubeInfo
       setChannelTitle( channelTitle );
       setDescription( description );
       setTitle( title );
+   }
+
+   public String getLink() {
+      return String.format("https://www.youtube.com/watch?v=%s",videoId);
    }
 }

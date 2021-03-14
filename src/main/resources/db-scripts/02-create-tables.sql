@@ -23,5 +23,6 @@ create table if not exists sermon (
     you_tube_title varchar (160),
     channel_title varchar (64),
     description varchar (255),
-    date varchar (24)
+    date varchar (24),
+    archive_resource varchar (255)
 );
