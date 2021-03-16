@@ -82,6 +82,6 @@ class SermonFinderTest
                                              .filter( s -> s.getDate().matches( "^\\d*/\\d*/18.*$" ) )
                                              .collect( Collectors.toList() );
       for( Sermon sermon : sermons2018 )
-         System.out.println( SermonFinder.addYouTubeInfo( sermon ).getYouTubeInfo().getLink() );
+         System.out.println( sermon.getYouTubeInfo().getLink() );
    }
 }

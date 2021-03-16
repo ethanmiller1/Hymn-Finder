@@ -199,3 +199,40 @@ Change `LAZY` to `EAGER`. This will tell Java to wait until the object is fully 
 ```java
 @OneToOne( fetch = FetchType.EAGER, cascade = CascadeType.ALL )
 ```
+
+## TransactionRequiredException: Executing an update/delete query
+
+```log
+org.springframework.dao.InvalidDataAccessApiUsageException: Executing an update/delete query; nested exception is javax.persistence.TransactionRequiredException: Executing an update/delete query
+```
+
+#### Cause
+
+In order to commit a change to the database, you must open a transaction with:
+
+```aidl
+UserTransaction utx = entityManager.getTransaction(); 
+
+try { 
+    utx.begin(); 
+    businessLogic();
+    utx.commit(); 
+} catch(Exception ex) { 
+    utx.rollback(); 
+    throw ex; 
+} 
+```
+
+A transaction is one or more SQL statements that are committed or rolled back as a single unit. If no transaction is opened on the entity manager, JPA cannot commit the changes.
+
+
+#### Solution: [@Transactional](https://stackoverflow.com/questions/25821579/transactionrequiredexception-executing-an-update-delete-query)
+
+Add `@Transactional` on the query method.
+
+```java
+@Transactional
+@Modifying
+@Query("update Sermon sermon set sermon.archiveResource = :archiveResource where sermon.id = :id")
+void updateArchiveResourceById( @Param("id") int id, @Param("archiveResource") String archiveResource);
+```

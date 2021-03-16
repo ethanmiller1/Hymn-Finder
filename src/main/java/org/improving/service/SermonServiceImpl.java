@@ -37,6 +37,15 @@ public class SermonServiceImpl implements SermonService {
         sermonRepository.deleteById(id);
     }
 
+    public void updateArchiveResourceById(int id, String link) {
+        sermonRepository.updateArchiveResourceById(id, link);
+//        Sermon sermon = findById(id);
+//        sermon.setArchiveResource(link);
+//        sermonRepository.save(sermon);
+    }
+
+
+
     private Sermon throwRuntime(int id) {
         throw new RuntimeException("Did not find sermon id - " + id);
     }

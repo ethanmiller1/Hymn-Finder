@@ -1,2 +1,2 @@
-ALTER TABLE unbound.
-    ADD column_name datatype;
+ALTER TABLE sermon
+    ADD archive_resource VARCHAR(255);

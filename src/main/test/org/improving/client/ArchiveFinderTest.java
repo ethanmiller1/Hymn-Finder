@@ -1,16 +1,34 @@
 package org.improving.client;
 
 import org.improving.entity.ArchiveResource;
+import org.improving.entity.Sermon;
+import org.improving.service.SermonServiceImpl;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest( webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT )
 class ArchiveFinderTest {
 
-    ArchiveFinder archiveFinder = new ArchiveFinder();
+    private ArchiveFinder archiveFinder;
+    private SermonFinder sermonFinder;
+
+    @Autowired
+    private SermonServiceImpl sermonRepository;
+
+    @BeforeEach
+    void setUp()
+    {
+        archiveFinder = new ArchiveFinder();
+        sermonFinder = new SermonFinder();
+    }
 
     private enum channel {
         PART1("https://archive.org/download/CompleteYouTubeChannelPart1of11/Pastor%20Anderson%27s%20Complete%20Channel%20Part%201%20of%2011/"),
@@ -37,5 +55,30 @@ class ArchiveFinderTest {
     public void findVideoReturnsVideo() throws IOException {
         List<ArchiveResource> resource = archiveFinder.retrieveVideosFromFilesPage(channel.PART1.url);
         assertEquals("001 'Church' is NOT a building!-dLmK4S6pMYI.mp4", resource.get(0).getTitle());
+    }
+
+    @Test
+    public void updateArchiveResourceByIdSetsNewLink() throws IOException {
+        sermonRepository.updateArchiveResourceById(1, "Test1");
+        assertEquals("Test1", sermonRepository.findById(1).getArchiveResource());
+    }
+
+    @Test
+    public void findAllVideos() throws IOException {
+
+        List<ArchiveResource> resources = new ArrayList<>();
+
+        for( channel part : channel.values())
+            resources.addAll(archiveFinder.retrieveVideosFromFilesPage(part.url));
+        List<Sermon> dbSermons = sermonFinder.findAllSermons();
+
+        for (Sermon dbSermon : dbSermons)
+            for (ArchiveResource resource : resources)
+                if (resource.getTitle().contains(dbSermon.getTitle()))
+                    sermonRepository.updateArchiveResourceById(dbSermon.getId(), resource.getLink());
+
+
+
+        assertEquals("001 'Church' is NOT a building!-dLmK4S6pMYI.mp4", resources.get(0).getTitle());
     }
 }

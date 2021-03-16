@@ -24,6 +24,7 @@ export class SermonListComponent implements OnInit {
           this.sermons = data;
         }
       );
+    console.log(this.sermons);
   }
 
 }
