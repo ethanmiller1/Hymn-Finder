@@ -68,18 +68,18 @@ public class FaithfulWordCrawler
    }
 
    public static YouTubeInfo getYouTubeInfo( String query )
-           throws GeneralSecurityException,
-           IOException
+      throws GeneralSecurityException,
+      IOException
    {
       SearchResult firstResult = searchYouTube( query );
       return new YouTubeInfo( firstResult.getId()
-              .getVideoId(),
-              firstResult.getSnippet()
-                      .getChannelTitle(),
-              firstResult.getSnippet()
-                      .getDescription(),
-              firstResult.getSnippet()
-                      .getTitle() );
+                                         .getVideoId(),
+                              firstResult.getSnippet()
+                                         .getChannelTitle(),
+                              firstResult.getSnippet()
+                                         .getDescription(),
+                              firstResult.getSnippet()
+                                         .getTitle() );
    }
 
    public static SearchResult searchYouTube( String query )

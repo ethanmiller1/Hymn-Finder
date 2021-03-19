@@ -10,24 +10,27 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 @Configuration
-@ConfigurationProperties(prefix = "webapp")
+@ConfigurationProperties( prefix = "webapp" )
 @Data
-public class WebConfig {
+public class WebConfig
+{
 
-    private String url;
+   private String url;
 
-    @Bean
-    public FilterRegistrationBean<CorsFilter> corsFilter() {
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        CorsConfiguration config = new CorsConfiguration();
-        config.setAllowCredentials(true);
-        config.addAllowedOrigin(url);
-        config.addAllowedHeader("*");
-        config.addAllowedMethod("*");
-        source.registerCorsConfiguration("/**", config);
-        FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter(source));
-        bean.setOrder(0);
-        return bean;
-    }
+   @Bean
+   public FilterRegistrationBean< CorsFilter > corsFilter()
+   {
+      UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+      CorsConfiguration config = new CorsConfiguration();
+      config.setAllowCredentials( true );
+      config.addAllowedOrigin( url );
+      config.addAllowedHeader( "*" );
+      config.addAllowedMethod( "*" );
+      source.registerCorsConfiguration( "/**",
+                                        config );
+      FilterRegistrationBean< CorsFilter > bean = new FilterRegistrationBean<>( new CorsFilter( source ) );
+      bean.setOrder( 0 );
+      return bean;
+   }
 
 }

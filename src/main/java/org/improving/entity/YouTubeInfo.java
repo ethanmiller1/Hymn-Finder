@@ -11,13 +11,13 @@ public class YouTubeInfo
 {
 
    @Column( name = "video_id" )
-   String      videoId;
+   String videoId;
    @Column( name = "channel_title" )
-   String      channelTitle;
+   String channelTitle;
    @Column( name = "description" )
-   String      description;
+   String description;
    @Column( name = "you_tube_title" )
-   String      title;
+   String title;
 
    public YouTubeInfo()
    {
@@ -45,7 +45,9 @@ public class YouTubeInfo
       setTitle( title );
    }
 
-   public String getLink() {
-      return String.format("https://www.youtube.com/watch?v=%s",videoId);
+   public String getLink()
+   {
+      return String.format( "https://www.youtube.com/watch?v=%s",
+                            videoId );
    }
 }

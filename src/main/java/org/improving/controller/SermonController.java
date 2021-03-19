@@ -10,18 +10,21 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/sermons")
-public class SermonController {
+@RequestMapping( "/api/sermons" )
+public class SermonController
+{
 
-    private SermonService sermonService;
+   private SermonService sermonService;
 
-    @Autowired
-    public SermonController(SermonService sermonService) {
-        this.sermonService = sermonService;
-    }
+   @Autowired
+   public SermonController( SermonService sermonService )
+   {
+      this.sermonService = sermonService;
+   }
 
-    @GetMapping("/list")
-    public List<Sermon> findAll() {
-        return sermonService.findAll();
-    }
+   @GetMapping( "/list" )
+   public List< Sermon > findAll()
+   {
+      return sermonService.findAll();
+   }
 }

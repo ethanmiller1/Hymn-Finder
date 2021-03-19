@@ -21,7 +21,7 @@ public class Sermon
    @Id
    @GeneratedValue( strategy = GenerationType.IDENTITY )
    @Column( name = "id", unique = true )
-   private long    id;
+   private long   id;
    @Column( name = "date" )
    private String date;
    @Column( name = "title" )
