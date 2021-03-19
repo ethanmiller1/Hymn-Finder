@@ -2,6 +2,7 @@ package org.improving.client;
 
 import org.improving.entity.ArchiveResource;
 import org.improving.entity.Sermon;
+import org.improving.service.SermonService;
 import org.improving.service.SermonServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,7 +19,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class ArchiveFinderTest {
 
     private ArchiveFinder archiveFinder;
-    private SermonFinder sermonFinder;
+
+    @Autowired
+    private SermonService sermonService;
 
     @Autowired
     private SermonServiceImpl sermonRepository;
@@ -27,7 +30,6 @@ class ArchiveFinderTest {
     void setUp()
     {
         archiveFinder = new ArchiveFinder();
-        sermonFinder = new SermonFinder();
     }
 
     private enum channel {
@@ -59,8 +61,9 @@ class ArchiveFinderTest {
 
     @Test
     public void updateArchiveResourceByIdSetsNewLink() throws IOException {
-        sermonRepository.updateArchiveResourceById(1, "Test1");
-        assertEquals("Test1", sermonRepository.findById(1).getArchiveResource());
+        String newValue = "Teest1";
+        sermonRepository.updateArchiveResourceById(1, newValue);
+        assertEquals(newValue, sermonRepository.findById(1).getArchiveResource());
     }
 
     @Test
@@ -70,7 +73,7 @@ class ArchiveFinderTest {
 
         for( channel part : channel.values())
             resources.addAll(archiveFinder.retrieveVideosFromFilesPage(part.url));
-        List<Sermon> dbSermons = sermonFinder.findAllSermons();
+        List<Sermon> dbSermons = sermonRepository.findAll();
 
         for (Sermon dbSermon : dbSermons)
             for (ArchiveResource resource : resources)

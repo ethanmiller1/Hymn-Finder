@@ -236,3 +236,53 @@ Add `@Transactional` on the query method.
 @Query("update Sermon sermon set sermon.archiveResource = :archiveResource where sermon.id = :id")
 void updateArchiveResourceById( @Param("id") int id, @Param("archiveResource") String archiveResource);
 ```
+
+## Null database IDs
+
+I'm seeing an issue with hibernate serialization where my id for every entry is 0.
+I have strategy set to GenerationType.IDENTITY but ids are still not being mapped
+from the database.
+
+![](https://i.ibb.co/6y3C6nP/image.png)
+
+#### Cause
+
+Hibernate is not the only ORM capable of serializing data into objects.
+In this case, the `findAllSermons()` method is actually using JSOUP to
+serialize HTML tags into Sermon objects. The method doesn't include 
+database IDs because they're not coming from a database.
+
+#### Solution:
+
+Use the correct `findAll()` method from Hibernate to access the database.
+
+## DataIntegrityViolationException: could not execute statement; SQL [n/a]
+
+```aidl
+org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.DataException: could not execute statement
+```
+
+#### Cause
+
+The rows where this value is NULL do contribute to space overhead.
+
+Every column in a table takes up the number of bytes allocated whether it's empty or occupied.
+SQL can only insert data into a field if it conforms to the data restrictions defined in the table.
+
+In this case, `archive_resource VARCHAR(255)` was setup to allow only 255 characters. Even though
+the data being passed into it conforms to the datatype required, it exceeds the character limit.
+
+#### Solution:
+
+Alter the column to be capable of storing more characters.
+This will not affect space overhead where characters are not actually being stored,
+since `VARCHAR` is by definition variable-length (opposed to `CHAR`).
+
+```sql
+ALTER TABLE unbound.sermon
+MODIFY archive_resource VARCHAR(500);
+```
+
+See:
+* [Does an empty column value occupy same storage space as a filled column value?](https://dba.stackexchange.com/questions/109210/does-an-empty-column-value-occupy-same-storage-space-as-a-filled-column-value)
+* [Do empty columns take up space in a table?](https://dba.stackexchange.com/questions/11664/do-empty-columns-take-up-space-in-a-table)

@@ -2,6 +2,7 @@ package org.improving.service;
 
 import org.improving.dao.SermonRepository;
 import org.improving.entity.Sermon;
+import org.improving.entity.YouTubeInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,12 @@ public class SermonServiceImpl implements SermonService {
     }
 
     @Override
+    public void addSermon(Sermon sermon) {
+        if(sermonRepository.findMatchingSermon(sermon).isEmpty())
+            save(sermon);
+    }
+
+    @Override
     public List<Sermon> findAll() {
         return sermonRepository.findAll();
     }
@@ -25,6 +32,18 @@ public class SermonServiceImpl implements SermonService {
     @Override
     public Sermon findById(long id) {
         return sermonRepository.findById(id).orElseGet(() -> throwRuntime(id));
+    }
+
+    @Override
+    public Sermon findByTitle(String title) {
+        return sermonRepository.findByTitle(title);
+    }
+
+    @Override
+    public void updateYouTubeInfoById(YouTubeInfo youTubeInfo, long id) {
+        Sermon sermon = findById(id);
+        sermon.setYouTubeInfo(youTubeInfo);
+        save(sermon);
     }
 
     @Override
