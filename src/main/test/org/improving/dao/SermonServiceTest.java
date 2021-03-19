@@ -1,6 +1,6 @@
 package org.improving.dao;
 
-import org.improving.client.SermonFinder;
+import org.improving.client.FaithfulWordCrawler;
 import org.improving.entity.Sermon;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.improving.client.SermonFinder.getYouTubeInfo;
+import static org.improving.client.FaithfulWordCrawler.getYouTubeInfo;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest( webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT )
@@ -23,24 +23,24 @@ class SermonServiceTest
    @Autowired
    org.improving.service.SermonService sermonService;
 
-   private SermonFinder sermonFinder;
+   private FaithfulWordCrawler faithfulWordCrawler;
 
    @BeforeEach
    void setUp()
    {
-      sermonFinder = new SermonFinder();
+      faithfulWordCrawler = new FaithfulWordCrawler();
    }
 
    @Test
    void addSermon()
          throws IOException, GeneralSecurityException
    {
-      List<Sermon> sermons2018 = sermonFinder.findAllSermons()
+      List<Sermon> sermons2018 = faithfulWordCrawler.findAllSermons()
                                              .stream()
                                              .filter( s -> s.getDate().matches( "^\\d*/\\d*/18.*$" ) )
                                              .collect( Collectors.toList() );
 
-      sermonService.addSermon( SermonFinder.addYouTubeInfo( sermons2018.get( 0 ) ) );
+      sermonService.addSermon( FaithfulWordCrawler.addYouTubeInfo( sermons2018.get( 0 ) ) );
    }
 
    @Test
@@ -54,7 +54,7 @@ class SermonServiceTest
       int expected = dbSermons.size();
 
       // Act
-      sermonService.addSermon( SermonFinder.addYouTubeInfo( sermon ) );
+      sermonService.addSermon( FaithfulWordCrawler.addYouTubeInfo( sermon ) );
 
       // Assert
       assertEquals( expected, dbSermons.size() );
@@ -80,7 +80,7 @@ class SermonServiceTest
    void add100Sermons()
          throws IOException
    {
-      List<Sermon> sermons2018 = sermonFinder.findAllSermons()
+      List<Sermon> sermons2018 = faithfulWordCrawler.findAllSermons()
                                              .stream()
                                              .filter( s -> s.getDate().matches( "^\\d*/\\d*/06.*$" ) )
                                              .collect( Collectors.toList() );

@@ -23,7 +23,7 @@ import java.util.NoSuchElementException;
 
 import static org.improving.utility.FileUtil.getKeys;
 
-public class SermonFinder
+public class FaithfulWordCrawler
 {
 
    private static final String               APPLICATION_NAME  = "API code samples";

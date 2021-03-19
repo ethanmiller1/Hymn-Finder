@@ -83,7 +83,7 @@ Specify [multiple Java versions](https://stackoverflow.com/questions/2503658/spe
 ```log
 Error:(145, 7) java: cannot find symbol
   symbol:   class var
-  location: class org.improving.client.HymnFinder
+  location: class org.improving.client.HymnaryCrawler
 ```
 
 #### Solution

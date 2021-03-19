@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ArchiveFinder {
+public class ArchiveCrawler {
 
     public List<ArchiveResource> retrieveVideosFromFilesPage(String url) throws IOException {
         Document doc = Jsoup.connect( url )

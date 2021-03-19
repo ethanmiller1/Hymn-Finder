@@ -16,9 +16,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest( webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT )
-class ArchiveFinderTest {
+class ArchiveCrawlerTest {
 
-    private ArchiveFinder archiveFinder;
+    private ArchiveCrawler archiveCrawler;
 
     @Autowired
     private SermonService sermonService;
@@ -29,7 +29,7 @@ class ArchiveFinderTest {
     @BeforeEach
     void setUp()
     {
-        archiveFinder = new ArchiveFinder();
+        archiveCrawler = new ArchiveCrawler();
     }
 
     private enum channel {
@@ -55,7 +55,7 @@ class ArchiveFinderTest {
 
     @Test
     public void findVideoReturnsVideo() throws IOException {
-        List<ArchiveResource> resource = archiveFinder.retrieveVideosFromFilesPage(channel.PART1.url);
+        List<ArchiveResource> resource = archiveCrawler.retrieveVideosFromFilesPage(channel.PART1.url);
         assertEquals("001 'Church' is NOT a building!-dLmK4S6pMYI.mp4", resource.get(0).getTitle());
     }
 
@@ -72,7 +72,7 @@ class ArchiveFinderTest {
         List<ArchiveResource> resources = new ArrayList<>();
 
         for( channel part : channel.values())
-            resources.addAll(archiveFinder.retrieveVideosFromFilesPage(part.url));
+            resources.addAll(archiveCrawler.retrieveVideosFromFilesPage(part.url));
         List<Sermon> dbSermons = sermonRepository.findAll();
 
         for (Sermon dbSermon : dbSermons)

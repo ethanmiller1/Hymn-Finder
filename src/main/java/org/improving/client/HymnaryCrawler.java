@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
-public class HymnFinder
+public class HymnaryCrawler
 {
 
    static public final List< String > SEARCHES  = Arrays.asList( "Caught Up Together",

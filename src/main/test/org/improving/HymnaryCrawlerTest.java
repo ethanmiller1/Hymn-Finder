@@ -1,6 +1,6 @@
 package org.improving;
 
-import org.improving.client.HymnFinder;
+import org.improving.client.HymnaryCrawler;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,16 +9,16 @@ import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class HymnFinderTest
+class HymnaryCrawlerTest
 {
 
-   HymnFinder hymnFinder;
+   HymnaryCrawler hymnaryCrawler;
 
    @BeforeEach
    void setup()
    {
       // Arrange
-      hymnFinder = new HymnFinder();
+      hymnaryCrawler = new HymnaryCrawler();
    }
 
    @Test
@@ -26,7 +26,7 @@ class HymnFinderTest
          throws IOException
    {
       // Acts
-      var hymn = hymnFinder.getStanzas( "Wonderful Peace" );
+      var hymn = hymnaryCrawler.getStanzas( "Wonderful Peace" );
       System.out.println( hymn );
 
       //Assert
@@ -38,7 +38,7 @@ class HymnFinderTest
          throws IOException
    {
       // Acts
-      var hymn = hymnFinder.getStanzas( "Yesterday, Today, Forever" );
+      var hymn = hymnaryCrawler.getStanzas( "Yesterday, Today, Forever" );
       System.out.println( hymn );
 
       //Assert
@@ -51,7 +51,7 @@ class HymnFinderTest
          throws IOException
    {
       // Acts
-      var hymn = hymnFinder.getStanzas( "Go Tell it on the Mountain\n" );
+      var hymn = hymnaryCrawler.getStanzas( "Go Tell it on the Mountain\n" );
       System.out.println( hymn );
 
       //Assert
@@ -63,7 +63,7 @@ class HymnFinderTest
          throws IOException
    {
       // Acts
-      var hymn = hymnFinder.getStanzas( "Master, the Tempest is Raging" );
+      var hymn = hymnaryCrawler.getStanzas( "Master, the Tempest is Raging" );
       System.out.println( hymn );
 
       //Assert
@@ -76,7 +76,7 @@ class HymnFinderTest
          throws IOException
    {
       // Acts
-      var hymn = hymnFinder.getStanzas( "Master, the Tempest is Raging" );
+      var hymn = hymnaryCrawler.getStanzas( "Master, the Tempest is Raging" );
       System.out.println( hymn );
 
       //Assert
@@ -88,7 +88,7 @@ class HymnFinderTest
          throws IOException
    {
       // Acts
-      var hymn = hymnFinder.getStanzas( "Jesus Loves the Little Children" );
+      var hymn = hymnaryCrawler.getStanzas( "Jesus Loves the Little Children" );
       System.out.println( hymn );
 
       //Assert
@@ -100,7 +100,7 @@ class HymnFinderTest
          throws IOException
    {
       // Acts
-      var hymn = hymnFinder.getStanzas( "Singing I Go" );
+      var hymn = hymnaryCrawler.getStanzas( "Singing I Go" );
       System.out.println( hymn );
 
       //Assert
@@ -112,10 +112,10 @@ class HymnFinderTest
          throws IOException
    {
       // Arrange
-      var searches = HymnFinder.SEARCHES.stream().limit( 5 ).collect( Collectors.toList() );
+      var searches = HymnaryCrawler.SEARCHES.stream().limit( 5 ).collect( Collectors.toList() );
 
       // Act
-      var hymns = hymnFinder.getMultipleHymns( searches );
+      var hymns = hymnaryCrawler.getMultipleHymns( searches );
 
       System.out.println( "\n" );
       var sb = new StringBuilder();
@@ -134,7 +134,7 @@ class HymnFinderTest
          throws IOException
    {
       // Acts
-      var author = hymnFinder.getAuthor( "Wonderful Peace" );
+      var author = hymnaryCrawler.getAuthor( "Wonderful Peace" );
 
       //Assert
       assertEquals( "W. D. Cornell", author );
@@ -145,10 +145,10 @@ class HymnFinderTest
          throws IOException
    {
       // Arrange
-      var searches = HymnFinder.SEARCHES.stream().limit( 5 ).collect( Collectors.toList() );
+      var searches = HymnaryCrawler.SEARCHES.stream().limit( 5 ).collect( Collectors.toList() );
 
       // Act
-      var hymns = hymnFinder.getMultipleAuthors( searches );
+      var hymns = hymnaryCrawler.getMultipleAuthors( searches );
 
       System.out.println( "\n" );
       var sb = new StringBuilder();

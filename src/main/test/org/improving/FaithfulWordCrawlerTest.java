@@ -1,6 +1,6 @@
 package org.improving;
 
-import org.improving.client.SermonFinder;
+import org.improving.client.FaithfulWordCrawler;
 import org.improving.entity.Sermon;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,22 +12,22 @@ import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class SermonFinderTest
+class FaithfulWordCrawlerTest
 {
 
-   private SermonFinder sermonFinder;
+   private FaithfulWordCrawler faithfulWordCrawler;
 
    @BeforeEach
    void setUp()
    {
-      sermonFinder = new SermonFinder();
+      faithfulWordCrawler = new FaithfulWordCrawler();
    }
 
    @Test
    void findAllSermons()
          throws IOException
    {
-      List<Sermon> sermons2018 = sermonFinder.findAllSermons().stream().filter( s -> {
+      List<Sermon> sermons2018 = faithfulWordCrawler.findAllSermons().stream().filter(s -> {
          System.out.println( s.toString() );
          return s.getDate().matches( "^\\d*/\\d*/18.*$" );
       } ).collect( Collectors.toList() );
@@ -42,7 +42,7 @@ class SermonFinderTest
    {
       Sermon sermon =
             new Sermon( "12/30/18, Sun PM", "The Rapture in Thessalonians", ".com", "Pastor Anderson" );
-      Sermon updatedSermon = SermonFinder.addYouTubeInfo( sermon );
+      Sermon updatedSermon = FaithfulWordCrawler.addYouTubeInfo( sermon );
       String result = updatedSermon.getYouTubeInfo().getLink();
       System.out.println( result );
       assertEquals( "https://www.youtube.com/watch?v=Cb1rO6ojwtw", result );
@@ -52,7 +52,7 @@ class SermonFinderTest
    void buildPlaylist()
          throws IOException, GeneralSecurityException
    {
-      List<Sermon> sermons2018 = sermonFinder.findAllSermons().stream().filter( s -> {
+      List<Sermon> sermons2018 = faithfulWordCrawler.findAllSermons().stream().filter(s -> {
          System.out.println( s.toString() );
          return s.getDate().matches( "^\\d*/\\d*/18.*$" );
       } ).collect( Collectors.toList() ).subList( 0, 5 );
@@ -61,8 +61,8 @@ class SermonFinderTest
       sb.append( "http://www.youtube.com/watch_videos?video_ids=" );
       for( Sermon sermon : sermons2018 )
       {
-         sb.append( SermonFinder.addYouTubeInfo( sermon ).getYouTubeInfo().getVideoId() + "," );
-         System.out.println( SermonFinder.addYouTubeInfo( sermon ).getYouTubeInfo().getVideoId() );
+         sb.append( FaithfulWordCrawler.addYouTubeInfo( sermon ).getYouTubeInfo().getVideoId() + "," );
+         System.out.println( FaithfulWordCrawler.addYouTubeInfo( sermon ).getYouTubeInfo().getVideoId() );
       }
 
       String result = sb.toString();
@@ -77,7 +77,7 @@ class SermonFinderTest
    void listUrls()
          throws IOException, GeneralSecurityException
    {
-      List<Sermon> sermons2018 = sermonFinder.findAllSermons()
+      List<Sermon> sermons2018 = faithfulWordCrawler.findAllSermons()
                                              .stream()
                                              .filter( s -> s.getDate().matches( "^\\d*/\\d*/18.*$" ) )
                                              .collect( Collectors.toList() );
