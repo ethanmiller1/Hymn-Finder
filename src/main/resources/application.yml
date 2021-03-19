@@ -1,3 +1,6 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: Unbound Preaching
@@ -22,9 +25,19 @@ spring:
   data:
     rest:
       base-path: /api
+webapp.url: http://localhost:4200
 
-server:
-  port: 8080
+
+---
+spring:
+  config.activate.on-profile: prod
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: bvhb7i3juenx2w11
+    password: dx5m2uqq4aygv6lz
+  jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+webapp.url: https://emiller-ecommerce.herokuapp.com/
+---
 
 #logging:
 #  level:

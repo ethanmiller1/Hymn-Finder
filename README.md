@@ -6,6 +6,43 @@ To view JSON as parsed, download the [JSON Formatter](https://chrome.google.com/
 
 * [http://localhost:8080/api/sermons/list](http://localhost:8080/api/sermons/list)
 
+## Deploy to Heroku
+
+### 1. Connect to JawsDB
+
+* [Add JawsDB (MySQL) Hosted on Heroku](https://youtu.be/ZIYqFl6DOGQ?t=481)
+
+1. From the Heroku Dashboard, navigate to `Resources` > `Find more add-ons`.
+1. Setup a remote connection in MySQL Workbench.
+
+![](https://i.ibb.co/BgrhJrG/image.png)
+
+3. Run db_scripts in the new database.
+
+### 1. Use environment variables
+
+#### Java
+
+1. Add a `FilterRegistrationBean` to `WebConfig.java` for Angular to circumvent CORS.
+1. Add a prod spring profile in `application.yml` with Username and Password from JawsDB.
+   (The Connection String will be automatically set in the `JAWSDB_URL` Environment Variable in Heroku.)
+1. Create Procfile (for maven): `web: java $JAVA_OPTS -Dserver.port=$PORT -jar target/*.jar` in the project root.
+
+#### Angular
+
+3. Add `baseUrl: 'http://localhost:8080/'` to `environment.ts'`.
+1. Add `baseUrl: 'https://unboundpreaching.herokuapp.com/'` to `environment.prod.ts`.
+1. Change all services to use `environment.baseUrl`.
+1. Change `outputPath` in `angular.json` to `"outputPath": "../src/main/resources/static",`
+1. Run `ng build --prod`.
+
+#### Heroku Settings
+
+1. Navigate to `Settings` > `Reveal Config Vars` and change `SPRING_PROFILES_ACTIVE` to `prod`.
+1. Enable dyno formation under `Resources` after deployment.
+
+![](https://i.ibb.co/0FXM9TQ/image.png)
+
 # Angular
 
 ## Dependencies
