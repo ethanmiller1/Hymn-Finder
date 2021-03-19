@@ -8,10 +8,10 @@ public interface SermonService {
 
     List<Sermon> findAll();
 
-    Sermon findById(int theId);
+    Sermon findById(long theId);
 
     void save(Sermon theSermon);
 
-    void deleteById(int theId);
+    void deleteById(long theId);
 
 }

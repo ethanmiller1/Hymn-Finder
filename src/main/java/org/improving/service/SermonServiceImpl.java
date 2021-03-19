@@ -23,7 +23,7 @@ public class SermonServiceImpl implements SermonService {
     }
 
     @Override
-    public Sermon findById(int id) {
+    public Sermon findById(long id) {
         return sermonRepository.findById(id).orElseGet(() -> throwRuntime(id));
     }
 
@@ -33,11 +33,11 @@ public class SermonServiceImpl implements SermonService {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(long id) {
         sermonRepository.deleteById(id);
     }
 
-    public void updateArchiveResourceById(int id, String link) {
+    public void updateArchiveResourceById(long id, String link) {
         sermonRepository.updateArchiveResourceById(id, link);
 //        Sermon sermon = findById(id);
 //        sermon.setArchiveResource(link);
@@ -46,7 +46,7 @@ public class SermonServiceImpl implements SermonService {
 
 
 
-    private Sermon throwRuntime(int id) {
+    private Sermon throwRuntime(long id) {
         throw new RuntimeException("Did not find sermon id - " + id);
     }
 }
