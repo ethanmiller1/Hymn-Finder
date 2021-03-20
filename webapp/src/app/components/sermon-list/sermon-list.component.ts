@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {SermonService} from "../../services/sermon.service";
-import {Sermon} from "../../common/sermon";
+import {SermonService} from '../../services/sermon.service';
+import {Sermon} from '../../model/sermon';
 
 @Component({
   selector: 'app-sermon-list',

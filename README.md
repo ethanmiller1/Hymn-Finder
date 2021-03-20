@@ -90,7 +90,7 @@ $ CSS
 1. Change favicon
 
 ```bash
-ng generate class common/sermon
+ng generate class model/sermon
 ng generate component components/sermon-list 
 ng generate service services/sermon
 ```

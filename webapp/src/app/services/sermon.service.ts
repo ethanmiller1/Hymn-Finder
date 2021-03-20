@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Sermon} from '../common/sermon';
+import {Sermon} from '../model/sermon';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 
