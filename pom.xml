@@ -125,6 +125,7 @@
                     <skipJsFormatting>true</skipJsFormatting>
                     <skipJsonFormatting>true</skipJsonFormatting>
                     <skipXmlFormatting>true</skipXmlFormatting>
+                    <skip>true</skip>
                 </configuration>
                 <executions>
                     <execution>
