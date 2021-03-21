@@ -6,6 +6,10 @@ import {RouterModule, Routes} from "@angular/router";
 import { SermonListComponent } from './components/sermon-list/sermon-list.component';
 import {HttpClientModule} from "@angular/common/http";
 import {SermonService} from "./services/sermon.service";
+import { HeaderComponent } from './components/video-page/header/header.component';
+import { NavComponent } from './components/video-page/nav/nav.component';
+import { ContentComponent } from './components/video-page/content/content.component';
+import { MainBannerComponent } from './components/video-page/main-banner/main-banner.component';
 
 const routes: Routes = [
   {path: 'sermons', component: SermonListComponent},
@@ -16,7 +20,11 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    SermonListComponent
+    SermonListComponent,
+    HeaderComponent,
+    NavComponent,
+    ContentComponent,
+    MainBannerComponent
   ],
     imports: [
         RouterModule.forRoot(routes),

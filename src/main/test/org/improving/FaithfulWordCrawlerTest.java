@@ -43,7 +43,7 @@ class FaithfulWordCrawlerTest
       Sermon sermon =
             new Sermon( "12/30/18, Sun PM", "The Rapture in Thessalonians", ".com", "Pastor Anderson" );
       Sermon updatedSermon = FaithfulWordCrawler.addYouTubeInfo( sermon );
-      String result = updatedSermon.getYouTubeInfo().getLink();
+      String result = updatedSermon.getYouTubeInfo().getVideoId();
       System.out.println( result );
       assertEquals( "https://www.youtube.com/watch?v=Cb1rO6ojwtw", result );
    }
@@ -82,6 +82,6 @@ class FaithfulWordCrawlerTest
                                              .filter( s -> s.getDate().matches( "^\\d*/\\d*/18.*$" ) )
                                              .collect( Collectors.toList() );
       for( Sermon sermon : sermons2018 )
-         System.out.println( sermon.getYouTubeInfo().getLink() );
+         System.out.println( sermon.getYouTubeInfo().getVideoId() );
    }
 }

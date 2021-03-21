@@ -1,0 +1,62 @@
+/* CSS DIRECTORY
+	1. =GLOBAL
+    1.1 Variables
+    1.2 Resets (override default user agent styles)
+	2. =PRIMARY
+    2.1 Primary (body, html, primary divs)
+    2.2 Secondary (header, sidebar, footer)
+    2.3 Tertiary (nav, aside, section, article, floats, etc.)
+    2.4 Text-related treatments (h1, h2, p, ul, ol, li)
+    2.5 Salient features (a, svg, button, label, input)
+  3. =GENERIC CLASSES
+    3.1 Positioning (.left, .right, .centered, etc.)
+    3.2 Colors
+    3.3 Styles (.cursor-pointer, .text-decoration-none, etc.)
+  4. =IMPORTS
+    4.1 Header Fonts
+    4.2 Paragraph Fonts
+    4.3 Icon Fonts
+	5. =MAIN CONTENT
+    5.1 Layout (.main-nav, .user-dropdown, .subway-tracks)
+    5.2 Login
+    5.3 Register
+    5.4 Add Article
+    5.5 Article
+    5.6 Profile
+    5.7 Edit User
+    5.8 Sermon
+    5.9 Modals
+    5.10 Articles
+    5.11 Landing Page (Home)
+
+*/
+
+/* DARK MODE COLORS
+  - main background    #21201f
+  - sidebar background #302f2e
+  - nav background     #dad7e7
+*/
+
+/* COLORS
+	- default body text  #ffffcc
+	- subtitle h2 text   #ff9900
+	- form input borders #cc9933
+	- default p text     #f0f0f0
+	- pre borders        #ffff99
+*/
+
+/* FONTS
+	- default body text  Arial, Helvetica Neue, Helvetica, sans-serif
+	- subtitle h2 text   Garamond, Hoefler Text, Times New Roman, Times, serif
+	- form input text    Cambria, Georgia, Times, Times New Roman, Times, serif
+	- default p text     Copperplate Light, Copperplate Gothic Light, serif
+	- pre and code       Consolas, Lucida Console, Monaco, monospace
+*/
+
+/* ===== 1. GLOBAL SETTINGS ===== */
+
+:root {
+  --mainBackgroundColor: #21201f;
+  --sidebarBackground: #dad7e7;
+  --navBackgroundColor: #dad7e7;
+}

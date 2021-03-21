@@ -131,6 +131,7 @@ ng add _____
 * [baunfire](https://www.baunfire.com/) - Hamburger Menu
 * [fairer-tomorrow](https://fairertomorrow.stanford.edu/) - Music button, full screen, background
 * [vobla](https://www.vobla.com/expertise/) - card animations
+* [clubhouse](https://app.clubhouse.io/unboundpreaching/stories/space/9/everything) - side icon nav bar, curved header
 
 # Sermon Finder
 

@@ -1,5 +1,6 @@
 REMAINING TASKS:
 
+(A) 2021-03-20 21:37 Create curved header found at https://app.clubhouse.io/unboundpreaching/stories/space/9/everything
 (A) 2021-03-10 22:28 Add a web crawler to search for videos on archive.com
 (B) 2021-02-25 23:41 Fix dao.SermonService and update tests for new db structure
 (B) 2021-02-25 17:23 Show all sermons with JPA Repository
