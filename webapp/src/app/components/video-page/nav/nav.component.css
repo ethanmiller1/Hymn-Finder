@@ -1,0 +1,21 @@
+.nav {
+  position: fixed;
+  width: 76px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: var(--lightBlue);
+}
+
+#logo {
+  position: fixed;
+  padding: 9px;
+  cursor: pointer;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+#logo img {
+  width: 70px;
+  height: auto;
+}

@@ -2,18 +2,19 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import {RouterModule, Routes} from "@angular/router";
+import {RouterModule, Routes} from '@angular/router';
 import { SermonListComponent } from './components/sermon-list/sermon-list.component';
-import {HttpClientModule} from "@angular/common/http";
-import {SermonService} from "./services/sermon.service";
+import {HttpClientModule} from '@angular/common/http';
+import {SermonService} from './services/sermon.service';
 import { HeaderComponent } from './components/video-page/header/header.component';
 import { NavComponent } from './components/video-page/nav/nav.component';
 import { ContentComponent } from './components/video-page/content/content.component';
 import { MainBannerComponent } from './components/video-page/main-banner/main-banner.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
+  {path: '', component: HomeComponent},
   {path: 'sermons', component: SermonListComponent},
-  {path: '', redirectTo: '/sermons', pathMatch: 'full'},
   {path: '**', redirectTo: '/sermons', pathMatch: 'full'}
 ];
 
@@ -24,7 +25,8 @@ const routes: Routes = [
     HeaderComponent,
     NavComponent,
     ContentComponent,
-    MainBannerComponent
+    MainBannerComponent,
+    HomeComponent
   ],
     imports: [
         RouterModule.forRoot(routes),

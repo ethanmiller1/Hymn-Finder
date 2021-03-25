@@ -133,6 +133,10 @@ ng add _____
 * [vobla](https://www.vobla.com/expertise/) - card animations
 * [clubhouse](https://app.clubhouse.io/unboundpreaching/stories/space/9/everything) - side icon nav bar, curved header
 
+## CSS Reference
+
+* [w3schools](https://www.w3schools.com/css/) 
+
 # Sermon Finder
 
 ## Get started with YouTube API inside Python
@@ -259,7 +263,7 @@ Client (Browser, JSOUP, etc) sends request to server, and what comes back is a r
 
 ### Client Request
 * URI (Universal Resource Identifier)
-* URI (Universal Resource Locator)
+* URL (Universal Resource Locator)
 * Verb (GET, POST, UPDATE (PATCH), PUT (Replace), DELETE, OPTIONS)
 * Headers
 * Body (optional)
