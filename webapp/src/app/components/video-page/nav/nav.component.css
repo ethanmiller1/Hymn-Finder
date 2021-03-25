@@ -1,21 +1,63 @@
 .nav {
   position: fixed;
-  width: 76px;
+  width: var(--navWidth);
   height: 100%;
   top: 0;
   left: 0;
   background: var(--lightBlue);
+  display: flex;
+  flex-direction: column;
+}
+
+.nav > * {
+  position: relative;
 }
 
 #logo {
-  position: fixed;
+  width: var(--navWidth);
+  height: var(--navWidth);
   padding: 9px;
   cursor: pointer;
-  align-items: flex-start;
-  justify-content: flex-start;
 }
 
 #logo img {
   width: 70px;
   height: auto;
+}
+
+#menu {
+  position: static;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px 0;
+}
+
+#menu li {
+  position: relative;
+  padding: 6px;
+  text-align: center;
+}
+
+#menu li a {
+  display: flex;
+  flex-direction: column;
+}
+
+#menu-home .icon::after {
+  font: 700 28px dg-icons;
+  font-weight: 400;
+  content: "";
+  color: #888888;
+}
+
+#menu .text {
+  font-family: "Open Sans",Balto Web,Helvetica,Arial,sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  color: #21201f;
+}
+
+#menu .icon {
+  height: 26px;
 }
