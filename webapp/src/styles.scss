@@ -58,7 +58,10 @@
 :root {
   --darkGray: #21201f;
   --easyGray: #302f2e;
-  --lightBlue: #dad7e7;
+  --lightBlue: #4A4754;
+  --fortyPercentWhite: rgba(255,255,255,0.4);
+  --seventyPercentWhite: rgba(255,255,255,0.7);
+  --white: rgb(255, 255, 255);
   --navWidth: 76px;
 }
 
@@ -397,14 +400,14 @@ body {
   font-family: 'dg-icons';
   font-weight: 400;
   font-style: normal;
-  src: url('src/assets/fonts/icon-fonts/dg-icons.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  src: url('src/assets/fonts/icon-fonts/dg-icons.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+  src: url('./assets/fonts/icon-fonts/dg-icons.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src: url('./assets/fonts/icon-fonts/dg-icons.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
 }
 
 @font-face {
   font-family: 'computer-science';
   font-weight: 400;
   font-style: normal;
-  src: url('src/assets/fonts/icon-fonts/computer-science.woff') format('woff');
-  src: url('src/assets/fonts/icon-fonts/computer-science.ttf') format('truetype');
+  src: url('./assets/fonts/icon-fonts/computer-science.woff') format('woff');
+  src: url('./assets/fonts/icon-fonts/computer-science.ttf') format('truetype');
 }

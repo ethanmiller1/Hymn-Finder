@@ -5,7 +5,7 @@ import {Sermon} from '../../model/sermon';
 @Component({
   selector: 'app-sermon-list',
   templateUrl: './sermon-list.component.html',
-  styleUrls: ['./sermon-list.component.css']
+  styleUrls: ['./sermon-list.component.scss']
 })
 export class SermonListComponent implements OnInit {
 
