@@ -1,15 +1,21 @@
 <div class="nav">
   <div id="logo">
-    <a routerLink="/sermons">
+    <a [routerLink]="['/']" [routerLinkActive]="['active']">
       <img src="assets/img/logo.svg" alt="unbound">
     </a>
   </div>
   <div id="menu">
     <ul>
       <li id="menu-home">
-        <a href="/">
+        <a [routerLink]="['/']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">
           <span class="icon"></span>
           <span class="text">Home</span>
+        </a>
+      </li>
+      <li id="menu-sermons">
+        <a [routerLink]="['/sermons']" [routerLinkActive]="['active']">
+          <span class="icon"></span>
+          <span class="text">Sermons</span>
         </a>
       </li>
     </ul>

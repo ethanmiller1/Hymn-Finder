@@ -1,16 +1,23 @@
+@import "src/sass/variables";
+
+.nav {
+  --navMenuItemPadding: 13px 0;
+  --sidebarHoverColor: rgba(255, 255, 255, 0.05);
+}
+
 .nav {
   position: fixed;
   width: var(--navWidth);
   height: 100%;
   top: 0;
   left: 0;
-  background: var(--lightBlue);
+  background: $light-blue;
   display: flex;
   flex-direction: column;
-}
 
-.nav > * {
-  position: relative;
+  & > * {
+    position: relative;
+  }
 }
 
 #logo {
@@ -18,12 +25,13 @@
   height: var(--navWidth);
   padding: 9px;
   cursor: pointer;
+
+  img {
+    width: 70px;
+    height: auto;
+  }
 }
 
-#logo img {
-  width: 70px;
-  height: auto;
-}
 
 #menu {
   position: static;
@@ -31,33 +39,81 @@
   width: 100%;
   height: 100%;
   padding: 10px 0;
-}
 
-#menu li {
-  position: relative;
-  padding: 6px;
-  text-align: center;
-}
+  li {
+    position: relative;
+    text-align: center;
 
-#menu li a {
-  display: flex;
-  flex-direction: column;
-}
+    & > * {
+      color: $forty-percent-white;
+    }
 
-#menu-home .icon::after {
-  font: 700 28px dg-icons;
-  font-weight: 400;
-  content: "";
-  color: var(--fortyPercentWhite);
-}
+    a {
+      display: flex;
+      flex-direction: column;
+      padding: var(--navMenuItemPadding);
+      width: 100%;
 
-#menu .text {
-  font-family: "Open Sans",Balto Web,Helvetica,Arial,sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--seventyPercentWhite);
-}
+      .icon {
+        position: relative;
+        height: 26px;
+      }
 
-#menu .icon {
-  height: 26px;
+      .text {
+        font-family: "Open Sans", Balto Web, Helvetica, Arial, sans-serif;
+        font-size: 11px;
+        font-weight: 500;
+        color: $seventy-percent-white;
+      }
+
+      &:hover {
+        background: $fifty-percent-white;
+      }
+
+      &:hover .icon::after,
+      &:hover .text {
+        color: $white;
+      }
+
+      .icon::after {
+        display: block;
+        transition: all 50ms;
+      }
+
+      &.active {
+        background: $leftNavBackgroundColor;
+      }
+
+      &.active:before {
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        width: 3px;
+        background: $leftNavActiveBorderColor;
+        left: 0;
+        top: 0;
+      }
+
+      &.active .icon::after,
+      &.active .text {
+        color: $white;
+        transform: scale(1.025);
+      }
+
+      &:hover .icon::after {
+        transform: scale(1.025);
+      }
+    }
+
+    &#menu-home .icon::after {
+      font: 400 28px dg-icons;
+      content: "";
+    }
+
+    &#menu-sermons .icon::after {
+      font: 400 28px dg-icons;
+      content: "";
+    }
+  }
 }
