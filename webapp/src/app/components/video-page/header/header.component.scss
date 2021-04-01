@@ -18,3 +18,90 @@
   width: 100%;
   height: 100%;
 }
+
+.header-carousel {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  .header-tools {
+    position: absolute;
+    left: 20px;
+    top: 0;
+    display: flex;
+    height: 100%;
+
+    .quick-search {
+      margin: auto 0;
+      left: 20px;
+
+      .search-box {
+        position: relative;
+        width: 300px;
+        margin: 0 auto;
+        background: $searchActiveBackgroundColor;
+        border: 1px solid $searchActiveBackgroundColor;
+        border-radius: 18px;
+        cursor: text;
+        display: flex;
+        align-items: center;
+        padding: 5px 11px 7px 12px;
+        transition: width 300ms, border-color 300ms;
+        box-sizing: border-box;
+
+        &:focus-within {
+          border-color: #464646;
+          background: #2B2B2B;
+          width: 383px;
+        }
+
+        &:focus-within .fa-search {
+          color: #AFAFAF;
+        }
+
+
+        .fa {
+          display: inline-block;
+          font: 17px FontAwesome;
+        }
+
+        .fa-search {
+          color: $iconGrayColor;
+          margin-right: 6px;
+
+          &:before {
+            content: "\f002";
+          }
+        }
+
+        label {
+          flex: 1;
+
+          #quick-search-input {
+            background: transparent;
+            border: 0;
+            color: pink;
+            font-size: 16px;
+            font-style: italic;
+            height: 24px;
+            outline: none;
+            width: 100%;
+            box-sizing: content-box;
+
+            &::placeholder {
+              color: $fadedTextColor;
+              opacity: 1;
+              position: absolute;
+              bottom: 1px;
+            }
+
+            &:focus {
+              font-style: normal;
+            }
+          }
+        }
+      }
+    }
+  }
+}
