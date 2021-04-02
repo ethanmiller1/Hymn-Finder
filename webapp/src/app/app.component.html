@@ -4,4 +4,18 @@
   <app-header></app-header>
   <app-nav></app-nav>
 
+  <!-- MAIN CONTENT-->
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- TODO: Add sermon clip of the day button here -->
+
+  <div (click)="toggleAudio()" (mouseenter)="playHoverSound()" id="audio-btn" class="control__content" style="pointer-events: auto; opacity: 1;">
+    <div class="audio__bar" style="transform: translate3d(6px, -6px, 0px) scale3d(1, 0.2143, 1);"></div>
+    <div class="audio__bar" style="transform: translate3d(6px, -6px, 0px) scale3d(1, 0.2143, 1);"></div>
+    <div class="audio__bar" style="transform: translate3d(6px, -6px, 0px) scale3d(1, 0.2143, 1);"></div>
+    <div class="audio__bar" style="transform: translate3d(6px, -6px, 0px) scale3d(1, 0.2143, 1);"></div>
+  </div>
+
 </div>

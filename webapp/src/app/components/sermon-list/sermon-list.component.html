@@ -1,3 +1,5 @@
+<p>Sermon Page works!</p>
+
 <p *ngFor="let sermon of sermons">
   <a href="{{ sermon.mp3 }}">{{ sermon.title }}</a> by {{ sermon.preacher }}  |  <a href="{{ sermon.youTubeInfo.videoId }}">YouTube</a>  |  <a href="{{ sermon.archiveResource}}}">Archive.com</a>)
 </p>

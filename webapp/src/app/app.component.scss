@@ -1,0 +1,49 @@
+.main-content {
+  position: absolute;
+  // TODO: Implement proper positioning
+  top: 106px;
+  left: 76px;
+  height: 100%;
+  width: 100%;
+}
+
+#audio-btn {
+  position: absolute;
+  opacity: 0;
+  right: 50px;
+  bottom: 0;
+  height: 30px;
+  width: 30px;
+  pointer-events: auto;
+  transition: opacity 0.3s;
+  cursor: pointer;
+
+  .audio__bar {
+    background: #efefef;
+    bottom: 1px;
+    height: 15px;
+    position: absolute;
+    width: 2px;
+    transform: translate3d(6px, -6px, 0) scaleY(0.2);
+
+    &:nth-child(1) {
+      left: 1px;
+    }
+
+    &:nth-child(2) {
+      left: 5px;
+    }
+
+    &:nth-child(3) {
+      left: 9px;
+    }
+
+    &:nth-child(4) {
+      left: 13px;
+    }
+  }
+}
+
+
+
+
