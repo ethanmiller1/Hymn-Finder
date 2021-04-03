@@ -10,13 +10,11 @@ export class AppComponent {
   title = 'angular-unbound-preaching';
   bgAudio = new Audio();
   hoverSharp = new Audio();
-  toggle = true;
-  currentScale = 0.2143;
-  scaleDirection = 1;
-  stopIds = new Array(0);
+  stopId: number;
   audioBars: AudioBar[];
 
   constructor() {
+    this.stopId = 1;
     this.audioBars = [];
   }
 
@@ -42,15 +40,11 @@ export class AppComponent {
   }
 
   toggleAnimation() {
-    if (!this.toggle) {
-      this.toggle = true;
+    if (!this.bgAudio.paused) {
       this.animateBars();
     } else {
-      this.toggle = false;
-      this.audioBars.forEach((bar) => {
-        cancelAnimationFrame(bar.stopId);
-        bar.singleBar.style.transform = 'translate3d(6px, -6px, 0px) scaleY(0.2)';
-      })
+      cancelAnimationFrame(this.stopId);
+      this.audioBars.forEach((bar) => bar.shrink());
     }
   }
 
@@ -59,20 +53,15 @@ export class AppComponent {
   }
 
   animateBars() {
-    this.audioBars.forEach((bar) => {
-      setTimeout(() => {
-        this.stopIds.push(this.animateBar(bar));
-      }, 500);
-    });
-  }
+    this.audioBars[0].ready = true;
+    this.audioBars.forEach((bar) => bar.grow())
 
-  animateBar(bar: AudioBar) {
-    bar.currentScale += .065 * bar.scaleDirection;
-    bar.singleBar.style.transform = `translate3d(6px, -6px, 0px) scaleY(${bar.currentScale})`;
-
-    if (bar.currentScale > 1 || bar.currentScale <= 0.2143) {
-      bar.scaleDirection = bar.scaleDirection * -1;
+    for (let i = 0; i < 3; i++) {
+      if (this.audioBars[i].currentScale > .7) {
+        this.audioBars[i + 1].ready = true;
+      }
     }
-    bar.stopId = window.requestAnimationFrame(() => this.animateBar(bar));
+
+    this.stopId = window.requestAnimationFrame(() => this.animateBars());
   }
 }

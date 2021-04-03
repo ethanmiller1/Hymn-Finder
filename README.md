@@ -132,6 +132,7 @@ ng add _____
 * [fairer-tomorrow](https://fairertomorrow.stanford.edu/) - Music button, full screen, background
 * [vobla](https://www.vobla.com/expertise/) - card animations
 * [clubhouse](https://app.clubhouse.io/unboundpreaching/stories/space/9/everything) - side icon nav bar, curved header
+* [Wall Street Journal](https://css-tricks.com/making-an-audio-waveform-visualizer-with-vanilla-javascript/) - audio player
 
 ## CSS Reference
 
