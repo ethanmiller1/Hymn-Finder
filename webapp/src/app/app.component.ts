@@ -16,6 +16,7 @@ export class AppComponent {
   constructor() {
     this.stopId = 1;
     this.audioBars = [];
+    this.bgAudio.loop = true;
   }
 
   ngOnInit(): void {
@@ -60,6 +61,14 @@ export class AppComponent {
       if (this.audioBars[i].currentScale > .7) {
         this.audioBars[i + 1].ready = true;
       }
+    }
+
+    let i = 0;
+    while(!this.audioBars[3].ready && i < 3) {
+      if (this.audioBars[i].currentScale > .7) {
+        this.audioBars[i + 1].ready = true;
+      }
+      i++;
     }
 
     this.stopId = window.requestAnimationFrame(() => this.animateBars());
