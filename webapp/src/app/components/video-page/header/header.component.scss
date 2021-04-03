@@ -8,11 +8,11 @@
   box-sizing: border-box;
   width: 100%;
   right: 0;
-  background: $light-blue;
+  background: $unbound-navs;
 }
 
 .header-container {
-  background: $dwell-headers;
+  background: $unbound-headers;
   border-radius: 10px 0 0 0;
   align-items: center;
   width: 100%;
@@ -52,7 +52,7 @@
 
         &:focus-within {
           border-color: #464646;
-          background: #2B2B2B;
+          background: $search-focus;
           width: 383px;
         }
 

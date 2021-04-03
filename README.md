@@ -133,6 +133,12 @@ ng add _____
 * [vobla](https://www.vobla.com/expertise/) - card animations
 * [clubhouse](https://app.clubhouse.io/unboundpreaching/stories/space/9/everything) - side icon nav bar, curved header
 * [Wall Street Journal](https://css-tricks.com/making-an-audio-waveform-visualizer-with-vanilla-javascript/) - audio player
+* [Listening Together](https://listeningtogether.atspotify.com/) - preaching/soul-winning globe
+* [Production Portugal](https://productionportugal.com/#/) - landing page animation, play video, transparent CamptonBold font with border
+* [Dixie Podcast](https://dixie.secondlinethemes.com/episodes/) - audio player
+* [Google Podcast](https://podcasts.google.com/feed/aHR0cHM6Ly9tZWRpYS5yc3MuY29tL3JvZG9maXJvbi9mZWVkLnhtbA?sa=X&ved=2ahUKEwjousnKwuLvAhUtA50JHSfNBcIQ9sEGegQIARAC) - Episode List
+* [Disney Plus](https://www.disneyplus.com/home) - Pick Church
+* [thetvdb](https://www.thetvdb.com/series/345404-show) - community art contributions
 
 ## CSS Reference
 

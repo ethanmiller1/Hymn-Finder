@@ -1,5 +1,3 @@
-import {YouTubeInfo} from "./youtubeinfo";
-
 export class AudioBar {
   singleBar: HTMLElement;
   currentScale: number;

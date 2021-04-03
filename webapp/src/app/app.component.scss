@@ -3,8 +3,19 @@
   // TODO: Implement proper positioning
   top: 106px;
   left: 76px;
-  height: 100%;
-  width: 100%;
+  height: calc(100% - 106px);
+  width: calc(100% - 76px);
+  padding: 20px 75px;
+}
+
+.page-wrapper::after {
+  background: url("../assets/img/background.png") center center / cover no-repeat fixed;
+  content: "";
+  position: absolute;
+  inset: 0px;
+  opacity: .5;
+  transition: opacity 500ms ease 0s;
+  z-index: -1;
 }
 
 #audio-btn {

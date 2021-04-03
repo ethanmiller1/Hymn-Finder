@@ -10,7 +10,7 @@ $white: rgb(255, 255, 255);
 $leftNavBackgroundColor: rgb(17, 17, 34, 0.2);
 $leftNavActiveBorderColor: #6414DB;
 $borderColor: rgb(221, 221, 221);
-$searchActiveBackgroundColor: #323234;
+$searchBackgroundColor: #323234;
 $fadedTextColor: grey;
 $iconGrayColor: #666666;
 
@@ -58,3 +58,10 @@ $desiring-god-red: #c42026;
 $desiring-god-text: #333333;
 $desiring-god-link: #666666;
 $desiring-god-icons: #999999;
+
+// THEME
+$unbound-headers: rgba(74, 71, 84, .5);
+$unbound-navs: #2D303C;
+$searchActiveBackgroundColor: rgba(50, 50, 52, .4);
+$search-focus: rgba(43, 43, 43, .5);
+$unbound-dark: rgba(16, 26, 35, 1);
