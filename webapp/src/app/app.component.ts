@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {AudioBar} from "./model/audio-bar";
 
 @Component({
   selector: 'app-root',
@@ -9,15 +10,20 @@ export class AppComponent {
   title = 'angular-unbound-preaching';
   bgAudio = new Audio();
   hoverSharp = new Audio();
+  toggle = true;
   currentScale = 0.2143;
   scaleDirection = 1;
-  toggle = true;
-  stopId: any;
+  stopIds = new Array(0);
+  audioBars: AudioBar[];
 
   constructor() {
+    this.audioBars = [];
   }
 
   ngOnInit(): void {
+    (document.querySelectorAll('.audio__bar') as NodeListOf<HTMLElement>).forEach((element) => {
+      this.audioBars.push(new AudioBar(element, 0.2, 1));
+    });
     this.hoverSharp.src = "../assets/audio/hover__sharp.mp3";
     this.hoverSharp.load();
     this.playAudio();
@@ -38,10 +44,13 @@ export class AppComponent {
   toggleAnimation() {
     if (!this.toggle) {
       this.toggle = true;
-      window.requestAnimationFrame(() => this.animateBars());
+      this.animateBars();
     } else {
       this.toggle = false;
-      cancelAnimationFrame(this.stopId);
+      this.audioBars.forEach((bar) => {
+        cancelAnimationFrame(bar.stopId);
+        bar.singleBar.style.transform = 'translate3d(6px, -6px, 0px) scaleY(0.2)';
+      })
     }
   }
 
@@ -50,18 +59,20 @@ export class AppComponent {
   }
 
   animateBars() {
-    let audioBars = document.querySelectorAll('.audio__bar') as NodeListOf<HTMLElement>;
-
-    audioBars.forEach((bar) => {
-      bar.style.transform = `translate3d(6px, -6px, 0px) scaleY(${this.currentScale})`;
-      this.currentScale += .065 * this.scaleDirection;
+    this.audioBars.forEach((bar) => {
+      setTimeout(() => {
+        this.stopIds.push(this.animateBar(bar));
+      }, 500);
     });
+  }
 
-    if (this.currentScale > 1 || this.currentScale <= 0.2143) {
-      this.scaleDirection = this.scaleDirection * -1;
+  animateBar(bar: AudioBar) {
+    bar.currentScale += .065 * bar.scaleDirection;
+    bar.singleBar.style.transform = `translate3d(6px, -6px, 0px) scaleY(${bar.currentScale})`;
+
+    if (bar.currentScale > 1 || bar.currentScale <= 0.2143) {
+      bar.scaleDirection = bar.scaleDirection * -1;
     }
-
-    this.stopId = window.requestAnimationFrame(() => this.animateBars());
-
+    bar.stopId = window.requestAnimationFrame(() => this.animateBar(bar));
   }
 }
