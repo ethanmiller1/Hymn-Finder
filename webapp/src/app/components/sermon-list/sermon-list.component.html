@@ -1,5 +1,35 @@
-<p>Sermon Page works!</p>
-
-<p *ngFor="let sermon of sermons">
-  <a href="{{ sermon.mp3 }}">{{ sermon.title }}</a> by {{ sermon.preacher }}  |  <a href="{{ sermon.youTubeInfo.videoId }}">YouTube</a>  |  <a href="{{ sermon.archiveResource}}}">Archive.com</a>)
-</p>
+<div class="card-list-view">
+  <table style="width:100%">
+    <tbody>
+    <tr *ngFor="let sermon of sermons" class="resource-list-row">
+      <td class="resource-list-item"><a class="resource-list-item__inner" href="{{ sermon.mp3 }}">
+        <div class="resource-list-item__author-image"><img alt="" height="30" width="30"
+                                                           src="http://bible-academy.herokuapp.com/images/defaults/avatar-male.png">
+        </div>
+        <h2 class="resource-list-item__title">{{ sermon.title }}</h2>
+        <div class="resource-list-item__data"><span>{{ sermon.preacher }}</span><span>{{ sermon.date }}</span></div>
+      </a></td>
+      <td class="resource-list-item resource-list-item__rating">
+        <div class="resource-list-item__inner resource-list-item--center"><span class="resource-list-item__data"><a
+          href="{{ sermon.archiveResource}}}">Archive.com</a></span>
+        </div>
+      </td>
+      <td class="resource-list-item resource-list-item__church">
+        <div class="resource-list-item__inner resource-list-item--center"><span class="resource-list-item__data">Faithful Word Baptist Church</span>
+        </div>
+      </td>
+      <td class="resource-list-item resource-list-item__topic">
+        <div class="resource-list-item__inner resource-list-item--center"><span
+          class="resource-list-item__data">Topic</span>
+        </div>
+      </td>
+      <td class="resource-list-item resource-list-item__reading-time">
+        <div class="resource-list-item__inner resource-list-item--center"><span
+          class="resource-list-item__data">
+          <a href="{{ sermon.youTubeInfo.videoId }}">YouTube</a>
+        </span></div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
