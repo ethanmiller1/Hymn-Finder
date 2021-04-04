@@ -9,6 +9,8 @@ export class Sermon {
   youTubeInfo: YouTubeInfo;
   archiveResource: string;
 
+  // constructor() {}
+
   constructor(id: string, date: string, title: string, mp3: string, preacher: string, youTubeInfo: YouTubeInfo, archiveResource: string) {
     this.id = id;
     this.date = date;

@@ -14,6 +14,11 @@ export class SermonService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getSermon(sermonId: number): Observable<Sermon> {
+    const sermonUrl = `${this.baseUrl}/${sermonId}`;
+    return this.httpClient.get<Sermon>(sermonUrl);
+  }
+
   getSermonList(): Observable<Sermon[]> {
     return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
       map( response => response._embedded.sermons )
