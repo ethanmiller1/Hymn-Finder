@@ -2,7 +2,7 @@
   <table style="width:100%">
     <tbody>
     <tr *ngFor="let sermon of sermons" class="resource-list-row">
-      <td class="resource-list-item"><a class="resource-list-item__inner" href="{{ sermon.mp3 }}">
+      <td class="resource-list-item"><a class="resource-list-item__inner" href="sermons/{{ sermon.id }}">
         <div class="resource-list-item__author-image"><img alt="" height="30" width="30"
                                                            src="http://bible-academy.herokuapp.com/images/defaults/avatar-male.png">
         </div>

@@ -6,18 +6,15 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  hoverSharp = new Audio();
 
   constructor() {
   }
 
   ngOnInit(): void {
-    this.hoverSharp.src = "../assets/audio/hover_tink.mp3";
   }
 
   playHoverSound() {
-    this.hoverSharp.play();
-
+    new Audio('../assets/audio/hover_tink.mp3').play();
   }
 
 }
