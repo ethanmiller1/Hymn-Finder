@@ -12,6 +12,8 @@ export class VideoPageComponent implements OnInit {
 
   // @ts-ignore
   sermon: Sermon;
+  // @ts-ignore
+  audio: Audio;
 
   constructor(private sermonService: SermonService,
               private route: ActivatedRoute) {
@@ -21,6 +23,15 @@ export class VideoPageComponent implements OnInit {
     this.route.paramMap.subscribe(() => {
       this.handleVideoPage();
     })
+  }
+
+  ngAfterViewInit() {
+    this.audio = new Audio(this.sermon.mp3);
+    this.audio.load();
+  }
+
+  togglePlay() {
+    this.audio.paused ? this.audio.play() : this.audio.pause();
   }
 
   handleVideoPage() {
@@ -35,6 +46,8 @@ export class VideoPageComponent implements OnInit {
     )
 
   }
+
+
 }
 
 

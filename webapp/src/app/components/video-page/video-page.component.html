@@ -1,1 +1,8 @@
-<h3>{{ sermon.title }}</h3>
+<div class="media-container" id="full-audio" style="">
+    <div class="audio-player__title">{{sermon.title}}</div>
+    <div class="audio-player__controls">
+      <div (click)="togglePlay()" class="audio-player__playpause-button">
+        <button type="button"></button>
+      </div>
+    </div>
+  </div>

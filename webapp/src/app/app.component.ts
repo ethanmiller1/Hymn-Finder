@@ -8,7 +8,7 @@ import {AudioBar} from "./model/audio-bar";
 })
 export class AppComponent {
   title = 'angular-unbound-preaching';
-  bgAudio = new Audio();
+  bgAudio = new Audio('../assets/audio/background.mp3');
   hoverSharp = new Audio();
   stopId: number;
   audioBars: AudioBar[];
@@ -25,14 +25,7 @@ export class AppComponent {
     });
     this.hoverSharp.src = "../assets/audio/hover__sharp.mp3";
     this.hoverSharp.load();
-    this.playAudio();
-  }
-
-  playAudio() {
-    this.bgAudio.src = "../assets/audio/background.mp3";
     this.bgAudio.load();
-    this.bgAudio.play();
-    this.animateBars();
   }
 
   toggleAudio() {
