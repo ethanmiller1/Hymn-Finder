@@ -286,3 +286,36 @@ MODIFY archive_resource VARCHAR(500);
 See:
 * [Does an empty column value occupy same storage space as a filled column value?](https://dba.stackexchange.com/questions/109210/does-an-empty-column-value-occupy-same-storage-space-as-a-filled-column-value)
 * [Do empty columns take up space in a table?](https://dba.stackexchange.com/questions/11664/do-empty-columns-take-up-space-in-a-table)
+
+
+## [Page Not Found](https://answers.netlify.com/t/page-not-found-when-refreshing-a-page-that-is-not-the-landing-page/8348) when refreshing a page that is not the landing-page
+
+![](https://aws1.discourse-cdn.com/netlify/original/2X/2/2ef03e16d5653551426f437654275468481db527.png)
+
+#### Cause:
+
+Single page applications require all URLs to be routed to this `index.html` page so that they can handle the routing in JavaScript.
+
+#### Solution 1:
+
+add a Netlify [`_redirects`](https://docs.netlify.com/routing/redirects/) file to your publish directory 451 with the following line to take advantage of browser history pushstate:
+
+```
+/*    /index.html   200
+```
+
+#### Solution 2: [Refresh with Redirects](https://www.netlify.com/blog/2019/09/23/first-steps-using-netlify-angular/#refresh-with-redirects)
+
+Add one or more redirects tables to your Netlify configuration file in the root of your site repository.
+
+```toml
+[build]
+  publish = "../src/main/resources/static"
+  command = "ng build --prod"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
+
+Note: outputPath in `angular.json` and publish directory in `netlify.toml` must match.

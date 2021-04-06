@@ -45,6 +45,19 @@ To view JSON as parsed, download the [JSON Formatter](https://chrome.google.com/
 
 # Angular
 
+## Deploy to Netlify
+
+* [Angular Deployment to Netlify](https://developer.okta.com/blog/2020/05/29/angular-deployment)
+
+```powershell
+ng add @netlify-builder/deploy
+ng deploy
+```
+
+### Continuous Deployment:
+
+`Site Settings > Build & deploy > Continuous Deployment > Build settings > Base directory`: webapp
+
 ## Dependencies
 
 Run `npm install` to download project dependencies.

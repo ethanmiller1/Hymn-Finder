@@ -1,5 +1,13 @@
 REMAINING TASKS:
 
+(A) 2021-04-03 23:13 Implement video page.
+(A) 2021-04-03 23:13 Add FWBC, SBC, and VBC to home selection display
+(A) 2021-04-03 23:15 Use clip of "Landmarks" for SBC
+(A) 2021-04-03 23:15 Use clip of "Beyond Jordan" for FWBC
+(A) 2021-04-03 23:15 Use clip of preaching for VBC
+(A) 2021-04-03 23:19 Add motivational soul-winning audio clip on hover over a church
+(C) 2021-04-03 23:23 "End Hate Of Good"
+(C) 2021-04-03 23:23 "The Word of God is not bound"
 (A) 2021-03-31 23:09 Add sermon list page
 (A) 2021-03-31 23:09 Add video page
 (A) 2021-03-10 22:28 Add a web crawler to search for videos on archive.com

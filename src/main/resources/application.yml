@@ -36,7 +36,7 @@ spring:
     username: bvhb7i3juenx2w11
     password: dx5m2uqq4aygv6lz
   jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
-webapp.url: https://emiller-ecommerce.herokuapp.com/
+webapp.url: https://unboundpreaching.netlify.app
 ---
 
 #logging:
