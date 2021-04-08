@@ -101,6 +101,7 @@ $ CSS
 1. Edit `index.html`
 1. Edit `app.component.html`
 1. Change favicon
+1. Switch [strict mode off](https://stackoverflow.com/questions/57566377/turning-off-strict-mode-in-angular)
 
 ```bash
 ng generate class model/sermon
@@ -152,6 +153,8 @@ ng add _____
 * [Google Podcast](https://podcasts.google.com/feed/aHR0cHM6Ly9tZWRpYS5yc3MuY29tL3JvZG9maXJvbi9mZWVkLnhtbA?sa=X&ved=2ahUKEwjousnKwuLvAhUtA50JHSfNBcIQ9sEGegQIARAC) - Episode List
 * [Disney Plus](https://www.disneyplus.com/home) - Pick Church
 * [thetvdb](https://www.thetvdb.com/series/345404-show) - community art contributions
+* [Code Climate](https://codeclimate.com/github/nkoehler/mat-video)
+* [Video.js](https://docs.videojs.com/menu_menu-item.js.html)
 
 ## CSS Reference
 
