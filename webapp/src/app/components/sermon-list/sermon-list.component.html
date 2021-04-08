@@ -1,6 +1,39 @@
 <div class="card-list-view">
   <table style="width:100%">
     <tbody>
+
+    <!-- TODO: Remove development first element -->
+    <tr class="resource-list-row">
+      <td class="resource-list-item"><a class="resource-list-item__inner" href="sermons/1">
+        <div class="resource-list-item__author-image"><img alt="" height="30" width="30"
+                                                           src="http://bible-academy.herokuapp.com/images/defaults/avatar-male.png">
+        </div>
+        <h2 class="resource-list-item__title">title }}</h2>
+        <div class="resource-list-item__data"><span>.preacher }}</span><span>.date }}</span></div>
+      </a></td>
+      <td class="resource-list-item resource-list-item__rating">
+        <div class="resource-list-item__inner resource-list-item--center"><span class="resource-list-item__data"><a
+          href="">Archive.com</a></span>
+        </div>
+      </td>
+      <td class="resource-list-item resource-list-item__church">
+        <div class="resource-list-item__inner resource-list-item--center"><span class="resource-list-item__data">Faithful Word Baptist Church</span>
+        </div>
+      </td>
+      <td class="resource-list-item resource-list-item__topic">
+        <div class="resource-list-item__inner resource-list-item--center"><span
+          class="resource-list-item__data">Topic</span>
+        </div>
+      </td>
+      <td class="resource-list-item resource-list-item__reading-time">
+        <div class="resource-list-item__inner resource-list-item--center"><span
+          class="resource-list-item__data">
+          <a href=".youTubeInfo.videoId }}">YouTube</a>
+        </span></div>
+      </td>
+    </tr>
+
+
     <tr *ngFor="let sermon of sermons" class="resource-list-row">
       <td class="resource-list-item"><a class="resource-list-item__inner" href="sermons/{{ sermon.id }}">
         <div class="resource-list-item__author-image"><img alt="" height="30" width="30"
