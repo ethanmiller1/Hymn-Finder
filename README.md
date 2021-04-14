@@ -135,6 +135,17 @@ ng add @angular/material
 ng add _____
 ```
 
+* https://stackoverflow.com/questions/51543278/video-js-with-angular-6
+* https://docs.videojs.com/player
+```
+npm install --save vjs-video
+npm install --save @types/videojs
+npm install --save video.js @videojs/themes
+npm install --save videojs-seek-buttons
+npm install --save video.js
+npm install --save @videojs/http-streaming
+```
+
 ### [Awwwards](https://www.awwwards.com/) Inspiration
 
 * [leonard-agency](https://leonard.agency/en/) - Preloader, Navbar / Hamburger Menu

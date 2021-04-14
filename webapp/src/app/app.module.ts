@@ -12,6 +12,8 @@ import { ContentComponent } from './components/partials/content/content.componen
 import { MainBannerComponent } from './components/partials/main-banner/main-banner.component';
 import { HomeComponent } from './components/home/home.component';
 import { VideoPageComponent } from './components/video-page/video-page.component';
+import { SeekPluginComponent } from './components/video-player/seek-plugin/seek-plugin.component';
+import { VideoPlayerComponent } from './components/video-player/video-player.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -29,7 +31,9 @@ const routes: Routes = [
     ContentComponent,
     MainBannerComponent,
     HomeComponent,
-    VideoPageComponent
+    VideoPageComponent,
+    SeekPluginComponent,
+    VideoPlayerComponent
   ],
     imports: [
         RouterModule.forRoot(routes),
