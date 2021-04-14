@@ -34,9 +34,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/video.js/dist/video-js.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/video.js/dist/video.min.js",
+              "./node_modules/videojs-seek-buttons/dist/videojs-seek-buttons.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -99,7 +103,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/video.js/dist/video.min.js"
+            ]
           }
         },
         "lint": {
