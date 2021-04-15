@@ -1,0 +1,97 @@
+/*! CSS Used from: http://localhost:4200/styles.css */
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*! CSS Used from: Embedded */
+span[_ngcontent-yjt-c24] {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: 0 0;
+}
+
+*[_ngcontent-yjt-c24], *[_ngcontent-yjt-c24]:before, *[_ngcontent-yjt-c24]:after {
+  box-sizing: border-box;
+}
+
+*[_ngcontent-yjt-c24]:focus {
+  outline: none;
+}
+
+[_ngcontent-yjt-c24]::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+[_ngcontent-yjt-c24]::-webkit-scrollbar-thumb {
+  background-color: #233140;
+  border-radius: 10px;
+  border: 0;
+}
+
+[_ngcontent-yjt-c24]::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+#video[_ngcontent-yjt-c24] #player_wrapper_outer[_ngcontent-yjt-c24] .play_cover[_ngcontent-yjt-c24] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  cursor: wait;
+  height: 0;
+  padding: 56% 0 0;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: block;
+}
+
+#video[_ngcontent-yjt-c24] #player_wrapper_outer[_ngcontent-yjt-c24] .play_cover[_ngcontent-yjt-c24]:hover span.i-play[_ngcontent-yjt-c24] {
+  background-color: rgba(8, 11, 14, 0.9);
+}
+
+#video[_ngcontent-yjt-c24] #player_wrapper_outer[_ngcontent-yjt-c24] .play_cover[_ngcontent-yjt-c24]:hover span.i-play[_ngcontent-yjt-c24] {
+  color: #77180e;
+}
+
+.video-js {
+  .vjs-big-play-button {
+    background-color: rgba(8, 11, 14, 0.8);
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    color: #a42114;
+    display: block;
+    width: 200px;
+    height: 150px;
+    padding: 0;
+    margin: auto;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+
+    &:hover {
+      background-color: rgba(8, 11, 14, 0.9);
+      color: #77180e;
+    }
+
+    .vjs-icon-placeholder {
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        margin: 0 auto;
+        border-style: solid;
+        border-width: 40px 0 40px 70px;
+        border-color: transparent transparent transparent #ddd;
+      }
+    }
+  }
+}
