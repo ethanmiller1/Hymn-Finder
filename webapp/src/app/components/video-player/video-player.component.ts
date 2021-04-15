@@ -4,7 +4,7 @@ import { AfterViewInit, Component, ElementRef, Input, OnDestroy, ViewChild } fro
 // import './sprites-plugin';
 import { videoJs } from './videojs';
 import {VideoJsOptions} from '../../model/videojs-options';
-
+import CustomVideoJsComponent from './custom-video-js-components';
 
 @Component({
   selector: 'app-video-player',
@@ -20,8 +20,8 @@ export class VideoPlayerComponent implements OnDestroy, AfterViewInit {
   constructor() { }
 
   ngAfterViewInit(): void {
-    // CustomVideoJsComponent.registerTitleComponent();
-    // CustomVideoJsComponent.registerCustomButton();
+    CustomVideoJsComponent.registerTitleComponent();
+    CustomVideoJsComponent.registerCustomButton();
     this.player = videoJs(this.target.nativeElement, this.options, this.onPlayerReady.bind(this));
     this.player.customSeekButtons({
       forward: 20,
