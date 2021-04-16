@@ -1,3 +1,10 @@
+//import desired theme and use vjs-theme-<ThemeName> class on <video> tag
+@import "vjs-theme-unbound";
+//@import '~@videojs/themes/dist/city/index.css';
+//@import '~@videojs/themes/dist/fantasy/index.css';
+//@import '~@videojs/themes/dist/forest/index.css';
+//@import '~@videojs/themes/dist/sea/index.css';
+
 .video-js {
   button.vjs-big-play-button {
     background-color: rgba(8, 11, 14, 0.8);
@@ -18,7 +25,7 @@
 
     .vjs-icon-placeholder {
       position: absolute;
-      
+
       &:before {
         content: "";
         left: -35px;
