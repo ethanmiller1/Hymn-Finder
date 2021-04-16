@@ -1,0 +1,209 @@
+.video-js.vjs-theme-unbound {
+  font-family: Helvetica Neue, Helvetica, system-ui, Arial, sans-serif !important;
+  font-size: .9em !important
+}
+
+.video-js.vjs-theme-unbound .vjs-menu {
+  border: 0;
+  z-index: 5
+}
+
+.video-js.vjs-theme-unbound .vjs-menu .vjs-menu-content {
+  background-color: rgba(8, 11, 14, .7);
+  border-top: 2px solid #080b0e;
+  color: #eee
+}
+
+.video-js.vjs-theme-unbound .vjs-menu .vjs-menu-content .vjs-menu-item:hover {
+  background-color: rgba(119, 24, 14, .3)
+}
+
+.video-js.vjs-theme-unbound .vjs-menu .vjs-menu-content .vjs-selected {
+  background-color: rgba(119, 24, 14, .6);
+  color: #eee
+}
+
+.video-js.vjs-theme-unbound .ttaa2v3 {
+  top: 8px;
+  right: 5px;
+  text-transform: uppercase;
+  background-color: rgba(8, 11, 14, .8);
+  height: 30px;
+  position: absolute;
+  padding: 0 5px;
+  overflow: hidden;
+  background-color: rgba(8, 11, 14, .55);
+  color: #ddd;
+  font-size: 1em;
+  text-align: center;
+  line-height: 30px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  z-index: 10
+}
+
+.video-js.vjs-theme-unbound .ttaa2v3 span {
+  color: #f6b7b1;
+  font-weight: 700;
+  padding: 0 2px
+}
+
+.video-js.vjs-theme-unbound .vjs-loading-spinner {
+  top: 1%;
+  left: 1%;
+  border: 0;
+  margin: 0
+}
+
+.video-js.vjs-theme-unbound .vjs-loading-spinner:before, .video-js.vjs-theme-unbound .vjs-loading-spinner:after {
+  content: " ";
+  display: block !important;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: 18px solid rgba(8, 11, 14, .2);
+  border-color: rgba(8, 11, 14, .2) transparent rgba(8, 11, 14, .2) transparent;
+  animation: lds-hourglass 1.2s infinite
+}
+
+.video-js.vjs-theme-unbound .vjs-playback-rate, .video-js.vjs-theme-unbound .vjs-airplay-control, .video-js.vjs-theme-unbound .vjs-fullscreen-control, .video-js.vjs-theme-unbound .vjs-play-control, .video-js.vjs-theme-unbound .vjs-picture-in-picture-control {
+  width: 34px
+}
+
+.video-js.vjs-theme-unbound .vjs-remaining-time {
+  width: 55px;
+  padding: 0;
+  margin-top: -1px
+}
+
+.video-js.vjs-theme-unbound .vjs-quality-selector {
+  order: 1;
+  width: 55px;
+  text-transform: uppercase
+}
+
+.video-js.vjs-theme-unbound .vjs-quality-selector > button {
+  text-transform: uppercase
+}
+
+.video-js.vjs-theme-unbound .vjs-playback-rate {
+  order: 2;
+  margin-top: 4px
+}
+
+.video-js.vjs-theme-unbound .vjs-playback-rate .vjs-playback-rate-value {
+  font-size: 1.15em
+}
+
+.video-js.vjs-theme-unbound .vjs-airplay-control {
+  order: 3
+}
+
+.video-js.vjs-theme-unbound .vjs-picture-in-picture-control {
+  order: 4;
+  font-size: .85em;
+  margin-top: 3px
+}
+
+.video-js.vjs-theme-unbound .vjs-fullscreen-control {
+  order: 5
+}
+
+.video-js.vjs-theme-unbound .vjs-control-bar {
+  bottom: 5px;
+  width: auto;
+  margin: 0 15px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: rgba(8, 11, 14, .7)
+}
+
+.video-js.vjs-theme-unbound .vjs-control-bar .vjs-subs-caps-button {
+  display: none !important
+}
+
+.video-js.vjs-theme-unbound .vjs-control-bar .vjs-progress-control {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px
+}
+
+.video-js.vjs-theme-unbound .vjs-control-bar .vjs-progress-control .vjs-progress-holder {
+  height: 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: rgba(8, 11, 14, .7);
+  border: 1px solid #080b0e
+}
+
+.video-js.vjs-theme-unbound .vjs-control-bar .vjs-progress-control .vjs-progress-holder .vjs-load-progress {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 0 transparent;
+  color: transparent;
+  opacity: 1;
+  background-color: #11181f
+}
+
+.video-js.vjs-theme-unbound .vjs-control-bar .vjs-progress-control .vjs-progress-holder .vjs-load-progress > div {
+  background-color: #080b0e;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px
+}
+
+.video-js.vjs-theme-unbound .vjs-control-bar .vjs-progress-control .vjs-progress-holder .vjs-play-progress {
+  background-color: #080b0e;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px
+}
+
+.video-js.vjs-theme-unbound .vjs-control-bar .vjs-progress-control .vjs-progress-holder .vjs-play-progress .vjs-time-tooltip {
+  background-color: rgba(119, 24, 14, .7);
+  color: #eee;
+  top: -.4em
+}
+
+.video-js.vjs-theme-unbound .vjs-control-bar .vjs-progress-control .vjs-progress-holder .vjs-play-progress:before {
+  color: #a42114;
+  font-size: 18px;
+  top: 0
+}
+
+.video-js.vjs-theme-unbound .vjs-control-bar .vjs-progress-control .vjs-progress-holder .vjs-mouse-display {
+  z-index: 3
+}
+
+.video-js.vjs-theme-unbound .vjs-control-bar .vjs-progress-control .vjs-progress-holder .vjs-mouse-display .vjs-time-tooltip {
+  top: -.4em;
+  background-color: rgba(8, 11, 14, .7);
+  color: #eee
+}
+
+.video-js.vjs-theme-unbound .vjs-control-bar .vjs-progress-control:hover .vjs-progress-holder .vjs-play-progress:before {
+  color: #a42114;
+  font-size: 24px;
+  top: -3px
+}
+
+.video-js.vjs-theme-unbound.vjs-waiting .vjs-progress-control .vjs-progress-holder, .video-js.vjs-theme-unbound.vjs-seeking .vjs-progress-control .vjs-progress-holder {
+  background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent);
+  background-image: -ms-linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent);
+  -webkit-background-size: 30px 30px;
+  -moz-background-size: 30px 30px;
+  -ms-background-size: 30px 30px;
+  background-size: 30px 30px;
+  -webkit-animation: progress_move .5s linear infinite;
+  -moz-animation: progress_move .5s linear infinite;
+  -ms-animation: progress_move .5s linear infinite;
+  animation: progress_move .5s linear infinite
+}
