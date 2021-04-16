@@ -1,10 +1,9 @@
 import { AfterViewInit, Component, ElementRef, Input, OnDestroy, ViewChild } from '@angular/core';
-// import './seek-plugin';
+import './seek-plugin';
 // import './notes-plugin';
-// import './sprites-plugin';
+import './sprites-plugin';
 import { videoJs } from './videojs';
 import {VideoJsOptions} from '../../model/videojs-options';
-import CustomVideoJsComponent from './custom-video-js-components';
 
 @Component({
   selector: 'app-video-player',
@@ -20,8 +19,6 @@ export class VideoPlayerComponent implements OnDestroy, AfterViewInit {
   constructor() { }
 
   ngAfterViewInit(): void {
-    CustomVideoJsComponent.registerTitleComponent();
-    CustomVideoJsComponent.registerCustomButton();
     this.player = videoJs(this.target.nativeElement, this.options, this.onPlayerReady.bind(this));
     this.player.customSeekButtons({
       forward: 20,
@@ -39,8 +36,6 @@ export class VideoPlayerComponent implements OnDestroy, AfterViewInit {
 
   onPlayerReady() {
     console.log('Player is ready.');
-    this.player.addChild('TitleBar', { text: 'Custom title bar component.' });
-    this.player.addChild('CustomButton');
   }
 
   ngOnDestroy(): void {

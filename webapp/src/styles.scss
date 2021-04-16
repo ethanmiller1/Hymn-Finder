@@ -89,6 +89,8 @@ body {
 }
 
 @import "sass/video-player-overwrites";
+@import './app/components/video-player/sprites-plugin/styles.css';
+@import './app/components/video-player/seek-plugin/styles.css';
 
 /* ===== 4. IMPORTS ===== */
 
