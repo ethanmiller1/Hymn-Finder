@@ -5,6 +5,10 @@
 //@import '~@videojs/themes/dist/forest/index.css';
 //@import '~@videojs/themes/dist/sea/index.css';
 
+*:focus {
+  outline: none;
+}
+
 .video-js {
   button.vjs-big-play-button {
     background-color: rgba(8, 11, 14, 0.8);

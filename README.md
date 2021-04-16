@@ -266,6 +266,7 @@ git update-index --skip-worktree src/main/resources/client_secret.txt
 * [Part 9 of 11](https://archive.org/details/CompleteYouTubeChannelPart9of11)
 * [Part 10 of 11](https://archive.org/details/CompleteYouTubeChannelPart10of11)
 * [Part 11 of 11](https://archive.org/details/CompleteYouTubeChannelPart11of11)
+* [newifb](https://archive.org/details/%40newifb?&sort=-publicdate&page=3)
 
 ## TODO: Upcominig Features
 

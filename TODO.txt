@@ -1,5 +1,6 @@
 REMAINING TASKS:
 
+(A) 2021-04-15 22:52 Add sprites (timeline-thumbs) to videojs progress bar. https://www.nuevodevel.com/nuevo/showcase/sprite, https://player.support.brightcove.com/plugins/display-thumbnail-previews-plugin.html
 (A) 2021-04-03 23:13 Implement video page.
 (A) 2021-04-03 23:13 Add FWBC, SBC, and VBC to home selection display
 (A) 2021-04-03 23:15 Use clip of "Landmarks" for SBC
