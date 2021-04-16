@@ -36,6 +36,7 @@ export class VideoPageComponent implements AfterViewInit, OnInit {
         back: 10
       }
     },
+    playbackRates: [0.5, 1, 1.5, 2, 3],
     inactivityTimeout: 0,
     userActions: {
       doubleClick: true, // to toggle full screen on double click
