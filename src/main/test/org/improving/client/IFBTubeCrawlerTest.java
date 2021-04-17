@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -29,4 +30,23 @@ class IFBTubeCrawlerTest {
         assertEquals("https://archive.org/download/TheEveningAndTheMorningByStevenAnderson/The%20Evening%20and%20the%20Morning%20by%20Steven%20Anderson.mp4", sermonRepository.findById(2).getArchiveResource());
     }
 
+    @Test
+    void colonIsReplacedIfSearchFailsOnce() throws IOException {
+        sermonRepository.updateArchiveResourceById(7, IFBTubeCrawler.findSermon(sermonRepository.findById(7)).getLink());
+        assertEquals("https://archive.org/download/TheEveningAndTheMorningByStevenAnderson/The%20Evening%20and%20the%20Morning%20by%20Steven%20Anderson.mp4", sermonRepository.findById(2).getArchiveResource());
+    }
+
+    @Test
+    void specialCharactersAreReplacedIfSearchFailsOnce() throws IOException {
+        sermonRepository.updateArchiveResourceById(10, IFBTubeCrawler.findSermon(sermonRepository.findById(10)).getLink());
+    }
+
+    @Test
+    public void findAllVideos() throws IOException {
+
+        List<Sermon> dbSermons = sermonRepository.findAll();
+
+        for (Sermon dbSermon : dbSermons.subList(9, dbSermons.size() - 1))
+            sermonRepository.updateArchiveResourceById(dbSermon.getId(), IFBTubeCrawler.findSermon(dbSermon).getLink());
+    }
 }
