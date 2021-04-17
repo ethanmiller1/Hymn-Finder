@@ -15,6 +15,7 @@ export class VideoPlayerComponent implements OnDestroy, AfterViewInit {
   @ViewChild('target', { static: true })
   target!: ElementRef;
   @Input() options: VideoJsOptions = {};
+  @Input() source: string;
   player: any;
 
   constructor() { }
@@ -22,6 +23,7 @@ export class VideoPlayerComponent implements OnDestroy, AfterViewInit {
   ngAfterViewInit(): void {
     CustomVideoJsComponent.registerTitleComponent();
     CustomVideoJsComponent.registerCustomButton();
+    this.options.sources[0].src = this.source;
     this.player = videoJs(this.target.nativeElement, this.options, this.onPlayerReady.bind(this));
     this.player.customSeekButtons({
       forward: 20,

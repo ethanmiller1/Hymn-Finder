@@ -19,14 +19,14 @@ export class VideoPageComponent implements AfterViewInit, OnInit {
   @ViewChild('playCover', {static: false}) private playCover: ElementRef;
 
   playing = false;
-  playbackHover: boolean;rea
+  playbackHover: boolean;
   volumeHover: boolean;
   videoJsOptions: VideoJsOptions = {
     controls: true,
     loadingSpinner: true,
     sources: [
       {
-        src: 'https://ia903109.us.archive.org/20/items/CompleteYouTubeChannelPart11of11/Pastor%20Anderson%27s%20Complete%20Channel%20Part%2011%20of%2011/045%20%20%27Let%20Him%20Be%20Your%20Dread%27%20%28Baptist%20Preaching%29-9vGdyAddAV0.mp4',
+        src: '', // Overwritten in video-player.component.ts
         type: 'video/mp4'
       },
     ],
@@ -100,7 +100,7 @@ export class VideoPageComponent implements AfterViewInit, OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(() => {
       this.handleVideoPage();
-    })
+    });
   }
 
   ngAfterViewInit() {
@@ -120,7 +120,7 @@ export class VideoPageComponent implements AfterViewInit, OnInit {
       data => {
         this.sermon = data;
       }
-    )
+    );
   }
 
   toggleVideo() {
