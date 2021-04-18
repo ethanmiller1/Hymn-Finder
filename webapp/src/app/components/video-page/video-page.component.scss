@@ -81,3 +81,109 @@
   }
 }
 
+a, a:link, a:hover, a:visited, a:active {
+  transition-property: all;
+  transition-duration: .2s;
+  transition-timing-function: ease-in-out;
+  text-decoration: none;
+  color: #333;
+}
+
+.media-menu {
+  position: relative;
+  display: block;
+  min-height: 40px;
+  padding-bottom: 1.875rem;
+  text-align: center;
+  max-width: 1010.13px;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  & > li {
+    display: inline-block;
+    font-size: 12px;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+      background-color: #262626;
+      transition: all .2s ease-in-out;
+    }
+
+    .menu-button {
+      background: rgb(0, 0, 0, 0);
+      display: inline-block;
+      border: 1px solid #333;
+      padding: 0 20px;
+      line-height: 1.9em;
+      height: 2em;
+      color: #999;
+      text-decoration: none;
+      transition-property: all;
+      transition-duration: .2s;
+      transition-timing-function: ease-in-out;
+      cursor: pointer;
+
+      &.selected {
+        color: #fff;
+        background: #333;
+      }
+
+      &.download-button {
+        border: 1px solid transparent;
+        text-decoration: none;
+        padding: 0;
+        cursor: pointer;
+        margin: 5px 0 5px 0;
+        position: relative;
+        top: -5.5px;
+        user-select: none;
+
+        &::before {
+          vertical-align: middle;
+          font: 400 20px dg-icons;
+          content: "";
+          margin-right: 6px;
+        }
+      }
+    }
+
+    &.download-button {
+      position: absolute;
+      right: 22px;
+      width: 100px;
+      height: 25px;
+      top: 2px;
+
+      ul.sub-menu {
+        display: none;
+        position: relative;
+        top: -4px;
+        z-index: 2;
+        list-style: none;
+
+        li {
+          display: block;
+          white-space: nowrap;
+          text-align: left;
+          border: 0;
+
+          a {
+            display: block;
+            padding-left: 10px;
+            margin-bottom: -1px;
+            border: 1px solid rgb(221, 221, 221, .5);
+
+            &:hover {
+              color: lighten(#ddd, 5%);
+            }
+          }
+        }
+
+        &.selected {
+          display: block;
+          background: rgb(0, 0, 0, .2);
+        }
+      }
+    }
+  }
+}

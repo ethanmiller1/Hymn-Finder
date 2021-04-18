@@ -1,13 +1,27 @@
-<div class="media-container" id="full-audio" style="">
-  <div class="audio-player__title">{{sermon.title}}</div>
-  <div class="audio-player__controls">
-    <div (click)="togglePlay()" class="audio-player__playpause-button">
-      <button type="button"></button>
-    </div>
-  </div>
-</div>
+<ul class="media-menu">
+  <li (click)="showVideo()">
+    <button [class.selected]="view === 0" class="menu-button">Video</button>
+  </li>
+  <li (click)="showAudio()">
+    <button [class.selected]="view === 1" class="menu-button">Audio</button>
+  </li>
+  <li (click)="showYouTube()">
+    <button [class.selected]="view === 2" class="menu-button">YouTube</button>
+  </li>
+  <li (click)="toggleDownloads()" class="download-button">
+    <div class="menu-button download-button">Download</div>
+    <ul [class.selected]="showDownloads" class="sub-menu">
+      <li>
+        <a class="menu-button" href="{{sermon.mp3}}">Audio (MP3)</a>
+      </li>
+      <li>
+        <a class="menu-button" href="{{sermon.archiveResource}}">Video (MP4)</a>
+      </li>
+    </ul>
+  </li>
+</ul>
 
-<div id="video" data-videoid="1562446" data-streamkey="MTU2MjQ0Ng.abpkmOyZ8Rddp3yXZQvJx0nzx1U">
+<div *ngIf="view === 0" id="video">
   <div class="left">
     <h1 title="{{sermon.preacher}}">
       {{sermon.title | uppercase }}
@@ -24,4 +38,12 @@
   </div>
 </div>
 
+<div *ngIf="view === 1" class="media-container" id="full-audio" style="">
+  <div class="audio-player__title">{{sermon.title}}</div>
+  <div class="audio-player__controls">
+    <div (click)="togglePlay()" class="audio-player__playpause-button">
+      <button type="button"></button>
+    </div>
+  </div>
+</div>
 

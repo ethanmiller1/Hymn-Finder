@@ -11,9 +11,13 @@ import {VideoJsOptions} from "../../model/videojs-options";
 })
 export class VideoPageComponent implements AfterViewInit, OnInit {
 
+
+
   // @ts-ignore
   audio: Audio;
   sermon: Sermon;
+  view = View.Video;
+  showDownloads = false;
 
   @ViewChild('video', {static: false}) private video: ElementRef;
   @ViewChild('playCover', {static: false}) private playCover: ElementRef;
@@ -123,6 +127,22 @@ export class VideoPageComponent implements AfterViewInit, OnInit {
     );
   }
 
+  showVideo() {
+    this.view = View.Video;
+  }
+
+  showAudio() {
+    this.view = View.Audio;
+  }
+
+  showYouTube() {
+    this.view = View.YouTube;
+  }
+
+  toggleDownloads() {
+    this.showDownloads = !this.showDownloads;
+  }
+
   toggleVideo() {
     let video = this.video.nativeElement;
     if (video.paused) {
@@ -136,4 +156,8 @@ export class VideoPageComponent implements AfterViewInit, OnInit {
 
 }
 
-
+enum View {
+  Video,
+  Audio,
+  YouTube,
+}

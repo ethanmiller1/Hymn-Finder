@@ -1,5 +1,8 @@
 REMAINING TASKS:
 
+(A) 2021-04-17 19:20 Close downloads menu on outside click, https://stackoverflow.com/questions/35712379/how-can-i-close-a-dropdown-on-click-outside
+(A) 2021-04-17 16:56 Add "Audio Video YouTube" button
+(A) 2021-04-17 16:56 Add player bar for audio
 (A) 2021-04-15 22:52 Add sprites (timeline-thumbs) to videojs progress bar. https://www.nuevodevel.com/nuevo/showcase/sprite, https://player.support.brightcove.com/plugins/display-thumbnail-previews-plugin.html
 (A) 2021-04-03 23:13 Implement video page.
 (A) 2021-04-03 23:13 Add FWBC, SBC, and VBC to home selection display
