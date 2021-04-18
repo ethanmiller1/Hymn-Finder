@@ -47,7 +47,6 @@ public class YouTubeInfo
 
    public String getVideoId()
    {
-      return String.format( "https://www.youtube.com/watch?v=%s",
-                            videoId );
+      return videoId;
    }
 }
