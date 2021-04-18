@@ -56,6 +56,24 @@
 }
 
 
+.vjs-control-bar {
+
+  .skip-back .vjs-icon-placeholder:before,
+  .skip-forward .vjs-icon-placeholder:before {
+    font-family: dg-icons;
+    cursor: pointer;
+  }
+
+  .skip-back .vjs-icon-placeholder:before {
+    content: "\e979";
+  }
+
+  .skip-forward .vjs-icon-placeholder:before {
+    content: "\e976";
+  }
+
+}
+
 #main_video_player {
   position: absolute;
   left: 0;

@@ -34,8 +34,8 @@ export class VideoPageComponent implements OnInit {
     ],
     plugins: {
       seekButtons: {
-        forward: 10,
-        back: 10
+        forward: 15,
+        back: 15
       }
     },
     playbackRates: [0.5, 1, 1.5, 2, 3],
