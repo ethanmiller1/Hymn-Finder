@@ -9,12 +9,10 @@ import {VideoJsOptions} from "../../model/videojs-options";
   templateUrl: './video-page.component.html',
   styleUrls: ['./video-page.component.scss']
 })
-export class VideoPageComponent implements AfterViewInit, OnInit {
+export class VideoPageComponent implements OnInit {
 
 
 
-  // @ts-ignore
-  audio: Audio;
   sermon: Sermon;
   view = View.Video;
   showDownloads = false;
@@ -46,27 +44,27 @@ export class VideoPageComponent implements AfterViewInit, OnInit {
       doubleClick: true, // to toggle full screen on double click
       hotkeys: function (event: any) {
 
-        // `up arrow` key = forward 10 sec
+        /* `up arrow` key = forward 10 sec */
         if (event.which === 38) {
           this.volume(this.volume() + 0.2);
         }
 
-        // `up arrow` key = forward 10 sec
+        /* `up arrow` key = forward 10 sec */
         if (event.which === 40) {
           this.volume(this.volume() - 0.2);
         }
 
-        // `right arrow` key = forward 10 sec
+        /* `right arrow` key = forward 10 sec */
         if (event.which === 39) {
           this.currentTime(this.currentTime() + 10);
         }
 
-        // `left arrow` key = backward 10 sec
+        /* `left arrow` key = backward 10 sec */
         if (event.which === 37) {
           this.currentTime(this.currentTime() - 10);
         }
 
-        // `f` key = toggle full screen
+        /* `f` key = toggle full screen */
         if (event.which === 70) {
           if (!this.isFullscreen()) {
             this.enterFullWindow();
@@ -75,7 +73,7 @@ export class VideoPageComponent implements AfterViewInit, OnInit {
           }
         }
 
-        // `m` key = toggle mute
+        /* `m` key = toggle mute */
         if (event.which === 77) {
           if (this.muted()) {
             this.muted(false);
@@ -84,7 +82,7 @@ export class VideoPageComponent implements AfterViewInit, OnInit {
           }
         }
 
-        // ` `(space) key = play/pause
+        /* ` `(space) key = play/pause */
         if (event.which === 32) {
           if (this.paused()) {
             this.play();
@@ -105,16 +103,6 @@ export class VideoPageComponent implements AfterViewInit, OnInit {
     this.route.paramMap.subscribe(() => {
       this.handleVideoPage();
     });
-  }
-
-  ngAfterViewInit() {
-    console.log(this.video);
-    this.audio = new Audio(this.sermon.mp3);
-    this.audio.load();
-  }
-
-  togglePlay() {
-    this.audio.paused ? this.audio.play() : this.audio.pause();
   }
 
   handleVideoPage() {

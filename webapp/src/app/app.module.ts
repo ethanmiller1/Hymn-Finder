@@ -13,6 +13,7 @@ import { MainBannerComponent } from './components/partials/main-banner/main-bann
 import { HomeComponent } from './components/home/home.component';
 import { VideoPageComponent } from './components/video-page/video-page.component';
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
+import { AudioPlayerComponent } from './components/audio-player/audio-player.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -31,7 +32,8 @@ const routes: Routes = [
     MainBannerComponent,
     HomeComponent,
     VideoPageComponent,
-    VideoPlayerComponent
+    VideoPlayerComponent,
+    AudioPlayerComponent
   ],
     imports: [
         RouterModule.forRoot(routes),

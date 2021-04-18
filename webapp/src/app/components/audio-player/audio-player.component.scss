@@ -1,0 +1,55 @@
+.media-container {
+  .audio-player__title {
+    margin-bottom: .75rem;
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+  }
+
+  .audio-player__playpause-button {
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    top: -59.66px;
+    left: 50%;
+    margin-left: -19px;
+
+    button {
+      display: block;
+      position: absolute;
+      cursor: pointer;
+      padding: 0;
+      border-radius: 50%;
+      border: 2px solid hsla(0, 0%, 100%, .5);
+      background: none;
+      width: 100%;
+      height: 100%;
+      line-height: 0;
+      font-size: 0;
+
+      &::before {
+        position: relative;
+        left: 2px;
+        top: 1px;
+        content: url('data:image/svg+xml;utf8,<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><title>Play - Filled</title><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"><g sketch:type="MSArtboardGroup" fill="%23999999"><path d="M4,3 L16,9.99367616 L4,17 L4,3" sketch:type="MSShapeGroup"></path></g></g></svg>');
+        color: hsla(0, 0%, 100%, .8);
+        speak: none;
+      }
+
+      &:hover {
+        border: 2px solid #fff;
+
+        &::before {
+          color: #fff;
+          content: url('data:image/svg+xml;utf8,<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><title>Play - Filled</title><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"><g sketch:type="MSArtboardGroup" fill="%23ffffff"><path d="M4,3 L16,9.99367616 L4,17 L4,3" sketch:type="MSShapeGroup"></path></g></g></svg>');
+        }
+      }
+
+      &:focus,
+      &:active {
+        box-shadow: none;
+        outline: none;
+      }
+    }
+  }
+}
