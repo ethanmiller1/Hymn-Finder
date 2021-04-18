@@ -22,23 +22,23 @@
 </ul>
 
 <div id="video">
-  <div class="left">
+  <div *ngIf="view === 0" class="left">
     <h1 title="{{sermon.preacher}}">
       {{sermon.title | uppercase }}
       <a href="/pastors/steven+anderson/">{{sermon.preacher}}</a>
     </h1>
     <div id="player_wrapper_outer">
-      <div *ngIf="view === 0" id="video_container" style="display: block;">
+      <div id="video_container" style="display: block;">
         <app-video-player
           [options]="videoJsOptions"
           [source]="sermon.archiveResource"
         ></app-video-player>
       </div>
-      <app-audio-player
-        *ngIf="view === 1"
-        [sermon]="sermon"
-      ></app-audio-player>
     </div>
   </div>
+  <app-audio-player
+    *ngIf="view === 1"
+    [sermon]="sermon"
+  ></app-audio-player>
 </div>
 
