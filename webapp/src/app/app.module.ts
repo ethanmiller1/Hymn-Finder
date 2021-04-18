@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { VideoPageComponent } from './components/video-page/video-page.component';
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
 import { AudioPlayerComponent } from './components/audio-player/audio-player.component';
+import { SafePipe } from './pipes/safe.pipe';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -33,7 +34,8 @@ const routes: Routes = [
     HomeComponent,
     VideoPageComponent,
     VideoPlayerComponent,
-    AudioPlayerComponent
+    AudioPlayerComponent,
+    SafePipe
   ],
     imports: [
         RouterModule.forRoot(routes),

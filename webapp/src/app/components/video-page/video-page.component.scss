@@ -130,3 +130,22 @@ a, a:link, a:hover, a:visited, a:active {
     }
   }
 }
+
+.aspect-ratio {
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+  width: 100%;
+  display: block;
+  margin: auto;
+  max-width: none;
+
+  .youTubePlayer {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+  }
+}
+

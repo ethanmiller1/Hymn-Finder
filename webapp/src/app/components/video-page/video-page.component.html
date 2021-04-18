@@ -40,5 +40,14 @@
     *ngIf="view === 1"
     [sermon]="sermon"
   ></app-audio-player>
+  <div class="aspect-ratio">
+    <iframe
+      *ngIf="view === 2"
+      [src]="youTubeURL() | safe"
+      class="youTubePlayer"
+      frameborder='0'
+      allowfullscreen=''
+    ></iframe>
+  </div>
 </div>
 

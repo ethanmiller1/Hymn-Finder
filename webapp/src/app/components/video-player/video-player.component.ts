@@ -19,18 +19,6 @@ export class VideoPlayerComponent implements OnDestroy, AfterViewInit {
   ngAfterViewInit(): void {
     this.options.sources[0].src = this.source;
     this.player = videoJs(this.target.nativeElement, this.options, this.onPlayerReady.bind(this));
-    this.player.customSeekButtons({
-      forward: 20,
-      backward: 15,
-      fwdBtnPosition: 1,
-      bwdBtnPosition: 1,
-      fwdBtnTooltip: `Seek 20 seconds forward`,
-      bwdBtnTooltip: `Seek 15 seconds backward`
-    });
-    this.player.notesButton({});
-    this.player.sprites({
-      spritesUrl: 'https://storage.googleapis.com/hubert-raymond-webpage/The_Hustler(1961)-sprites-256x144.png'
-    });
   }
 
   onPlayerReady() {
