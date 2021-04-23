@@ -1,13 +1,12 @@
 package org.improving.client;
 
-import org.improving.client.FaithfulWordCrawler;
-import org.improving.client.YouTubeCrawler;
 import org.improving.entity.Sermon;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
+import java.time.Instant;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -47,5 +46,26 @@ class FaithfulWordCrawlerTest
                                              .collect( Collectors.toList() );
       for( Sermon sermon : sermons2018 )
          System.out.println( sermon.getYouTubeInfo().getVideoId() );
+   }
+
+    @Test
+    void deserializeDateInfers530FromSundayPM() {
+       String dateString = "12/30/18, Sun PM";
+       Instant instant = FaithfulWordCrawler.deserializePhoenixDate(dateString);
+       assertEquals("2018-12-31T00:30:00Z", instant.toString());
+    }
+
+   @Test
+   void deserializeDateInfers1030FromSundayAM() {
+      String dateString = "12/30/18, Sun AM";
+      Instant instant = FaithfulWordCrawler.deserializePhoenixDate(dateString);
+      assertEquals("2018-12-30T17:30:00Z", instant.toString());
+   }
+
+   @Test
+   void deserializeDateInfers7FromPM() {
+      String dateString = "12/26/18, Wed PM";
+      Instant instant = FaithfulWordCrawler.deserializePhoenixDate(dateString);
+      assertEquals("2018-12-27T02:00:00Z", instant.toString());
    }
 }

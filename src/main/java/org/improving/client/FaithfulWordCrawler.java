@@ -1,33 +1,21 @@
 package org.improving.client;
 
-import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
-import com.google.api.client.googleapis.json.GoogleJsonResponseException;
-import com.google.api.client.http.javanet.NetHttpTransport;
-import com.google.api.client.json.JsonFactory;
-import com.google.api.client.json.jackson2.JacksonFactory;
-import com.google.api.services.youtube.YouTube;
-import com.google.api.services.youtube.model.SearchResult;
 import org.improving.entity.Sermon;
-import org.improving.entity.YouTubeInfo;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.security.GeneralSecurityException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.NoSuchElementException;
-
-import static org.improving.utility.FileUtil.getKeys;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class FaithfulWordCrawler
 {
 
-   private String                            FAITHFUL_WORD_URL =
-           "http://www.faithfulwordbaptist.org/page5.html";
+   private String FAITHFUL_WORD_URL = "http://www.faithfulwordbaptist.org/page5.html";
 
    /**
     * @return a list of {@link Sermon}s preached at Faithful Word Baptist Church
@@ -73,5 +61,18 @@ public class FaithfulWordCrawler
       }
 
       return result;
+   }
+
+   public static Instant deserializePhoenixDate(String date) {
+      return LocalDateTime.parse(
+              String.format("%s %s", date, getNthWord(date,2).equalsIgnoreCase("Sun") ? getNthWord(date,3).equals("AM") ? "10:30" : "05:30" : "07:00"),
+              DateTimeFormatter.ofPattern("MM/dd/uu, EEE a hh:mm", Locale.US))
+              .atZone(ZoneId.of("-07:00"))
+              .toInstant();
+   }
+
+   public static String getNthWord(String fullString, int nth)
+   {
+      return fullString.split("\\s")[nth - 1];
    }
 }
