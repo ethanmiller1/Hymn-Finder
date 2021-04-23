@@ -1,6 +1,7 @@
 package org.improving.dao;
 
 import org.improving.client.FaithfulWordCrawler;
+import org.improving.client.YouTubeCrawler;
 import org.improving.entity.Sermon;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.improving.client.FaithfulWordCrawler.getYouTubeInfo;
+import static org.improving.client.YouTubeCrawler.getYouTubeInfo;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest( webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT )
@@ -40,7 +41,7 @@ class SermonServiceTest
                                              .filter( s -> s.getDate().matches( "^\\d*/\\d*/18.*$" ) )
                                              .collect( Collectors.toList() );
 
-      sermonService.addSermon( FaithfulWordCrawler.addYouTubeInfo( sermons2018.get( 0 ) ) );
+      sermonService.addSermon( YouTubeCrawler.addYouTubeInfo( sermons2018.get( 0 ) ) );
    }
 
    @Test
@@ -54,7 +55,7 @@ class SermonServiceTest
       int expected = dbSermons.size();
 
       // Act
-      sermonService.addSermon( FaithfulWordCrawler.addYouTubeInfo( sermon ) );
+      sermonService.addSermon( YouTubeCrawler.addYouTubeInfo( sermon ) );
 
       // Assert
       assertEquals( expected, dbSermons.size() );
