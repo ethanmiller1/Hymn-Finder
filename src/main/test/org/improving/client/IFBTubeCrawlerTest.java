@@ -20,7 +20,7 @@ class IFBTubeCrawlerTest {
 
     @Test
     public void test() throws IOException {
-        ArchiveResource archiveResource = IFBTubeCrawler.findSermon(new Sermon("", "Judges 9", "", "Pastor Anderson"));
+        ArchiveResource archiveResource = IFBTubeCrawler.findSermon(new Sermon(null, "Judges 9", "", "Pastor Anderson"));
         assertEquals(new ArchiveResource("Judges 9 Steven Anderson", "https://archive.org/download/judges-9-steven-anderson/Judges%209%20Steven%20Anderson.mp4"), archiveResource);
     }
 

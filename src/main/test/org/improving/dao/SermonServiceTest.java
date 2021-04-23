@@ -3,6 +3,7 @@ package org.improving.dao;
 import org.improving.client.FaithfulWordCrawler;
 import org.improving.client.YouTubeCrawler;
 import org.improving.entity.Sermon;
+import org.improving.service.SermonService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static org.improving.client.FaithfulWordCrawler.deserializePhoenixDate;
 import static org.improving.client.YouTubeCrawler.getYouTubeInfo;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,7 +24,10 @@ class SermonServiceTest
 {
 
    @Autowired
-   org.improving.service.SermonService sermonService;
+   SermonService sermonService;
+
+   @Autowired
+   SermonRepository sermonRepository;
 
    private FaithfulWordCrawler faithfulWordCrawler;
 
@@ -50,7 +55,7 @@ class SermonServiceTest
    {
       // Arrange
       Sermon sermon =
-            new Sermon( "12/30/18, Sun PM", "The Rapture in Thessalonians", ".com", "Pastor Anderson" );
+            new Sermon( deserializePhoenixDate("12/30/18, Sun PM"), "The Rapture in Thessalonians", ".com", "Pastor Anderson" );
       List<Sermon> dbSermons = sermonService.findAll();
       int expected = dbSermons.size();
 
@@ -120,5 +125,24 @@ class SermonServiceTest
             System.out.println( s.getYouTubeInfo().getVideoId() );
          return matches;
       } ).collect( Collectors.toList() );
+   }
+
+   @Test
+   void convertDate()
+   {
+      Sermon sermon = sermonService.findById(1);
+
+      String dateString = "12/30/18, Sun PM";
+      sermon.setDatetime(deserializePhoenixDate(dateString));
+      sermonRepository.save(sermon);
+   }
+
+   @Test
+   void convertAllDates()
+   {
+      sermonService.findAll().forEach(sermon -> {
+         sermon.setDatetime(deserializePhoenixDate(sermon.getDate()));
+         sermonRepository.save(sermon);
+      });
    }
 }

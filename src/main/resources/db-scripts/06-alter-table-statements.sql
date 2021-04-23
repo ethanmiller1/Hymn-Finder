@@ -6,3 +6,6 @@ DROP COLUMN archive_resource;
 
 ALTER TABLE unbound.sermon
 MODIFY archive_resource VARCHAR(500);
+
+ALTER TABLE unbound.sermon
+ADD datetime TIMESTAMP;

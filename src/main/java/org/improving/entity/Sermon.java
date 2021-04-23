@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.Instant;
 
 @Entity
 @Table( name = "sermon" )
@@ -24,6 +25,8 @@ public class Sermon
    private long   id;
    @Column( name = "date" )
    private String date;
+   @Column( name = "datetime" )
+   private Instant datetime;
    @Column( name = "title" )
    private String title;
    @Column( name = "mp3" )
@@ -40,12 +43,12 @@ public class Sermon
    {
    }
 
-   public Sermon( String date,
+   public Sermon( Instant datetime,
                   String title,
                   String mp3,
                   String preacher )
    {
-      this.date = date;
+      this.datetime = datetime;
       this.title = title;
       this.mp3 = mp3;
       this.preacher = preacher;

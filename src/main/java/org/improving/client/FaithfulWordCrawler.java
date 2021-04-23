@@ -10,6 +10,7 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.*;
 
 public class FaithfulWordCrawler
@@ -49,7 +50,7 @@ public class FaithfulWordCrawler
                              .attr( "abs:href" );
             String preacher = info.get( 3 )
                                   .html();
-            result.add( new Sermon( date,
+            result.add( new Sermon( deserializePhoenixDate(date),
                                     title,
                                     mp3,
                                     preacher ) );
@@ -64,14 +65,18 @@ public class FaithfulWordCrawler
    }
 
    public static Instant deserializePhoenixDate(String date) {
-      return LocalDateTime.parse(
-              String.format("%s %s", date, getNthWord(date,2).equalsIgnoreCase("Sun") ? getNthWord(date,3).equals("AM") ? "10:30" : "05:30" : "07:00"),
-              DateTimeFormatter.ofPattern("MM/dd/uu, EEE a hh:mm", Locale.US))
-              .atZone(ZoneId.of("-07:00"))
-              .toInstant();
+      try {
+         return LocalDateTime.parse(
+                 String.format("%s %s", date, getNthWord(date,2).equalsIgnoreCase("Sun") ? getNthWord(date,3).equals("AM") ? "10:30" : "05:30" : "07:00"),
+                 DateTimeFormatter.ofPattern("MM/dd/uu, EEE a hh:mm", Locale.US))
+                 .atZone(ZoneId.of("-07:00"))
+                 .toInstant();
+      } catch (DateTimeParseException e) {
+         return null;
+      }
    }
 
-   public static String getNthWord(String fullString, int nth)
+   private static String getNthWord(String fullString, int nth)
    {
       return fullString.split("\\s")[nth - 1];
    }

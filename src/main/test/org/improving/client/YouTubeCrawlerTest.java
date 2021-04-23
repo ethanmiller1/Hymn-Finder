@@ -9,6 +9,7 @@ import java.security.GeneralSecurityException;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static org.improving.client.FaithfulWordCrawler.deserializePhoenixDate;
 import static org.junit.jupiter.api.Assertions.*;
 
 class YouTubeCrawlerTest {
@@ -26,7 +27,7 @@ class YouTubeCrawlerTest {
             throws IOException, GeneralSecurityException
     {
         Sermon sermon =
-                new Sermon( "12/30/18, Sun PM", "The Rapture in Thessalonians", ".com", "Pastor Anderson" );
+                new Sermon( deserializePhoenixDate("12/30/18, Sun PM"), "The Rapture in Thessalonians", ".com", "Pastor Anderson" );
         Sermon updatedSermon = YouTubeCrawler.addYouTubeInfo( sermon );
         String result = updatedSermon.getYouTubeInfo().getVideoId();
         System.out.println( result );
