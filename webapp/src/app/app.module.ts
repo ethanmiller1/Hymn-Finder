@@ -15,6 +15,10 @@ import { VideoPageComponent } from './components/video-page/video-page.component
 import { VideoPlayerComponent } from './components/video-player/video-player.component';
 import { AudioPlayerComponent } from './components/audio-player/audio-player.component';
 import { SafePipe } from './pipes/safe.pipe';
+import {MatInputModule} from '@angular/material/input';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -40,8 +44,12 @@ const routes: Routes = [
     imports: [
         RouterModule.forRoot(routes),
         BrowserModule,
+        BrowserAnimationsModule,
         HttpClientModule,
-        RouterModule
+        RouterModule,
+        MatInputModule,
+        MatTableModule,
+        MatSortModule,
     ],
   providers: [SermonService],
   bootstrap: [AppComponent]
