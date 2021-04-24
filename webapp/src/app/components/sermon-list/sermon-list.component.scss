@@ -13,21 +13,35 @@ tr.mat-header-row {
     color: white !important;
   }
 
+  tr.mat-row:hover {
+    cursor: pointer;
+    background-color: $hover-color;
+  }
+
+  th.mat-header-cell {
+    padding: 0 15px 0 15px;
+  }
+
   table {
+
     border-spacing: 0;
     border-collapse: collapse;
     background-color: transparent;
 
     .resource-list-row {
-      border: 1px solid transparent;
+      border: 0px solid transparent;
       border-bottom-color: #dcdcdc;
       transition-property: none;
       transition-duration: 0s;
 
+      a {
+        color: white;
+      }
+
       .resource-list-item {
         padding: 0 15px 0 15px;
         height: 70px;
-        float: left;
+        //float: left;
 
         .resource-list-item--center {
           margin: 11.6px 0;
@@ -80,7 +94,7 @@ tr.mat-header-row {
               padding: 0 8px 2px 0;
               line-height: 14px;
               font-size: 13px;
-              border-right: 1px solid #e1e1e1;
+              border-right: 0px solid #e1e1e1;
               overflow: hidden;
               text-overflow: ellipsis;
               white-space: nowrap;
@@ -92,9 +106,9 @@ tr.mat-header-row {
           }
 
           &:hover {
-            background: $hover-color;
+            //background: $hover-color;
             transition-property: all 0s;
-            padding-bottom: 12px;
+            //padding-bottom: 12px;
           }
 
           span {
@@ -106,7 +120,7 @@ tr.mat-header-row {
         }
 
         a.resource-list-item__inner {
-          width: 250px;
+          //width: 250px;
         }
 
         .resource-list-item__rating {
@@ -117,7 +131,7 @@ tr.mat-header-row {
         &:first-child {
           box-sizing: border-box;
           display: block;
-          max-width: 457px;
+          //max-width: 457px;
         }
 
         &:last-child .resource-list-item__inner {
@@ -126,7 +140,7 @@ tr.mat-header-row {
       }
 
       &:hover {
-        border: 1px solid #dcdcdc !important;
+        border: 0px solid #dcdcdc !important;
         background: $hover-color;
         padding-left: 9px;
         padding-right: 9px;
