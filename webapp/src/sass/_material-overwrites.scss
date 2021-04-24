@@ -1,0 +1,20 @@
+@import "src/sass/variables";
+
+// .mat-form-field
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: $fadedTextColor;
+}
+
+input.mat-input-element::placeholder,
+.mat-form-field-appearance-legacy .mat-form-field-label {
+  color: $fadedTextColor;
+}
+
+// table headers
+.mat-sort-header-content,
+.mat-form-field-label,
+.mat-sort-header-arrow {
+  font-weight: 700;
+  font-size: 16px;
+  color: $dwell-pink;
+}

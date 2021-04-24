@@ -1,8 +1,17 @@
 @import "src/sass/variables";
 
+tr.mat-header-row {
+  background: transparent;
+}
+
 .card-list-view {
   display: table;
   margin: 0 auto;
+
+  .mat-form-field-label,
+  td {
+    color: white !important;
+  }
 
   table {
     border-spacing: 0;
