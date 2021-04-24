@@ -67,12 +67,21 @@ public class FaithfulWordCrawler
    public static Instant deserializePhoenixDate(String date) {
       try {
          return LocalDateTime.parse(
-                 String.format("%s %s", date, getNthWord(date,2).equalsIgnoreCase("Sun") ? getNthWord(date,3).equals("AM") ? "10:30" : "05:30" : "07:00"),
+                 String.format("%s %s", date, getNthWord(date, 2).equalsIgnoreCase("Sun") ? getNthWord(date, 3).equals("AM") ? "10:30" : "05:30" : "07:00"),
                  DateTimeFormatter.ofPattern("MM/dd/uu, EEE a hh:mm", Locale.US))
                  .atZone(ZoneId.of("-07:00"))
                  .toInstant();
       } catch (DateTimeParseException e) {
-         return null;
+         try {
+            /* If first word is a parsable date, default to 7:00 PM. */
+            return LocalDateTime.parse(
+                    String.format("%s 07:00 PM", getNthWord(date, 1)),
+                    DateTimeFormatter.ofPattern("MM/dd/uu, hh:mm a", Locale.US))
+                    .atZone(ZoneId.of("-07:00"))
+                    .toInstant();
+         } catch (DateTimeParseException ex) {
+            return null;
+         }
       }
    }
 

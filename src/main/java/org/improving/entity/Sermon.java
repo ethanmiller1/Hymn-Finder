@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Entity
 @Table( name = "sermon" )
@@ -22,7 +24,7 @@ public class Sermon
    @Id
    @GeneratedValue( strategy = GenerationType.IDENTITY )
    @Column( name = "id", unique = true )
-   private long   id;
+   private long id;
    @Column( name = "date" )
    private String date;
    @Column( name = "datetime" )
@@ -52,6 +54,10 @@ public class Sermon
       this.title = title;
       this.mp3 = mp3;
       this.preacher = preacher;
+   }
+
+   public LocalDateTime getDatetime() {
+      return datetime == null ? null : LocalDateTime.ofInstant(datetime, ZoneId.of("-07:00"));
    }
 
    public String toString()

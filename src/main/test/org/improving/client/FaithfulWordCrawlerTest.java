@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -69,17 +71,27 @@ class FaithfulWordCrawlerTest
       assertEquals("2018-12-27T02:00:00Z", instant.toString());
    }
 
-   /*
-    * TODO:
-    *    use unbound;
-    *    select * from sermon
-    *    where sermon.datetime is null;
-    *    add test cases for:
-    *    '08/04/17, Toronto'
-    *    '10/05/17, Thur PM'
-    *    '09/30/16, Wed PM'
-    *    '05/01/16, Movie'
-    *    '05/21/13, Tuesday PM'
-    *    '03/21/14, Friday PM'
-    */
+   @Test
+   void serializeDateInfers7FromPM() {
+      String dateString = "12/26/18, Wed PM";
+      Instant instant = FaithfulWordCrawler.deserializePhoenixDate(dateString);
+      LocalDateTime.ofInstant(instant, ZoneId.of("-07:00"));
+      assertEquals("2018-12-27T02:00:00Z", instant.toString());
+   }
+
+   @Test
+   void serializeDateInfers7byDefault() {
+      String dateString = "08/04/17, Toronto";
+      Instant instant = FaithfulWordCrawler.deserializePhoenixDate(dateString);
+      LocalDateTime.ofInstant(instant, ZoneId.of("-07:00"));
+      assertEquals("2017-08-05T02:00:00Z", instant.toString());
+   }
+
+   @Test
+   void serializeDateReturnsNullOnNonsenseDate() {
+      String dateString = "Blueberries, Toronto";
+      Instant instant = FaithfulWordCrawler.deserializePhoenixDate(dateString);
+      assertNull(instant);
+   }
+
 }
